@@ -3,7 +3,7 @@ const pxtoviewport = require('postcss-px-to-viewport');
 
 module.exports = {
   lintOnSave: false,
-  publicPath: './',
+  publicPath: '/ANTTOXAXA.github.io/',
   devServer: {
     // 关闭eslint语法验证
     //overlay: {
