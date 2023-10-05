@@ -16,6 +16,7 @@
           <img src="~@/assets/homeBg.jpg" alt="">
         </div>
       </div>
+      
     </div>
 
     <div class="outLine bookmain">
@@ -35,7 +36,7 @@
       <p>2000元/小时，定金2000元。</p>
       <p>预订以定金为准，请支付定金后，发送微信填写文身所需资料。</p>
       <span>进行预定</span>
-      <div class="footIcon"></div>
+      <div class="footIcon" @click="() => toTop()"></div>
     </div>
   </div>
 </template>
@@ -47,6 +48,13 @@ export default {
     }
   },
   methods: {
+    toTop(){
+      const appDom = document.getElementById('app')
+      appDom.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
   },
   created() {
   },
@@ -201,7 +209,7 @@ export default {
   }
 
   .outLine {
-    height: 100vh;
+    height: 96vh;
     position: relative;
   }
 

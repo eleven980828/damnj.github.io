@@ -15,4 +15,8 @@ export default {
 
 <style lang="less">
 @import "./styles/global.less";
+#app {
+  overflow: auto;
+  max-height: 100vh;
+}
 </style>
