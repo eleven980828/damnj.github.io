@@ -20,7 +20,7 @@
       
     </div>
 
-    <div class="outLine bookmain">
+    <div class="outLine bookmain ">
       <div class="booktitle"><span>·</span> BOOKING 预订信息 <span>·</span></div>
       <p>您好</p>
       <p>感谢您对我的文身作品感兴趣，为方便沟通，麻烦仔细阅读。</p>
@@ -37,14 +37,12 @@
       <p>2000元/小时，定金2000元。</p>
       <p>预订以定金为准，请支付定金后，发送微信填写文身所需资料。</p>
       <span>进行预定</span>
-      <div class="footIcon" @click="() => toTop()"></div>
     </div>
 
     <!-- english -->
-    <div class="outLine bookmain">
-      <div class="booktitle"><span>·</span> BOOKING INFORMATION<span>·</span></div>
+    <div class="outLine bookmain ENG">
       <p>Hello.</p>
-      <p>Thank you for your interest in my tattoo works. For the convenience of communication, please read it carefully.</p>
+      <p>Thank you for your interest in my tattoo works.<br/> For the convenience of communication, please read it carefully.</p>
       <div class="bookline"></div>
       <p><i></i>Theme Selection</p>
       <p>I recommend content from the East, such as The Book of Mountains and Seas, which is the source of inspiration for most of my creations.<br />Of course, through communication, co-creating a new concept of the subiect matter can also be.</p>
@@ -125,6 +123,7 @@ export default {
       margin-bottom: 30px;
       text-align: center;
       margin-top: 80px;
+      margin-bottom: 130px;
       line-height: 80px;
       border: 1px solid #aaaaaa;
     }
@@ -172,7 +171,11 @@ export default {
       border-bottom: 1px solid #111111;
     }
   }
-
+ .ENG{
+  p{
+    font-size: 25px !important;
+  }
+ }
   .booktitle {
     text-align: center;
     font-size: 30px;
