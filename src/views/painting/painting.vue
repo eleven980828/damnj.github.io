@@ -7,8 +7,8 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
       </div>
       <div class="midbut">
-        <span @click="$goto('painting')">画 Painting</span>
-        <span>文身 Tattoo</span>
+        <span>画 Painting</span>
+        <span>文身 Tatto</span>
         <span>差旅信息 Travel plan</span>
       </div>
       <div class="homebg">
@@ -39,51 +39,28 @@
       <span>进行预定</span>
       <div class="footIcon" @click="() => toTop()"></div>
     </div>
-
-    <!-- english -->
-    <div class="outLine bookmain">
-      <div class="booktitle"><span>·</span> BOOKING INFORMATION<span>·</span></div>
-      <p>Hello.</p>
-      <p>Thank you for your interest in my tattoo works. For the convenience of communication, please read it carefully.</p>
-      <div class="bookline"></div>
-      <p><i></i>Theme Selection</p>
-      <p>I recommend content from the East, such as The Book of Mountains and Seas, which is the source of inspiration for most of my creations.<br />Of course, through communication, co-creating a new concept of the subiect matter can also be.</p>
-      <p>* Note: irregularly published hand drawings, non-tattooed manuscripts, are intended for use by means other than tattooing.To share my creative style for reference.</p>
-      <p><i></i>Production Method</p>
-      <p>The tattoos are designed on-site (hand-painted according to the body structure of the bearer)<br />Except for very few subjects, drawings are not usually drawn in advance.<br />Before the tattoo, we will provide the design ideas required for the appointment, thank you for your trust.</p>
-      <p><i></i>Booking Time</p>
-      <p>For domestic bookings, please book 9-12 months in advance.<br />For bookings from other countries, please combine my travel information.</p>
-      <p>The sooner the appointment is made, the better. My tattoo design needs to be communicated by both parties, and I also need more time to digest your ideas.</p>
-      <p><i></i>Billing Method</p>
-      <p>2000 yuan/hour, deposit 2000 yuan.</p>
-      <p>Reservation is subject to deposit, please pay the deposit and send Instagram to fill in the information required for tattoo.</p>
-      <span>BOOKING</span>
-      <div class="footIcon" @click="() => toTop()"></div>
-    </div>
   </div>
 </template>
 <script>
-import { RouterLink } from 'vue-router';
-
 export default {
-    name: 'APP',
-    data() {
-        return {};
-    },
-    methods: {
-        toTop() {
-            const appDom = document.getElementById('app');
-            appDom.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    },
-    created() {
-    },
-    mounted() {
-    },
-    components: { RouterLink }
+  name: 'APP',
+  data() {
+    return {
+    }
+  },
+  methods: {
+    toTop(){
+      const appDom = document.getElementById('app')
+      appDom.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
+  },
+  created() {
+  },
+  mounted() {
+  },
 }
 </script>
 <style lang="less" scoped>
