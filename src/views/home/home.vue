@@ -7,8 +7,9 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
       </div>
       <div class="midbut">
-        <span>画</span>
-        <span>文身</span>
+        <span>画 Painting</span>
+        <span>文身 Tatto</span>
+        <span>差旅信息 Travel plan</span>
       </div>
       <div class="homebg">
         <div>
@@ -106,7 +107,7 @@ export default {
     }
 
     >p {
-      font-size: 14px;
+      font-size: 16px;
       padding-left: 10px;
       text-align: start;
       display: flex;
@@ -222,7 +223,7 @@ export default {
     span {
       display: block;
       margin: 0 auto;
-      width: 200px;
+      width: 250px;
       height: 50px;
       font-size: 18px;
       color: #aaaaaa;
