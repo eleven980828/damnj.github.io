@@ -11,14 +11,14 @@
       <div class="midbut">
         <span>画</span>
       </div>
-      <div class="homebg">
-        <img src="~@/assets/painting1.png" alt="">
+     
+      <div class="lazyimg">
+        <el-image  v-for="(item,index) in list" :key="index" :src='item.url' :style="{width:item.width}" lazy></el-image>
+      </div>
+       <div class="homebg">
         <p>所有作品为2020-2023年阶段创作，均已出售，仅作展示。</p>
         <p>禁止任何抄袭及盗用，违者必究。</p>
         <p>商业合作请联系: 86-17610888007 陈先生</p>
-      </div>
-      <div class="lazyimg">
-        <el-image  v-for="url in list" :key="url" :src='url' lazy></el-image>
       </div>
     </div>
 
@@ -30,24 +30,34 @@ export default {
   data() {
     return {
       list:[
-        require('@/assets/painting/p1.jpg'),
-        require('@/assets/painting/p2.jpg'),
-        require('@/assets/painting/p3.jpg'),
-        require('@/assets/painting/p4.jpg'),
-        require('@/assets/painting/p5.jpg'),
-        require('@/assets/painting/p6.jpg'),
-        require('@/assets/painting/p7.jpg'),
-        require('@/assets/painting/p8.jpg'),
-        require('@/assets/painting/p9.jpg'),
-        require('@/assets/painting/p10.jpg'),
-        require('@/assets/painting/p11.jpg'),
-        require('@/assets/painting/p12.jpg'),
-        require('@/assets/painting/p13.jpg'),
-        require('@/assets/painting/p14.jpg'),
-        require('@/assets/painting/p15.jpg'),
-        require('@/assets/painting/p16.jpg'),
-        require('@/assets/painting/p17.jpg'),
-        
+        {url:require('@/assets/painting1.png'),width:'80%'},
+        {url:require('@/assets/painting/p1.jpg'),width:'60%'},
+        {url:require('@/assets/painting/p2.jpg'),width:'100%'},
+        {url:require('@/assets/painting/p3.jpg'),width:'55%'},
+        {url:require('@/assets/painting/p4.jpg'),width:'90%'},
+        {url:require('@/assets/painting/p5.jpg'),width:'90%'},
+        {url:require('@/assets/painting/p6.jpg'),width:'60%'},
+        {url:require('@/assets/painting/p7.jpg'),width:'85%'},
+        {url:require('@/assets/painting/p8.jpg'),width:'85%'},
+        {url:require('@/assets/painting/p9.jpg'),width:'85%'},
+        {url:require('@/assets/painting/p10.jpg'),width:'85%'},
+        {url:require('@/assets/painting/p11.jpg'),width:'85%'},
+        {url:require('@/assets/painting/p12.jpg'),width:'85%'},
+        // require('@/assets/painting/p3.jpg'),
+        // require('@/assets/painting/p4.jpg'),
+        // require('@/assets/painting/p5.jpg'),
+        // require('@/assets/painting/p6.jpg'),
+        // require('@/assets/painting/p7.jpg'),
+        // require('@/assets/painting/p8.jpg'),
+        // require('@/assets/painting/p9.jpg'),
+        // require('@/assets/painting/p10.jpg'),
+        // require('@/assets/painting/p11.jpg'),
+        // require('@/assets/painting/p12.jpg'),
+        // require('@/assets/painting/p13.jpg'),
+        // require('@/assets/painting/p14.jpg'),
+        // require('@/assets/painting/p15.jpg'),
+        // require('@/assets/painting/p16.jpg'),
+        // require('@/assets/painting/p17.jpg'),
       ]
     }
   },
@@ -75,10 +85,15 @@ export default {
   max-height: 100vh;
   overflow-y: auto;
   .lazyimg{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
     .el-image{
-      margin-bottom: 50px;
       min-height: 50px;
       display: block;
+      margin: 0 auto;
+      margin-bottom: 80px;
+
     }
   }
   
@@ -86,6 +101,7 @@ export default {
     width: 100%;
     height: auto;
     margin: 0 auto;
+    padding-bottom: 50px;
     text-align: center;
     img{
       width: 80%;
