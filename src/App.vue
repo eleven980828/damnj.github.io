@@ -18,5 +18,6 @@ export default {
 #app {
   overflow: auto;
   max-height: 100vh;
+ 
 }
 </style>

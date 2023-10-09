@@ -14,6 +14,16 @@ const routes=[
         name: 'painting',
         component: () => import(/* webpackChunkName: "about" */ '../views/painting/painting.vue')
       },
+      {
+        path: '/tripPlane',
+        name: 'tripPlane',
+        component: () => import(/* webpackChunkName: "about" */ '../views/tripPlane/tripPlane.vue')
+      },
+      {
+        path: '/tattoo',
+        name: 'tattoo',
+        component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
+      },
     //   {
     //     path: '/special',
     //     name: 'special',

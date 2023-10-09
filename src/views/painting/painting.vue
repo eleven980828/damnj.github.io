@@ -5,7 +5,9 @@
       <div class="title">
         <p>· Antto 安童 ·</p>
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+        <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
+      
       <div class="midbut">
         <span>画</span>
       </div>
@@ -15,7 +17,9 @@
         <p>禁止任何抄袭及盗用，违者必究。</p>
         <p>商业合作请联系: 86-17610888007 陈先生</p>
       </div>
-      
+      <div class="lazyimg">
+        <el-image  v-for="url in list" :key="url" :src='url' lazy></el-image>
+      </div>
     </div>
 
   </div>
@@ -25,6 +29,26 @@ export default {
   name: 'APP',
   data() {
     return {
+      list:[
+        require('@/assets/painting/p1.jpg'),
+        require('@/assets/painting/p2.jpg'),
+        require('@/assets/painting/p3.jpg'),
+        require('@/assets/painting/p4.jpg'),
+        require('@/assets/painting/p5.jpg'),
+        require('@/assets/painting/p6.jpg'),
+        require('@/assets/painting/p7.jpg'),
+        require('@/assets/painting/p8.jpg'),
+        require('@/assets/painting/p9.jpg'),
+        require('@/assets/painting/p10.jpg'),
+        require('@/assets/painting/p11.jpg'),
+        require('@/assets/painting/p12.jpg'),
+        require('@/assets/painting/p13.jpg'),
+        require('@/assets/painting/p14.jpg'),
+        require('@/assets/painting/p15.jpg'),
+        require('@/assets/painting/p16.jpg'),
+        require('@/assets/painting/p17.jpg'),
+        
+      ]
     }
   },
   methods: {
@@ -48,13 +72,23 @@ export default {
 
 .main {
   width: 750px;
+  max-height: 100vh;
+  overflow-y: auto;
+  .lazyimg{
+    .el-image{
+      margin-bottom: 50px;
+      min-height: 50px;
+      display: block;
+    }
+  }
+  
   .homebg{
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
-    overflow: hidden;
+    text-align: center;
     img{
-      width: 100%;
+      width: 80%;
       height: auto;
       margin-bottom: 90px;
     }
@@ -127,10 +161,19 @@ export default {
   .title {
     background-color: #282924;
     padding: 5px 0 5px 0;
+    position: relative;
 
     p {
       font-size: 12px;
       color: @basecolor;
+    }
+    i{
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      left: 20px;
+      color: @fontcolor;
+      font-size: 40px;
     }
   }
 

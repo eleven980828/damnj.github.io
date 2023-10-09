@@ -8,8 +8,8 @@
       </div>
       <div class="midbut">
         <span @click="$goto('painting')">画 Painting</span>
-        <span>文身 Tattoo</span>
-        <span>差旅信息 Travel plan</span>
+        <span @click="$goto('tattoo')">文身 Tattoo</span>
+        <span @click="$goto('tripPlane')">差旅信息 Travel plan</span>
       </div>
       <div class="homebg">
         <div>
@@ -270,4 +270,5 @@ export default {
     }
   }
 
-}</style>
+}
+</style>
