@@ -24,6 +24,11 @@ const routes=[
         name: 'tattoo',
         component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
       },
+      {
+        path: '/booking',
+        name: 'booking',
+        component: () => import(/* webpackChunkName: "about" */ '../views/booking/booking.vue')
+      },
     //   {
     //     path: '/special',
     //     name: 'special',
