@@ -6,6 +6,12 @@
         <p>· Antto 安童 ·</p>
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
       </div>
+      <div class="link">
+        <a href="https://instagram.com/anttoxaxa?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">Instagram</a>
+        <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1696686102">Xiaohongshu</a>
+        <a href="https://weibo.com/u/2661368835">Weibo</a>
+        <a href="">WeChat</a>
+      </div>
       <div class="midbut">
         <span @click="$goto('painting')">画 Painting</span>
         <span @click="$goto('tattoo')">文身 Tattoo</span>
@@ -90,7 +96,18 @@ export default {
 
 .main {
   width: 750px;
-
+  .link{
+    float: right;
+    display: flex;
+    margin-right: 20px;
+    flex-direction: column;
+    a{
+      font-size: 18px;
+      margin-top: 20px;
+      color: @fontcolor;
+      text-align: right;
+    }
+  }
   .footIcon {
     background-image: url('~@/assets/homeFooter.jpg');
     width: 60px;
@@ -98,7 +115,6 @@ export default {
     position: relative;
     margin: 80px auto;
     background-size: cover;
-
     &::after {
       content: '';
       width: 100%;

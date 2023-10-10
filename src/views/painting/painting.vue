@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main" id="main">
 
     <div class="outLine">
       <div class="title">
@@ -11,9 +11,11 @@
       <div class="midbut">
         <span>画</span>
       </div>
-     
+       <div class="backtop" @click="toTop()">
+        <i class="el-icon-top"></i>
+      </div>
       <div class="lazyimg">
-        <el-image  v-for="(item,index) in list" :key="index" :src='item.url' :style="{width:item.width}" lazy></el-image>
+        <el-image  v-for="(item,index) in list" :key="index" :src='item.url' :style="{width:item.width,marginBottom:item.bottom}" lazy></el-image>
       </div>
        <div class="homebg">
         <p>所有作品为2020-2023年阶段创作，均已出售，仅作展示。</p>
@@ -30,19 +32,24 @@ export default {
   data() {
     return {
       list:[
-        {url:require('@/assets/painting1.png'),width:'80%'},
-        {url:require('@/assets/painting/p1.jpg'),width:'60%'},
-        {url:require('@/assets/painting/p2.jpg'),width:'100%'},
-        {url:require('@/assets/painting/p3.jpg'),width:'55%'},
-        {url:require('@/assets/painting/p4.jpg'),width:'90%'},
-        {url:require('@/assets/painting/p5.jpg'),width:'90%'},
-        {url:require('@/assets/painting/p6.jpg'),width:'60%'},
-        {url:require('@/assets/painting/p7.jpg'),width:'85%'},
-        {url:require('@/assets/painting/p8.jpg'),width:'85%'},
-        {url:require('@/assets/painting/p9.jpg'),width:'85%'},
-        {url:require('@/assets/painting/p10.jpg'),width:'85%'},
-        {url:require('@/assets/painting/p11.jpg'),width:'85%'},
-        {url:require('@/assets/painting/p12.jpg'),width:'85%'},
+        {url:require('@/assets/painting1.png'),width:'80%',bottom:'20px'},
+        {url:require('@/assets/painting/p1.jpg'),width:'60%',bottom:'30px'},
+        {url:require('@/assets/painting/p2.jpg'),width:'100%',bottom:'20px'},
+        {url:require('@/assets/painting/p3.jpg'),width:'55%',bottom:'20px'},
+        {url:require('@/assets/painting/p4.jpg'),width:'90%',bottom:'20px'},
+        {url:require('@/assets/painting/p5.jpg'),width:'90%',bottom:'20px'},
+        {url:require('@/assets/painting/p6.jpg'),width:'60%',bottom:'40px'},
+        {url:require('@/assets/painting/p7.jpg'),width:'85%',bottom:'80px'},
+        {url:require('@/assets/painting/p8.jpg'),width:'85%',bottom:'20px'},
+        {url:require('@/assets/painting/p9.jpg'),width:'85%',bottom:'20px'},
+        {url:require('@/assets/painting/p10.jpg'),width:'85%',bottom:'20px'},
+        {url:require('@/assets/painting/p11.jpg'),width:'85%',bottom:'20px'},
+        {url:require('@/assets/painting/p12.jpg'),width:'85%',bottom:'60px'},
+        {url:require('@/assets/painting/p13.jpg'),width:'85%',bottom:'100px'},
+        {url:require('@/assets/painting/p14.jpg'),width:'50%',bottom:'100px'},
+        {url:require('@/assets/painting/p15.jpg'),width:'100%',bottom:'20px'},
+        {url:require('@/assets/painting/p16.jpg'),width:'85%',bottom:'30px'},
+        {url:require('@/assets/painting/p17.jpg'),width:'100%',bottom:'100px'},
         // require('@/assets/painting/p3.jpg'),
         // require('@/assets/painting/p4.jpg'),
         // require('@/assets/painting/p5.jpg'),
@@ -63,7 +70,7 @@ export default {
   },
   methods: {
     toTop(){
-      const appDom = document.getElementById('app')
+      const appDom = document.getElementById('main')
       appDom.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -84,6 +91,15 @@ export default {
   width: 750px;
   max-height: 100vh;
   overflow-y: auto;
+  .backtop {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    z-index: 5000;
+    i {
+      font-size: 50px;
+    }
+  }
   .lazyimg{
     width: 100%;
     margin: 0 auto;
@@ -92,8 +108,6 @@ export default {
       min-height: 50px;
       display: block;
       margin: 0 auto;
-      margin-bottom: 80px;
-
     }
   }
   
