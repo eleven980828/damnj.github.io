@@ -10,7 +10,7 @@
         <a href="https://instagram.com/anttoxaxa?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">Instagram</a>
         <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1696686102">Xiaohongshu</a>
         <a href="https://weibo.com/u/2661368835">Weibo</a>
-        <a href="">WeChat</a>
+        <a @click.stop="show=true">WeChat</a>
       </div>
       <div class="midbut">
         <span @click="$goto('painting')">画 Painting</span>
@@ -64,15 +64,22 @@
       <span>BOOKING</span>
       <div class="footIcon" @click="() => toTop()"></div>
     </div>
+      <van-popup v-model="show"><a href="weixin://" target="_blank"><img src="~@/assets/qr.jpg" style="width:300px;height:auto" alt=""/></a></van-popup>
+
   </div>
 </template>
 <script>
 import { RouterLink } from 'vue-router';
-
+import Vue from 'vue'
+import { Popup } from 'vant';
+import 'vant/lib/popup/style';
+Vue.use(Popup)
 export default {
     name: 'APP',
     data() {
-        return {};
+        return {
+          show:false
+        };
     },
     methods: {
         toTop() {
