@@ -11,57 +11,106 @@
         < 请填写以下文身设计所需信息后，在微信与我私信沟通。>
       </div>
 
-      <div class="inpmain">
+      <div class="inpmain" ref="inputmain">
         <div>
-          <p>题材：</p><input type="text">
+          <p>题材：</p><input type="text" v-model="mode">
         </div>
         <div>
-          <p>部位：</p><input type="text">
+          <p>部位：</p><input type="text" v-model="location">
         </div>
         <div>
-          <p>年龄：</p><input type="text">
+          <p>年龄：</p><input type="text" v-model="age">
         </div>
         <div>
-          <p>身高：</p><input type="text">
+          <p>身高：</p><input type="text" v-model="high">
         </div>
         <div>
-          <p>体重：</p><input type="text">
+          <p>体重：</p><input type="text" v-model="weight">
         </div>
         <div>
-          <p>称呼：</p><input type="text">
+          <p>称呼：</p><input type="text" v-model="name">
         </div>
         <div>
           <p>有无心脏病：</p>
-          <p>是</p>
+          <p :class="isCardiopathy ? 'und' : 'no'" @click="isCardiopathy=true">是</p>
           <p>/</p>
-          <p>否</p>
+          <p  :class="isCardiopathy ? 'no' : 'und'" @click="isCardiopathy=false">否</p>
         </div>
         <div>
           <p>需要预订周末时间：</p>
-          <p>是</p>
+          <p  :class="week ? 'und' : 'no'" @click="week=true">是</p>
           <p>/</p>
-          <p>否</p>
+          <p  :class="week ? 'no' : 'und'" @click="week=false">否</p>
         </div>
         <div>
           <p>其他要求(选填)：</p>
         </div>
         <div>
           <div>
-            <textarea cols="3"></textarea>
+            <textarea cols="3"  v-model="tips"></textarea>
             <span></span>
             <span></span>
             <span></span>
           </div> 
         </div>
       </div>
-
+      <div class="copybut needsclick" @click="copy()" >填写完成，点击复制后，回到微信进行沟通。</div>
+      <img :src="imGurl" alt="">
     </div>
   </div>
 </template>
 
 <script>
+import html2canvas from 'html2canvas'
 export default {
+  data(){
+    return{
+      mode:"",
+      location:"",
+      age:"",
+      high:"",
+      weight:"",
+      name:"",
+      isCardiopathy:false,
+      week:false,
+      tips:"",
+      imGurl:""
+    } 
+  },
+  mounted(){
+  },
   methods: {
+    copy(){
+      html2canvas(this.$refs.inputmain).then(canvas=>{
+        this.imGurl=canvas.toDataURL('image/png')
+      })
+      // if(!this.mode){
+      //   this.$message('请填写题材')
+      //   return
+      // }
+      // if(!this.location){
+      //   this.$message('请填写部位')
+      //   return
+      // }
+      // if(!this.age){
+      //   this.$message('请填写年龄')
+      //   return
+      // }
+      // if(!this.high){
+      //   this.$message('请填写身高')
+      //   return
+      // }
+      // if(!this.weight){
+      //   this.$message('请填写体重')
+      //   return
+      // }
+      // if(!this.name){
+      //   this.$message('请填写称呼')
+      //   return
+      // }
+      const node='题材：'+this.mode+'\n'+'部位：'+this.location+'\n'+'年龄：'+this.age+'\n'+'身高：'+this.high+'\n'+'体重：'+this.weight+'\n'+'称呼：'+this.name+'\n'+'有无心脏病：'+(this.isCardiopathy ? '是' : '否')+'\n'
+      const that=this
+    },
     toTop() {
       const appDom = document.getElementById('app');
       appDom.scrollTo({
@@ -77,14 +126,32 @@ export default {
 @basecolor: #cfcfcf;
 @fontcolor: #aaaaaa;
 
+
 .main {
   width: 750px;
   text-align: center;
   color: @fontcolor;
-
+  .und{
+    text-decoration: underline;
+    color: @basecolor;
+  }
+  .no{
+    color: grey;
+  }
+  .copybut{
+    display: inline-block;
+    border: 2px solid white;
+    font-size: 25px;
+    padding: 10px 15px 10px 15px;
+    line-height: 50px;
+    width: auto;
+    margin-top: 80px;
+    
+  }
   .inpmain {
     width: 93%;
     margin: 0 auto;
+    background-color: black;
     margin-top: 100px;
 
     div {
@@ -93,6 +160,7 @@ export default {
       div{
         width: 100%;
         position: relative;
+        margin-top: 0;
         span{
           position: absolute;
           width: 100%;
@@ -121,7 +189,6 @@ export default {
 
       p {
         font-size: 25px;
-
         &:nth-child(3) {
           margin: 0 10px;
           font-size: 30px;
@@ -134,6 +201,7 @@ export default {
         border-bottom: 1px solid @fontcolor;
         font-size: 25px;
         border-radius: 0;
+        color: @fontcolor;
       }
     }
   }
