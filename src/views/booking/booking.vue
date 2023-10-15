@@ -11,7 +11,7 @@
         < 请填写以下文身设计所需信息后，在微信与我私信沟通。>
       </div>
 
-      <div class="inpmain" ref="inputmain">
+      <div class="inpmain" ref="inputmain" id="inputmain">
         <div>
           <p>题材：</p><input type="text" v-model="mode">
         </div>
@@ -53,9 +53,13 @@
             <span></span>
           </div> 
         </div>
+        <div class="testhidd" id="testhidd">
+        <p>2131231</p>
+      </div>
       </div>
       <div class="copybut needsclick" @click="copy()" >填写完成，点击复制后，回到微信进行沟通。</div>
-      <img :src="imGurl" alt="">
+      <van-popup v-model="show"><el-image class="popup" :src="imGurl"></el-image></van-popup>
+     
     </div>
   </div>
 </template>
@@ -74,16 +78,14 @@ export default {
       isCardiopathy:false,
       week:false,
       tips:"",
-      imGurl:""
+      imGurl:"",
+      show:false
     } 
   },
   mounted(){
   },
   methods: {
     copy(){
-      html2canvas(this.$refs.inputmain).then(canvas=>{
-        this.imGurl=canvas.toDataURL('image/png')
-      })
       // if(!this.mode){
       //   this.$message('请填写题材')
       //   return
@@ -108,8 +110,21 @@ export default {
       //   this.$message('请填写称呼')
       //   return
       // }
-      const node='题材：'+this.mode+'\n'+'部位：'+this.location+'\n'+'年龄：'+this.age+'\n'+'身高：'+this.high+'\n'+'体重：'+this.weight+'\n'+'称呼：'+this.name+'\n'+'有无心脏病：'+(this.isCardiopathy ? '是' : '否')+'\n'
-      const that=this
+      const el=document.getElementById('testhidd')
+      console.log(el.getBoundingClientRect())
+
+      html2canvas(el,{
+        allowTaint: true,
+        width: el.offsetWidth-18,
+        height: el.offsetHeight,
+        // x:el.getBoundingClientRect().left-14
+      }).then(canvas=>{
+        this.imGurl=canvas.toDataURL('image/png')
+      })
+      this.show=true
+      
+      // const node='题材：'+this.mode+'\n'+'部位：'+this.location+'\n'+'年龄：'+this.age+'\n'+'身高：'+this.high+'\n'+'体重：'+this.weight+'\n'+'称呼：'+this.name+'\n'+'有无心脏病：'+(this.isCardiopathy ? '是' : '否')+'\n'
+      // const that=this
     },
     toTop() {
       const appDom = document.getElementById('app');
@@ -126,11 +141,19 @@ export default {
 @basecolor: #cfcfcf;
 @fontcolor: #aaaaaa;
 
-
+/deep/.van-popup{
+  background-color: black;
+}
 .main {
+  
   width: 750px;
   text-align: center;
   color: @fontcolor;
+  .popup{
+    width: 600px;
+    height: auto;
+    background-color: black;
+  }
   .und{
     text-decoration: underline;
     color: @basecolor;
@@ -153,10 +176,18 @@ export default {
     margin: 0 auto;
     background-color: black;
     margin-top: 100px;
-
+    position: relative;
+    .testhidd{
+      width: 100%;
+      height: 200px;
+      position: absolute;
+      z-index: -50;
+      background-color: aqua;
+    }
     div {
       display: flex;
       margin-top: 20px;
+      padding-right: 2px;
       div{
         width: 100%;
         position: relative;
@@ -201,6 +232,7 @@ export default {
         border-bottom: 1px solid @fontcolor;
         font-size: 25px;
         border-radius: 0;
+        line-height: 25px;
         color: @fontcolor;
       }
     }

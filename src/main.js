@@ -4,8 +4,11 @@ import router from './router/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import VueClipboard from 'vue-clipboard2';
+import Vant from 'vant';
+import 'vant/lib/index.css';
 
 Vue.use(ElementUI)
+Vue.use(Vant)
 Vue.use(VueClipboard)
 Vue.prototype.$goto=function(routerPath){
   this.$router.push({name:routerPath})

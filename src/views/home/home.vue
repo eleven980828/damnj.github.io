@@ -13,9 +13,10 @@
         <a @click.stop="show=true">WeChat</a>
       </div>
       <div class="midbut">
-        <span @click="$goto('painting')">画 Painting</span>
+        <!-- <span @click="$goto('painting')">画 Painting</span>
         <span @click="$goto('tattoo')">文身 Tattoo</span>
-        <span @click="$goto('tripPlane')">差旅信息 Travel plan</span>
+        <span @click="$goto('tripPlane')">差旅信息 Travel plan</span> -->
+        <span @click="$goto('works')">作品集Works</span>
       </div>
       <div class="homebg">
         <div>
@@ -37,7 +38,7 @@
       <p><i></i>制作方式</p>
       <p>文身均为现场设计(根据承载者的身体结构进行手绘)<br />除极少见题材，一般不会提前绘制画稿。<br />进行文身前，会提供预约所需的设计思路,，感谢信任。</p>
       <p><i></i>预订时间</p>
-      <p>国内的预订，请提前9-12个月预约。<br />其他国家的预订，请结合差旅信息预订名额。</p>
+      <p>国内的预订，请提前9-12个月预约。<br />其他国家的预订，请结合差旅信息预订名额。<a @click="$goto('tripPlane')">「点击查看差旅信息」</a></p>
       <p>预约越提前越好，我的文身设计是需要双方沟通出来的，而我也需要更多的时间来消化您的想法。</p>
       <p><i></i>计费方式</p>
       <p>2000元/小时，定金2000元。</p>
@@ -160,6 +161,10 @@ export default {
       margin-bottom: 40px;
       line-height: 40px;
       color: @fontcolor;
+      align-items: flex-end;
+      a{
+        color: white;
+      }
 
       i {
         border-radius: 50%;
@@ -196,7 +201,7 @@ export default {
   }
  .ENG{
   p{
-    font-size: 25px !important;
+    font-size: 21px !important;
   }
  }
   .booktitle {
