@@ -14,11 +14,11 @@
       </div>
       <div class="time">
         <span>2024年:</span>
-        <p>荷兰 莱顿 3月<br/>Leiden Mar.2024</p>
+        <p>荷兰 莱顿 3月 <i>(已满)</i><br/>Leiden Mar.2024 <i>(Bookings closed)</i><br/></p>
         <p>中国 北京 8月<br/>Beijing Aug.2024</p>
-        <p>意大利 罗马9月<br/>Rome Sep.2024</p>
-        <p>德国 柏林9月<br/>Berlin Sep.2024</p>
-        <p>法国巴黎10月<br/>Paris Oct.2024</p>
+        <p>意大利 罗马9月 <i>(已满)</i><br/><br/>Rome Sep.2024 <i>(Bookings closed)</i></p>
+        <p>德国 柏林9月 <i>(已满)</i><br/><br/>Berlin Sep.2024 <i>(Bookings closed)</i></p>
+        <p>法国巴黎10月 <i>(已满)</i><br/><br/>Paris Oct.2024 <i>(Bookings closed)</i></p>
         <p>中国 北京 12月<br/>Beijing Dec.2024</p>
       </div>
       <div class="time">
@@ -64,6 +64,9 @@ export default {
     }
     p{
         margin-bottom: 30px;
+        i{
+          color: @basecolor;
+        }
     }
     
   }

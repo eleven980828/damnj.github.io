@@ -9,21 +9,21 @@ const routes=[
         name: 'home',
         component: () => import(/* webpackChunkName: "about" */ '../views/home/home.vue')
       },
-      {
-        path: '/painting',
-        name: 'painting',
-        component: () => import(/* webpackChunkName: "about" */ '../views/painting/painting.vue')
-      },
+      // {
+      //   path: '/painting',
+      //   name: 'painting',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/painting/painting.vue')
+      // },
       {
         path: '/tripPlane',
         name: 'tripPlane',
         component: () => import(/* webpackChunkName: "about" */ '../views/tripPlane/tripPlane.vue')
       },
-      {
-        path: '/tattoo',
-        name: 'tattoo',
-        component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
-      },
+      // {
+      //   path: '/tattoo',
+      //   name: 'tattoo',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
+      // },
       {
         path: '/booking',
         name: 'booking',
