@@ -6,86 +6,152 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
-      <div class="bookingbut">預訂</div>
-      <div class="tips">
-        < 请填写以下文身设计所需信息后，在微信与我私信沟通。>
+      <div class="bookingbut">{{ ty==='zh' ? '預訂' :'BOOKING' }}</div>
+
+  
+      <div class="whitebg" v-if="ty==='zh'">
+        <span>您好，感谢您的预订。</span>
+        <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
+        <p>题材：</p>
+        <input type="text" v-model="mode">
+        <p>部位：</p>
+        <input type="text" v-model="location">
+        <div class="fourdiv">
+          <div>
+            <p>身高(cm):</p><input type="number" v-model="high">
+          </div>
+          <div>
+            <p>体重(kg):</p><input type="number" v-model="weight">
+          </div>
+          <div>
+            <p>称呼:</p><input type="text" v-model="name">
+          </div>
+          <div>
+            <p>年龄:</p><input type="number" v-model="age">
+          </div>
+        </div>
+        <p>有无心脏病:</p>
+        <div class="radio">
+          <i :style="{backgroundColor:isCardiopathy ? 'black' : 'transparent'}" @click="isCardiopathy=true"></i>
+          <p>是</p>
+        </div>
+        <div class="radio mb">
+          <i :style="{backgroundColor:isCardiopathy ? 'transparent' : 'black'}" @click="isCardiopathy=false"></i>
+          <p>否</p>
+        </div>
+        <p>需要预订周末时间:</p>
+        <div class="radio">
+          <i :style="{backgroundColor:week ? 'black' : 'transparent'}" @click="week=true"></i>
+          <p>是</p>
+        </div>
+        <div class="radio mb">
+          <i :style="{backgroundColor:week ? 'transparent' : 'black'}" @click="week=false"></i>
+          <p>否</p>
+        </div>
+        <p>其他要求(选填):</p>
+        <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
+        <p>微信：</p>
+        <input type="text" v-model="social">
+        <div class="copybut needsclick" @click="ensure()">确认无误，发送至邮件预订。</div>
       </div>
 
-      <div class="inpmain" ref="inputmain" id="inputmain">
-        <div>
-          <p>题材：</p><input type="text" v-model="mode">
-        </div>
-        <div>
-          <p>部位：</p><input type="text" v-model="location">
-        </div>
-        <div>
-          <p>年龄：</p><input type="text" v-model="age">
-        </div>
-        <div>
-          <p>身高：</p><input type="text" v-model="high">
-        </div>
-        <div>
-          <p>体重：</p><input type="text" v-model="weight">
-        </div>
-        <div>
-          <p>称呼：</p><input type="text" v-model="name">
-        </div>
-        <div>
-          <p>有无心脏病：</p>
-          <p :class="isCardiopathy ? 'und' : 'no'" @click="isCardiopathy=true">是</p>
-          <p>/</p>
-          <p  :class="isCardiopathy ? 'no' : 'und'" @click="isCardiopathy=false">否</p>
-        </div>
-        <div>
-          <p>需要预订周末时间：</p>
-          <p  :class="week ? 'und' : 'no'" @click="week=true">是</p>
-          <p>/</p>
-          <p  :class="week ? 'no' : 'und'" @click="week=false">否</p>
-        </div>
-        <div>
-          <p>其他要求(选填)：</p>
-        </div>
-        <div>
+      <div class="whitebg" v-if="ty==='en'">
+        <span>Hello, thank you for your reservation.</span>
+        <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following information:</span>
+        <p>Subject Matter:</p>
+        <input type="text" v-model="mode">
+        <p>Body part:</p>
+        <input type="text" v-model="location">
+        <div class="fourdiv">
           <div>
-            <textarea cols="3"  v-model="tips"></textarea>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div> 
+            <p>Height (cm):</p><input type="number" v-model="high">
+          </div>
+          <div>
+            <p>Weight (kg):</p><input type="number" v-model="weight">
+          </div>
+          <div>
+            <p>Name:</p><input type="text" v-model="name">
+          </div>
+          <div>
+            <p>Age:</p><input type="number" v-model="age"> 
+          </div>
         </div>
-        <div class="testhidd" id="testhidd">
-        <p>2131231</p>
+        <p>Have heart disease:</p>
+        <div class="radio">
+          <i :style="{backgroundColor:isCardiopathy ? 'black' : 'transparent'}" @click="isCardiopathy=true"></i>
+          <p>Yes</p>
+        </div>
+        <div class="radio mb">
+          <i :style="{backgroundColor:isCardiopathy ? 'transparent' : 'black'}" @click="isCardiopathy=false"></i>
+          <p>No</p>
+        </div>
+        <p>Need to book weekend time:</p>
+        <div class="radio">
+          <i :style="{backgroundColor:week ? 'black' : 'transparent'}" @click="week=true"></i>
+          <p>Yes</p>
+        </div>
+        <div class="radio mb">
+          <i :style="{backgroundColor:week ? 'transparent' : 'black'}" @click="week=false"></i>
+          <p>No</p>
+        </div>
+        <p>Other requirements (optional):</p>
+        <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
+        <p>Instagram:</p>
+        <input type="text" v-model="social">
+        <div class="copybut needsclick" @click="ensure()">Confirm and send to email booking.</div>
       </div>
-      </div>
-      <div class="copybut needsclick" @click="copy()" >填写完成，点击复制后，回到微信进行沟通。</div>
-      <van-popup v-model="show"><el-image class="popup" :src="imGurl"></el-image></van-popup>
-     
+      
+      <van-popup v-model="show" v-if="ty==='zh'">
+        <div class="fill">
+          <h3>填写成功</h3>
+          <p>请确保您预留的社交账号可以联系到您<br/>我会在24小时内回复</p>
+          <span>填写有误，返回修改。</span>
+          <span @click="sendemil()">确认发送</span>
+        </div>
+      </van-popup>
+      
+      <van-popup v-model="show" v-if="ty==='en'">
+        <div class="fill en">
+          <h3>Fill in successfully</h3>
+          <p>Make sure you can be reached by the social<br/>media account you have set up<br/>'ll respond within 24 hours</p>
+          <span>This parameter is incorrect. Return to modify it.</span>
+          <span>Do send</span>
+        </div>
+      </van-popup>
+
     </div>
   </div>
 </template>
 
 <script>
 import html2canvas from 'html2canvas'
+import '../../utils/smtp.js'
 export default {
-  data(){
-    return{
-      mode:"",
-      location:"",
-      age:"",
-      high:"",
-      weight:"",
-      name:"",
-      isCardiopathy:false,
-      week:false,
-      tips:"",
-      imGurl:"",
-      show:false
-    } 
+  created(){
+    this.ty= this.$route.params.ty ? this.$route.params.ty : 'zh'
   },
-  mounted(){
+  data() {
+    return {
+      mode: "",
+      location: "",
+      age: "",
+      high: "",
+      weight: "",
+      name: "",
+      isCardiopathy: false,
+      week: false,
+      tips: "",
+      social:'',
+      imGurl: "",
+      show: false,
+      radio:1,
+      ty:'zh'
+    }
+  },
+  mounted() {
   },
   methods: {
-    copy(){
+    copy() {
       // if(!this.mode){
       //   this.$message('请填写题材')
       //   return
@@ -110,19 +176,19 @@ export default {
       //   this.$message('请填写称呼')
       //   return
       // }
-      const el=document.getElementById('testhidd')
+      const el = document.getElementById('testhidd')
       console.log(el.getBoundingClientRect())
 
-      html2canvas(el,{
+      html2canvas(el, {
         allowTaint: true,
-        width: el.offsetWidth-18,
+        width: el.offsetWidth - 18,
         height: el.offsetHeight,
         // x:el.getBoundingClientRect().left-14
-      }).then(canvas=>{
-        this.imGurl=canvas.toDataURL('image/png')
+      }).then(canvas => {
+        this.imGurl = canvas.toDataURL('image/png')
       })
-      this.show=true
-      
+      this.show = true
+
       // const node='题材：'+this.mode+'\n'+'部位：'+this.location+'\n'+'年龄：'+this.age+'\n'+'身高：'+this.high+'\n'+'体重：'+this.weight+'\n'+'称呼：'+this.name+'\n'+'有无心脏病：'+(this.isCardiopathy ? '是' : '否')+'\n'
       // const that=this
     },
@@ -132,6 +198,24 @@ export default {
         top: 0,
         behavior: 'smooth'
       });
+    },
+    ensure(){
+      this.show=true
+    },
+    sendemil(){
+      Email.send({
+        Host : "smtp.elasticemail.com",
+        SecureToken:'53EE1987F6562C74B4D94DE21FE2B923E22E',
+        Username:'anttoonline',
+        Password:"WZWMQGUGGEXTMYEH",
+        Port:'2525',
+        To : '473645962@qq.com',
+        From : "anttoonline@163.com",
+        Subject : "This is the subject",
+        Body : "And this is the body"
+      }).then(res=>{
+        console.log(res)
+      })
     }
   }
 }
@@ -141,71 +225,191 @@ export default {
 @basecolor: #cfcfcf;
 @fontcolor: #aaaaaa;
 
-/deep/.van-popup{
+/deep/.van-popup {
   background-color: black;
 }
-.main {
+.fill{
+  width: 90vw;
+  height: 900px;
+  color: white;
+  padding-top: 170px;
+  background-color: black;
+  border: 1px solid white;
   
+  h3{
+    font-size: 35px;
+    font-weight: normal;
+    margin-bottom: 60px;
+  }
+  p{
+    font-size: 20px;
+    margin-bottom: 200px;
+  }
+  span{
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+    height: 40px;
+    color: black;
+    margin-bottom: 30px;
+    line-height: 40px;
+    background-color: white;
+    font-size: 20px;
+  }
+}
+.en{
+    span{
+      width: 70% !important;
+    }
+  }
+.main {
+  text-align: start;
+  .mb{
+    margin-bottom: 40px;
+  }
+  .radio{
+    display: flex;
+    align-items: center;
+    .black{
+      background-color: black;
+    }
+    i{
+      border-radius: 50%;
+      border: 1px solid black;
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+    p{
+      display: inline-block;
+      font-size: 25px;
+    }
+  }
+  .whitebg {
+    width: 90%;
+    background-color: white;
+    margin: 0 auto;
+    color: black;
+    padding: 50px 60px 30px 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 23px;
+    
+    textarea{
+      width: 100%;
+      border-radius: 0;
+      resize: none;
+      height: 150px;
+      border: 1px solid black;
+    }
+    .fourdiv {
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        width: 24%;
+
+        p {
+          text-align: start;
+        }
+      }
+
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: start;
+      margin-bottom: 30px;
+    }
+
+    >p {
+      text-align: start;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 10px;
+      border-radius: 0;
+      border: 1px solid black;
+    }
+  }
+
   width: 750px;
   text-align: center;
   color: @fontcolor;
-  .popup{
+
+  .popup {
     width: 600px;
     height: auto;
     background-color: black;
   }
-  .und{
+
+  .und {
     text-decoration: underline;
     color: @basecolor;
   }
-  .no{
+
+  .no {
     color: grey;
   }
-  .copybut{
+
+  .copybut {
     display: inline-block;
-    border: 2px solid white;
+    color: white;
     font-size: 25px;
-    padding: 10px 15px 10px 15px;
+    background-color: black;
+    padding: 10px 30px 10px 30px;
     line-height: 50px;
     width: auto;
     margin-top: 80px;
-    
+
   }
+
   .inpmain {
     width: 93%;
     margin: 0 auto;
     background-color: black;
     margin-top: 100px;
     position: relative;
-    .testhidd{
+
+    .testhidd {
       width: 100%;
       height: 200px;
       position: absolute;
       z-index: -50;
       background-color: aqua;
     }
+
     div {
       display: flex;
       margin-top: 20px;
       padding-right: 2px;
-      div{
+
+      div {
         width: 100%;
         position: relative;
         margin-top: 0;
-        span{
+
+        span {
           position: absolute;
           width: 100%;
           top: 38px;
           display: block;
           border-bottom: 1px solid @fontcolor;
-          &:nth-child(2){
+
+          &:nth-child(2) {
             top: 73px;
           }
-          &:nth-child(3){
+
+          &:nth-child(3) {
             top: 113px;
           }
         }
       }
+
       textarea {
         width: 100%;
         font-size: 25px;
@@ -220,6 +424,7 @@ export default {
 
       p {
         font-size: 25px;
+
         &:nth-child(3) {
           margin: 0 10px;
           font-size: 30px;

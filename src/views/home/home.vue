@@ -8,9 +8,10 @@
       </div>
       <div class="link">
         <a href="https://instagram.com/anttoxaxa?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">Instagram</a>
-        <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1696686102">Xiaohongshu</a>
+        <a
+          href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1696686102">Xiaohongshu</a>
         <a href="https://weibo.com/u/2661368835">Weibo</a>
-        <a @click.stop="show=true">WeChat</a>
+        <a @click.stop="show = true">WeChat</a>
       </div>
       <div class="midbut">
         <!-- <span @click="$goto('painting')">画 Painting</span>
@@ -24,7 +25,7 @@
           <img src="~@/assets/homeBg.jpg" alt="">
         </div>
       </div>
-      
+
     </div>
 
     <div class="outLine bookmain ">
@@ -49,23 +50,33 @@
     <!-- english -->
     <div class="outLine bookmain ENG">
       <p>Hello.</p>
-      <p>Thank you for your interest in my tattoo works.<br/> For the convenience of communication, please read it carefully.</p>
+      <p>Thank you for your interest in my tattoo works.<br /> For the convenience of communication, please read it
+        carefully.</p>
       <div class="bookline"></div>
       <p><i></i>Theme Selection</p>
-      <p>I recommend content from the East, such as The Book of Mountains and Seas, which is the source of inspiration for most of my creations.<br />Of course, through communication, co-creating a new concept of the subiect matter can also be.</p>
-      <p>* Note: irregularly published hand drawings, non-tattooed manuscripts, are intended for use by means other than tattooing.To share my creative style for reference.</p>
+      <p>I recommend content from the East, such as The Book of Mountains and Seas, which is the source of inspiration for
+        most of my creations.<br />Of course, through communication, co-creating a new concept of the subiect matter can
+        also be.</p>
+      <p>* Note: irregularly published hand drawings, non-tattooed manuscripts, are intended for use by means other than
+        tattooing.To share my creative style for reference.</p>
       <p><i></i>Production Method</p>
-      <p>The tattoos are designed on-site (hand-painted according to the body structure of the bearer)<br />Except for very few subjects, drawings are not usually drawn in advance.<br />Before the tattoo, we will provide the design ideas required for the appointment, thank you for your trust.</p>
+      <p>The tattoos are designed on-site (hand-painted according to the body structure of the bearer)<br />Except for
+        very few subjects, drawings are not usually drawn in advance.<br />Before the tattoo, we will provide the design
+        ideas required for the appointment, thank you for your trust.</p>
       <p><i></i>Booking Time</p>
-      <p>For domestic bookings, please book 9-12 months in advance.<br />For bookings from other countries, please combine my travel information.</p>
-      <p>The sooner the appointment is made, the better. My tattoo design needs to be communicated by both parties, and I also need more time to digest your ideas.</p>
+      <p>For domestic bookings, please book 9-12 months in advance.<br />For bookings from other countries, please combine
+        my travel information.</p>
+      <p>The sooner the appointment is made, the better. My tattoo design needs to be communicated by both parties, and I
+        also need more time to digest your ideas.</p>
       <p><i></i>Billing Method</p>
       <p>2000 yuan/hour, deposit 2000 yuan.</p>
-      <p>Reservation is subject to deposit, please pay the deposit and send Instagram to fill in the information required for tattoo.</p>
-      <span>BOOKING</span>
+      <p>Reservation is subject to deposit, please pay the deposit and send Instagram to fill in the information required
+        for tattoo.</p>
+      <span @click="engpush()">BOOKING</span>
       <div class="footIcon" @click="() => toTop()"></div>
     </div>
-      <van-popup v-model="show"><a href="weixin://" target="_blank"><img src="~@/assets/qr.jpg" style="width:300px;height:auto" alt=""/></a></van-popup>
+    <van-popup v-model="show"><a href="weixin://" target="_blank"><img src="~@/assets/qr.jpg"
+          style="width:300px;height:auto" alt="" /></a></van-popup>
 
   </div>
 </template>
@@ -76,26 +87,32 @@ import { Popup } from 'vant';
 import 'vant/lib/popup/style';
 Vue.use(Popup)
 export default {
-    name: 'APP',
-    data() {
-        return {
-          show:false
-        };
+  name: 'APP',
+  data() {
+    return {
+      show: false
+    };
+  },
+  methods: {
+    toTop() {
+      const appDom = document.getElementById('app');
+      appDom.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     },
-    methods: {
-        toTop() {
-            const appDom = document.getElementById('app');
-            appDom.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    },
-    created() {
-    },
-    mounted() {
-    },
-    components: { RouterLink }
+    engpush() {
+      this.$router.push(
+        { name: 'booking', params: { ty: 'en' } }
+      )
+    }
+  },
+
+  created() {
+  },
+  mounted() {
+  },
+  components: { RouterLink }
 }
 </script>
 <style lang="less" scoped>
@@ -104,18 +121,21 @@ export default {
 
 .main {
   width: 750px;
-  .link{
+
+  .link {
     float: right;
     display: flex;
     margin-right: 20px;
     flex-direction: column;
-    a{
+
+    a {
       font-size: 18px;
       margin-top: 20px;
       color: @fontcolor;
       text-align: right;
     }
   }
+
   .footIcon {
     background-image: url('~@/assets/homeFooter.jpg');
     width: 60px;
@@ -123,6 +143,7 @@ export default {
     position: relative;
     margin: 80px auto;
     background-size: cover;
+
     &::after {
       content: '';
       width: 100%;
@@ -162,7 +183,8 @@ export default {
       line-height: 40px;
       color: @fontcolor;
       align-items: flex-end;
-      a{
+
+      a {
         color: white;
       }
 
@@ -199,11 +221,13 @@ export default {
       border-bottom: 1px solid #111111;
     }
   }
- .ENG{
-  p{
-    font-size: 21px !important;
+
+  .ENG {
+    p {
+      font-size: 21px !important;
+    }
   }
- }
+
   .booktitle {
     text-align: center;
     font-size: 30px;
@@ -298,5 +322,4 @@ export default {
     }
   }
 
-}
-</style>
+}</style>
