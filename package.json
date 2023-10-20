@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
+    "emailjs-com": "^3.2.0",
     "html2canvas": "^1.4.1",
     "less": "^4.2.0",
     "less-loader": "^6.1.0",

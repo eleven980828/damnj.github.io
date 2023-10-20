@@ -125,7 +125,7 @@
         </div>
         <div class="threeimg">
           <div class="threeimgleft">
-            <el-image style="width: 50%;" :fit="fill"  :src="imgurl[48]" :preview-src-list="imgurl" lazy></el-image>
+            <el-image style="width: 50%;" fit="fill"  :src="imgurl[48]" :preview-src-list="imgurl" lazy></el-image>
             <div>
               <el-image style="width: 100%;"  :src="imgurl[49]" :preview-src-list="imgurl" lazy></el-image>
               <el-image style="width: 100%;"  :src="imgurl[50]" :preview-src-list="imgurl" lazy></el-image>
@@ -604,7 +604,7 @@ export default {
       margin-top: -15px;
       left: 20px;
       color: @fontcolor;
-      font-size: 40px;
+      font-size: 30px;
     }
   }
 }</style>

@@ -102,7 +102,7 @@ export default {
       margin-top: -15px;
       left: 20px;
       color: @fontcolor;
-      font-size: 40px;
+      font-size: 30px;
     }
   }
 }

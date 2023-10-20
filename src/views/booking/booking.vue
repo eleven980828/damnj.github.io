@@ -6,10 +6,10 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
-      <div class="bookingbut">{{ ty==='zh' ? '預訂' :'BOOKING' }}</div>
+      <div class="bookingbut">{{ ty === 'zh' ? '預訂' : 'BOOKING' }}</div>
 
-  
-      <div class="whitebg" v-if="ty==='zh'">
+
+      <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>
         <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
         <p>题材：</p>
@@ -32,20 +32,20 @@
         </div>
         <p>有无心脏病:</p>
         <div class="radio">
-          <i :style="{backgroundColor:isCardiopathy ? 'black' : 'transparent'}" @click="isCardiopathy=true"></i>
+          <i :style="{ backgroundColor: isCardiopathy ? 'black' : 'transparent' }" @click="isCardiopathy = true"></i>
           <p>是</p>
         </div>
         <div class="radio mb">
-          <i :style="{backgroundColor:isCardiopathy ? 'transparent' : 'black'}" @click="isCardiopathy=false"></i>
+          <i :style="{ backgroundColor: isCardiopathy ? 'transparent' : 'black' }" @click="isCardiopathy = false"></i>
           <p>否</p>
         </div>
         <p>需要预订周末时间:</p>
         <div class="radio">
-          <i :style="{backgroundColor:week ? 'black' : 'transparent'}" @click="week=true"></i>
+          <i :style="{ backgroundColor: week ? 'black' : 'transparent' }" @click="week = true"></i>
           <p>是</p>
         </div>
         <div class="radio mb">
-          <i :style="{backgroundColor:week ? 'transparent' : 'black'}" @click="week=false"></i>
+          <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
           <p>否</p>
         </div>
         <p>其他要求(选填):</p>
@@ -55,9 +55,10 @@
         <div class="copybut needsclick" @click="ensure()">确认无误，发送至邮件预订。</div>
       </div>
 
-      <div class="whitebg" v-if="ty==='en'">
+      <div class="whitebg" v-if="ty === 'en'">
         <span>Hello, thank you for your reservation.</span>
-        <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following information:</span>
+        <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following
+          information:</span>
         <p>Subject Matter:</p>
         <input type="text" v-model="mode">
         <p>Body part:</p>
@@ -73,25 +74,25 @@
             <p>Name:</p><input type="text" v-model="name">
           </div>
           <div>
-            <p>Age:</p><input type="number" v-model="age"> 
+            <p>Age:</p><input type="number" v-model="age">
           </div>
         </div>
         <p>Have heart disease:</p>
         <div class="radio">
-          <i :style="{backgroundColor:isCardiopathy ? 'black' : 'transparent'}" @click="isCardiopathy=true"></i>
+          <i :style="{ backgroundColor: isCardiopathy ? 'black' : 'transparent' }" @click="isCardiopathy = true"></i>
           <p>Yes</p>
         </div>
         <div class="radio mb">
-          <i :style="{backgroundColor:isCardiopathy ? 'transparent' : 'black'}" @click="isCardiopathy=false"></i>
+          <i :style="{ backgroundColor: isCardiopathy ? 'transparent' : 'black' }" @click="isCardiopathy = false"></i>
           <p>No</p>
         </div>
         <p>Need to book weekend time:</p>
         <div class="radio">
-          <i :style="{backgroundColor:week ? 'black' : 'transparent'}" @click="week=true"></i>
+          <i :style="{ backgroundColor: week ? 'black' : 'transparent' }" @click="week = true"></i>
           <p>Yes</p>
         </div>
         <div class="radio mb">
-          <i :style="{backgroundColor:week ? 'transparent' : 'black'}" @click="week=false"></i>
+          <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
           <p>No</p>
         </div>
         <p>Other requirements (optional):</p>
@@ -100,22 +101,23 @@
         <input type="text" v-model="social">
         <div class="copybut needsclick" @click="ensure()">Confirm and send to email booking.</div>
       </div>
-      
-      <van-popup v-model="show" v-if="ty==='zh'">
+
+      <van-popup v-model="show" v-if="ty === 'zh'">
         <div class="fill">
-          <h3>填写成功</h3>
-          <p>请确保您预留的社交账号可以联系到您<br/>我会在24小时内回复</p>
-          <span>填写有误，返回修改。</span>
-          <span @click="sendemil()">确认发送</span>
+            <h3>填写成功</h3>
+            <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
+            <span>填写有误，返回修改。</span>
+            <span @click="issend ? '' : sendemil()">{{issend ? '已发送' : '确认发送' }}</span>
         </div>
       </van-popup>
-      
-      <van-popup v-model="show" v-if="ty==='en'">
+
+      <van-popup v-model="show" v-if="ty === 'en'">
         <div class="fill en">
           <h3>Fill in successfully</h3>
-          <p>Make sure you can be reached by the social<br/>media account you have set up<br/>'ll respond within 24 hours</p>
+          <p>Make sure you can be reached by the social<br />media account you have set up<br />'ll respond within 24
+            hours</p>
           <span>This parameter is incorrect. Return to modify it.</span>
-          <span>Do send</span>
+          <span @click="issend ? '' : sendemil()">{{issend ? 'has been sent ' : 'Confirm sending' }}</span>
         </div>
       </van-popup>
 
@@ -125,10 +127,12 @@
 
 <script>
 import html2canvas from 'html2canvas'
+import emailjs from 'emailjs-com'
 import '../../utils/smtp.js'
 export default {
-  created(){
-    this.ty= this.$route.params.ty ? this.$route.params.ty : 'zh'
+  created() {
+    this.ty = this.$route.params.ty ? this.$route.params.ty : 'zh'
+    console.log(emailjs)
   },
   data() {
     return {
@@ -141,41 +145,27 @@ export default {
       isCardiopathy: false,
       week: false,
       tips: "",
-      social:'',
+      social: '',
       imGurl: "",
       show: false,
-      radio:1,
-      ty:'zh'
+      radio: 1,
+      ty: 'zh',
+      issend:false
     }
   },
   mounted() {
+    const checktime=localStorage.getItem('time')
+      if(checktime){
+        const nowtime=new Date().getTime()
+        if(checktime>nowtime){
+          this.issend=true
+          return
+        }
+      }
   },
   methods: {
     copy() {
-      // if(!this.mode){
-      //   this.$message('请填写题材')
-      //   return
-      // }
-      // if(!this.location){
-      //   this.$message('请填写部位')
-      //   return
-      // }
-      // if(!this.age){
-      //   this.$message('请填写年龄')
-      //   return
-      // }
-      // if(!this.high){
-      //   this.$message('请填写身高')
-      //   return
-      // }
-      // if(!this.weight){
-      //   this.$message('请填写体重')
-      //   return
-      // }
-      // if(!this.name){
-      //   this.$message('请填写称呼')
-      //   return
-      // }
+      
       const el = document.getElementById('testhidd')
       console.log(el.getBoundingClientRect())
 
@@ -199,22 +189,53 @@ export default {
         behavior: 'smooth'
       });
     },
-    ensure(){
-      this.show=true
+    ensure() {
+      if(!this.mode){
+        this.$message(this.ty==='zh' ? '请填写题材' : 'Please fill in the subject matter')
+        return
+      }
+      if(!this.location){
+        this.$message(this.ty==='zh' ? '请填写部位' : 'Please fill in the location')
+        return
+      }
+      if(!this.high){
+        this.$message(this.ty==='zh' ? '请填写身高' : 'Please fill in the height')
+        return
+      }
+      if(!this.weight){
+        this.$message(this.ty==='zh' ? '请填写体重' : 'Please fill in the weight')
+        return
+      }
+      if(!this.name){
+        this.$message(this.ty==='zh' ? '请填写称呼' : 'Please fill in your name')
+        return
+      }
+      if(!this.age){
+        this.$message(this.ty==='zh' ? '请填写年龄' : 'Please fill in the age')
+        return
+      }
+      if(!this.social){ 
+        this.$message(this.ty==='zh' ? '请填写微信' : 'Please fill in your Instagram account')
+        return
+      }
+      this.show = true
     },
     sendemil(){
-      Email.send({
-        Host : "smtp.elasticemail.com",
-        SecureToken:'53EE1987F6562C74B4D94DE21FE2B923E22E',
-        Username:'anttoonline',
-        Password:"WZWMQGUGGEXTMYEH",
-        Port:'2525',
-        To : '473645962@qq.com',
-        From : "anttoonline@163.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"
-      }).then(res=>{
-        console.log(res)
+      const checktime=localStorage.getItem('time')
+      if(checktime){
+        const nowtime=new Date().getTime()
+        if(checktime>nowtime){
+          this.$message(this.ty==='zh' ? '您已提交过，请稍后再试' : 'You have already submitted it. Please try again later')
+          return
+        }
+      }
+      emailjs.send('service_tzq4tgc', 'template_z163sbe', {name:this.name,mode:this.mode,location:this.location,high:this.high,weight:this.weight,age:this.age,isCardiopathy:this.isCardiopathy ? '是' : '否',week:this.week ? '是' : '否',tips:this.tips,social:this.ty==='zh' ? '微信:'+this.social : 'Instagram:'+this.social},'efGrq8haGJ6-tGyBS').then((res) => {
+        this.$message.success(this.ty==='zh' ? '发送成功！' : 'Successfully sent!')
+        const time=new Date().getTime()+86400000
+        localStorage.setItem('time',time)
+        this.issend=true
+      }, (errpr) => {
+        console.log(errpr)
       })
     }
   }
@@ -228,24 +249,27 @@ export default {
 /deep/.van-popup {
   background-color: black;
 }
-.fill{
+
+.fill {
   width: 90vw;
   height: 900px;
   color: white;
   padding-top: 170px;
   background-color: black;
   border: 1px solid white;
-  
-  h3{
+
+  h3 {
     font-size: 35px;
     font-weight: normal;
     margin-bottom: 60px;
   }
-  p{
+
+  p {
     font-size: 20px;
     margin-bottom: 200px;
   }
-  span{
+
+  span {
     margin: 0 auto;
     width: 50%;
     display: block;
@@ -256,35 +280,70 @@ export default {
     background-color: white;
     font-size: 20px;
   }
-}
-.en{
-    span{
-      width: 70% !important;
+
+  input {
+    // visibility: hidden;
+    visibility: visible;
+      margin: 0 auto;
+      width: 50%;
+      display: block;
+      height: 40px;
+      color: black;
+      margin-bottom: 30px;
+      line-height: 40px;
+      background-color: white;
+      font-size: 20px;
+
+    &:last-of-type {
+      visibility: visible;
+      margin: 0 auto;
+      width: 50%;
+      display: block;
+      height: 40px;
+      color: black;
+      margin-bottom: 30px;
+      line-height: 40px;
+      background-color: white;
+      font-size: 20px;
     }
   }
+}
+
+.en {
+  span {
+    width: 70% !important;
+  }
+}
+
 .main {
   text-align: start;
-  .mb{
+
+  .mb {
     margin-bottom: 40px;
   }
-  .radio{
+
+  .radio {
     display: flex;
     align-items: center;
-    .black{
+
+    .black {
       background-color: black;
     }
-    i{
+
+    i {
       border-radius: 50%;
       border: 1px solid black;
       width: 25px;
       height: 25px;
       margin-right: 10px;
     }
-    p{
+
+    p {
       display: inline-block;
       font-size: 25px;
     }
   }
+
   .whitebg {
     width: 90%;
     background-color: white;
@@ -294,14 +353,15 @@ export default {
     margin-top: 60px;
     margin-bottom: 60px;
     font-size: 23px;
-    
-    textarea{
+
+    textarea {
       width: 100%;
       border-radius: 0;
       resize: none;
       height: 150px;
       border: 1px solid black;
     }
+
     .fourdiv {
       display: flex;
       justify-content: space-between;
@@ -311,6 +371,7 @@ export default {
 
         p {
           text-align: start;
+          white-space: nowrap;
         }
       }
 
@@ -481,6 +542,6 @@ export default {
     margin-top: -15px;
     left: 20px;
     color: @fontcolor;
-    font-size: 40px;
+    font-size: 30px;
   }
 }</style>
