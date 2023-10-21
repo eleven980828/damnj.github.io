@@ -6,7 +6,7 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
-      <div class="bookingbut">{{ ty === 'zh' ? '預訂' : 'BOOKING' }}</div>
+      <div class="bookingbut">{{ ty === 'zh' ? '预定' : 'BOOKING' }}</div>
 
 
       <div class="whitebg" v-if="ty === 'zh'">
@@ -52,7 +52,7 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick" @click="ensure()">确认无误，发送至邮件预订。</div>
+        <div class="copybut needsclick"  @click="issend ? '' : sendemil()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}</div>
       </div>
 
       <div class="whitebg" v-if="ty === 'en'">
@@ -99,10 +99,10 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick" @click="ensure()">Confirm and send to email booking.</div>
+        <div class="copybut needsclick"  @click="issend ? '' : sendemil()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
       </div>
 
-      <van-popup v-model="show" v-if="ty === 'zh'">
+      <!-- <van-popup v-model="show" v-if="ty === 'zh'">
         <div class="fill">
             <h3>填写成功</h3>
             <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
@@ -119,7 +119,7 @@
           <span>This parameter is incorrect. Return to modify it.</span>
           <span @click="issend ? '' : sendemil()">{{issend ? 'has been sent ' : 'Confirm sending' }}</span>
         </div>
-      </van-popup>
+      </van-popup> -->
 
     </div>
   </div>
@@ -190,6 +190,9 @@ export default {
       });
     },
     ensure() {
+      
+    },
+    sendemil(){
       if(!this.mode){
         this.$message(this.ty==='zh' ? '请填写题材' : 'Please fill in the subject matter')
         return
@@ -218,9 +221,6 @@ export default {
         this.$message(this.ty==='zh' ? '请填写微信' : 'Please fill in your Instagram account')
         return
       }
-      this.show = true
-    },
-    sendemil(){
       const checktime=localStorage.getItem('time')
       if(checktime){
         const nowtime=new Date().getTime()

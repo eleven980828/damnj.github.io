@@ -93,7 +93,22 @@ export default {
       show: false
     };
   },
+  mounted() {
+    const appDom = document.getElementById('app');
+    console.log(this.$store.state.scrollVal)
+    if(this.$store.state.scrollVal){
+      appDom.scrollTo({
+      top: this.$store.state.scrollVal,
+      behavior: 'instant'
+    });
+    }
+  },
   methods: {
+    scrolltop(){
+      const appDom = document.getElementById('app');
+      console.log(appDom.scrollTop)
+      return appDom.scrollTop
+    },
     toTop() {
       const appDom = document.getElementById('app');
       appDom.scrollTo({
@@ -102,15 +117,12 @@ export default {
       });
     },
     engpush() {
+      const appDom = document.getElementById('app');
+      this.$store.state.scrollVal=appDom.scrollTop
       this.$router.push(
         { name: 'booking', params: { ty: 'en' } }
       )
     }
-  },
-
-  created() {
-  },
-  mounted() {
   },
   components: { RouterLink }
 }
@@ -322,4 +334,5 @@ export default {
     }
   }
 
-}</style>
+}
+</style>
