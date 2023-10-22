@@ -9,8 +9,8 @@
       <h3>文身预订与行程安排<br />Tattoo booking and travel plan<br />(2023-2025)</h3>
       <div class="time">
         <span>2023年:</span>
-        <p>尼泊尔加德满都11月<br />Kathmandu Nov.2023</p>
-        <p>泰国清迈11月<br />Chiangmai Nov.2023</p>
+        <p>尼泊尔加德满都11月<i>(已满)</i><br />Kathmandu Nov.2023<i>(Bookings closed)</i></p>
+        <p>泰国清迈11月<i>(已满)</i><br />Chiangmai Nov.2023<i>(Bookings closed)</i></p>
       </div>
       <div class="time">
         <span>2024年:</span>

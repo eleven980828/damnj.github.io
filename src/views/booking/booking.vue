@@ -6,7 +6,7 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
-      <div class="bookingbut">{{ ty === 'zh' ? '预定' : 'BOOKING' }}</div>
+      <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div>
 
 
       <div class="whitebg" v-if="ty === 'zh'">
@@ -52,7 +52,7 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick"  @click="issend ? '' : sendemil()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}</div>
+        <div class="copybut needsclick"  @click="issend ? sent() : ensure()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}</div>
       </div>
 
       <div class="whitebg" v-if="ty === 'en'">
@@ -99,14 +99,14 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick"  @click="issend ? '' : sendemil()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
+        <div class="copybut needsclick"  @click="issend ? sent() : ensure()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
       </div>
 
-      <!-- <van-popup v-model="show" v-if="ty === 'zh'">
+      <van-popup v-model="show" v-if="ty === 'zh'">
         <div class="fill">
             <h3>填写成功</h3>
             <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
-            <span>填写有误，返回修改。</span>
+            <span @click="show=false">填写有误，返回修改。</span>
             <span @click="issend ? '' : sendemil()">{{issend ? '已发送' : '确认发送' }}</span>
         </div>
       </van-popup>
@@ -116,10 +116,10 @@
           <h3>Fill in successfully</h3>
           <p>Make sure you can be reached by the social<br />media account you have set up<br />'ll respond within 24
             hours</p>
-          <span>This parameter is incorrect. Return to modify it.</span>
+          <span @click="show=false">This parameter is incorrect. Return to modify it.</span>
           <span @click="issend ? '' : sendemil()">{{issend ? 'has been sent ' : 'Confirm sending' }}</span>
         </div>
-      </van-popup> -->
+      </van-popup>
 
     </div>
   </div>
@@ -164,6 +164,9 @@ export default {
       }
   },
   methods: {
+    sent(){
+      this.$message.error(this.ty==='zh' ? '已经发送，请耐心等待' : 'It has been sent. Please be patient')
+    },
     copy() {
       
       const el = document.getElementById('testhidd')
@@ -190,9 +193,6 @@ export default {
       });
     },
     ensure() {
-      
-    },
-    sendemil(){
       if(!this.mode){
         this.$message(this.ty==='zh' ? '请填写题材' : 'Please fill in the subject matter')
         return
@@ -221,6 +221,10 @@ export default {
         this.$message(this.ty==='zh' ? '请填写微信' : 'Please fill in your Instagram account')
         return
       }
+      this.show=true
+    },
+    sendemil(){
+      
       const checktime=localStorage.getItem('time')
       if(checktime){
         const nowtime=new Date().getTime()
@@ -230,12 +234,14 @@ export default {
         }
       }
       emailjs.send('service_tzq4tgc', 'template_z163sbe', {name:this.name,mode:this.mode,location:this.location,high:this.high,weight:this.weight,age:this.age,isCardiopathy:this.isCardiopathy ? '是' : '否',week:this.week ? '是' : '否',tips:this.tips,social:this.ty==='zh' ? '微信:'+this.social : 'Instagram:'+this.social},'efGrq8haGJ6-tGyBS').then((res) => {
+        this.show=false
         this.$message.success(this.ty==='zh' ? '发送成功！' : 'Successfully sent!')
         const time=new Date().getTime()+86400000
         localStorage.setItem('time',time)
         this.issend=true
       }, (errpr) => {
         console.log(errpr)
+        this.$message.error(this.ty==='zh' ? '发送失败,请稍后再试' : 'Failed to send, please try again later')
       })
     }
   }
@@ -275,7 +281,7 @@ export default {
     display: block;
     height: 40px;
     color: black;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     line-height: 40px;
     background-color: white;
     font-size: 20px;

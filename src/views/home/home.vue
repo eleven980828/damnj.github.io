@@ -65,7 +65,7 @@
         ideas required for the appointment, thank you for your trust.</p>
       <p><i></i>Booking Time</p>
       <p>For domestic bookings, please book 9-12 months in advance.<br />For bookings from other countries, please combine
-        my travel information.</p>
+        my travel information.<br/><a @click="$goto('tripPlane')">「Click to view travel information」</a></p>
       <p>The sooner the appointment is made, the better. My tattoo design needs to be communicated by both parties, and I
         also need more time to digest your ideas.</p>
       <p><i></i>Billing Method</p>
@@ -223,6 +223,9 @@ export default {
 
       &:nth-of-type(10) {
         margin-bottom: 60px;
+      }
+      &:nth-of-type(9) {
+        display: inline-block;
       }
 
     }
