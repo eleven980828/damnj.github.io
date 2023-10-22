@@ -18,6 +18,7 @@
         <span @click="$goto('tattoo')">文身 Tattoo</span>
         <span @click="$goto('tripPlane')">差旅信息 Travel plan</span> -->
         <span @click="$goto('works')">作品集Works</span>
+        <span @click="scrollBooking()">预订Booking</span>
       </div>
       <div class="homebg">
         <div>
@@ -29,7 +30,7 @@
     </div>
 
     <div class="outLine bookmain ">
-      <div class="booktitle"><span>·</span> BOOKING 预订信息 <span>·</span></div>
+      <div class="booktitle" id="booktitle"><span>·</span> BOOKING 预订信息 <span>·</span></div>
       <p>您好</p>
       <p>感谢您对我的文身作品感兴趣，为方便沟通，麻烦仔细阅读。</p>
       <div class="bookline"></div>
@@ -37,14 +38,14 @@
       <p>推荐来自东方的内容，比如《山海经》是我大多数创作的灵感来源。<br />当然，通过沟通，共同创造一个新概念的题材也可以。</p>
       <p>*注:不定期发布的手绘画，非文身手稿，是为了从文身以外的方式,来分享本人的创作风格提供参考。</p>
       <p><i></i>制作方式</p>
-      <p>文身均为现场设计(根据承载者的身体结构进行手绘)<br />除极少见题材，一般不会提前绘制画稿。<br />进行文身前，会提供预约所需的设计思路,，感谢信任。</p>
+      <p>文身均为现场设计(根据承载者的身体结构进行手绘)<br />除极少见题材，一般不会提前绘制画稿。<br />进行文身前，会提供预约所需的设计思路,感谢信任。</p>
       <p><i></i>预订时间</p>
       <p>国内的预订，请提前9-12个月预约。<br />其他国家的预订，请结合差旅信息预订名额。<a @click="$goto('tripPlane')">「点击查看差旅信息」</a></p>
       <p>预约越提前越好，我的文身设计是需要双方沟通出来的，而我也需要更多的时间来消化您的想法。</p>
       <p><i></i>计费方式</p>
       <p>2000元/小时，定金2000元。</p>
       <p>预订以定金为准，请支付定金后，发送微信填写文身所需资料。</p>
-      <span @click="$goto('booking')">进行预定</span>
+      <span @click="$goto('booking')">进行预订</span>
     </div>
 
     <!-- english -->
@@ -94,6 +95,7 @@ export default {
     };
   },
   mounted() {
+    
     const appDom = document.getElementById('app');
     console.log(this.$store.state.scrollVal)
     if(this.$store.state.scrollVal){
@@ -108,6 +110,15 @@ export default {
       const appDom = document.getElementById('app');
       console.log(appDom.scrollTop)
       return appDom.scrollTop
+    },
+    scrollBooking(){
+      const appDom = document.getElementById('app');
+      const bookingtitle = document.getElementById('booktitle');
+      console.log(bookingtitle.scrollTop)
+      appDom.scrollTo({
+        top:bookingtitle.getBoundingClientRect().top + window.pageYOffset,
+        behavior:'smooth'
+      })
     },
     toTop() {
       const appDom = document.getElementById('app');
