@@ -48,11 +48,17 @@
           <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
           <p>否</p>
         </div>
+        <p>选择预约地点 </p>
+        <select name="area" v-model="area" id="" class="sele">
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.zh }}</option>
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.zh }}</option>
+        </select>
         <p>其他要求(选填):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick"  @click="issend ? sent() : ensure()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}</div>
+        <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}
+        </div>
       </div>
 
       <div class="whitebg" v-if="ty === 'en'">
@@ -95,19 +101,25 @@
           <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
           <p>No</p>
         </div>
+        <p>Select an appointment location </p>
+        <select name="area" v-model="area" id="" class="sele">
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.area }}</option>
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.area }}</option>
+        </select>
         <p>Other requirements (optional):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
         <input type="text" v-model="social">
-        <div class="copybut needsclick"  @click="issend ? sent() : ensure()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
+        <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
       </div>
 
       <van-popup v-model="show" v-if="ty === 'zh'">
         <div class="fill">
-            <h3>填写成功</h3>
-            <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
-            <span @click="show=false">填写有误，返回修改。</span>
-            <span @click="issend ? '' : sendemil()">{{issend ? '已发送' : '确认发送' }}</span>
+          <h3>填写成功</h3>
+          <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
+          <span @click="show = false">填写有误，返回修改。</span>
+          <span v-show="!sending" @click="issend ? '' : sendemil()">{{ issend ? '已发送' : '确认发送' }}</span>
+          <span v-show="sending"><i class="el-icon-loading"></i>正在发送中... </span>
         </div>
       </van-popup>
 
@@ -116,8 +128,10 @@
           <h3>Fill in successfully</h3>
           <p>Make sure you can be reached by the social<br />media account you have set up<br />'ll respond within 24
             hours</p>
-          <span @click="show=false">This parameter is incorrect. Return to modify it.</span>
-          <span @click="issend ? '' : sendemil()">{{issend ? 'has been sent ' : 'Confirm sending' }}</span>
+          <span @click="show = false">This parameter is incorrect. Return to modify it.</span>
+          <span v-show="!sending" @click="issend ? '' : sendemil()">{{ issend ? 'has been sent ' : 'Confirm sending'
+          }}</span>
+          <span v-show="sending"><i class="el-icon-loading"></i>Being sent... </span>
         </div>
       </van-popup>
 
@@ -132,7 +146,6 @@ import '../../utils/smtp.js'
 export default {
   created() {
     this.ty = this.$route.params.ty ? this.$route.params.ty : 'zh'
-    console.log(emailjs)
   },
   data() {
     return {
@@ -150,25 +163,28 @@ export default {
       show: false,
       radio: 1,
       ty: 'zh',
-      issend:false
+      issend: false,
+      sending: false,
+      area:''
+    
     }
   },
   mounted() {
-    const checktime=localStorage.getItem('time')
-      if(checktime){
-        const nowtime=new Date().getTime()
-        if(checktime>nowtime){
-          this.issend=true
-          return
-        }
+    const checktime = localStorage.getItem('time')
+    if (checktime) {
+      const nowtime = new Date().getTime()
+      if (checktime > nowtime) {
+        this.issend = true
+        return
       }
+    }
   },
   methods: {
-    sent(){
-      this.$message.error(this.ty==='zh' ? '已经发送，请耐心等待' : 'It has been sent. Please be patient')
+    sent() {
+      this.$message.error(this.ty === 'zh' ? '已经发送，请耐心等待' : 'It has been sent. Please be patient')
     },
     copy() {
-      
+
       const el = document.getElementById('testhidd')
       console.log(el.getBoundingClientRect())
 
@@ -193,55 +209,62 @@ export default {
       });
     },
     ensure() {
-      if(!this.mode){
-        this.$message(this.ty==='zh' ? '请填写题材' : 'Please fill in the subject matter')
+      if (!this.mode) {
+        this.$message(this.ty === 'zh' ? '请填写题材' : 'Please fill in the subject matter')
         return
       }
-      if(!this.location){
-        this.$message(this.ty==='zh' ? '请填写部位' : 'Please fill in the location')
+      if (!this.location) {
+        this.$message(this.ty === 'zh' ? '请填写部位' : 'Please fill in the location')
         return
       }
-      if(!this.high){
-        this.$message(this.ty==='zh' ? '请填写身高' : 'Please fill in the height')
+      if (!this.high) {
+        this.$message(this.ty === 'zh' ? '请填写身高' : 'Please fill in the height')
         return
       }
-      if(!this.weight){
-        this.$message(this.ty==='zh' ? '请填写体重' : 'Please fill in the weight')
+      if (!this.weight) {
+        this.$message(this.ty === 'zh' ? '请填写体重' : 'Please fill in the weight')
         return
       }
-      if(!this.name){
-        this.$message(this.ty==='zh' ? '请填写称呼' : 'Please fill in your name')
+      if (!this.name) {
+        this.$message(this.ty === 'zh' ? '请填写称呼' : 'Please fill in your name')
         return
       }
-      if(!this.age){
-        this.$message(this.ty==='zh' ? '请填写年龄' : 'Please fill in the age')
+      if (!this.age) {
+        this.$message(this.ty === 'zh' ? '请填写年龄' : 'Please fill in the age')
         return
       }
-      if(!this.social){ 
-        this.$message(this.ty==='zh' ? '请填写微信' : 'Please fill in your Instagram account')
+      if (!this.area) {
+        this.$message(this.ty === 'zh' ? '请选择地区' : 'Please select a region')
         return
       }
-      this.show=true
-    },
-    sendemil(){
+      if (!this.social) {
+        this.$message(this.ty === 'zh' ? '请填写微信' : 'Please fill in your Instagram account')
+        return
+      }
       
-      const checktime=localStorage.getItem('time')
-      if(checktime){
-        const nowtime=new Date().getTime()
-        if(checktime>nowtime){
-          this.$message(this.ty==='zh' ? '您已提交过，请稍后再试' : 'You have already submitted it. Please try again later')
+      this.show = true
+    },
+    sendemil() {
+      this.sending = true
+      const checktime = localStorage.getItem('time')
+      if (checktime) {
+        const nowtime = new Date().getTime()
+        if (checktime > nowtime) {
+          this.$message(this.ty === 'zh' ? '您已提交过，请稍后再试' : 'You have already submitted it. Please try again later')
           return
         }
       }
-      emailjs.send('service_tzq4tgc', 'template_z163sbe', {name:this.name,mode:this.mode,location:this.location,high:this.high,weight:this.weight,age:this.age,isCardiopathy:this.isCardiopathy ? '是' : '否',week:this.week ? '是' : '否',tips:this.tips,social:this.ty==='zh' ? '微信:'+this.social : 'Instagram:'+this.social},'efGrq8haGJ6-tGyBS').then((res) => {
-        this.show=false
-        this.$message.success(this.ty==='zh' ? '发送成功！' : 'Successfully sent!')
-        const time=new Date().getTime()+86400000
-        localStorage.setItem('time',time)
-        this.issend=true
+      emailjs.send('service_tzq4tgc', 'template_z163sbe', { name: this.name, mode: this.mode, location: this.location, high: this.high, weight: this.weight, age: this.age, isCardiopathy: this.isCardiopathy ? '是' : '否', week: this.week ? '是' : '否',area:this.area, tips: this.tips, social: this.ty === 'zh' ? '微信:' + this.social : 'Instagram:' + this.social }, 'efGrq8haGJ6-tGyBS').then((res) => {
+        this.show = false
+        this.$message.success(this.ty === 'zh' ? '发送成功！' : 'Successfully sent!')
+        const time = new Date().getTime() + 86400000
+        localStorage.setItem('time', time)
+        this.issend = true
+        this.sending = false
       }, (errpr) => {
+        this.sending = false
         console.log(errpr)
-        this.$message.error(this.ty==='zh' ? '发送失败,请稍后再试' : 'Failed to send, please try again later')
+        this.$message.error(this.ty === 'zh' ? '发送失败,请稍后再试' : 'Failed to send, please try again later')
       })
     }
   }
@@ -256,6 +279,19 @@ export default {
   background-color: black;
 }
 
+.sele{
+  width: 100%;
+  color: black;
+  border-radius: 0px;
+  font-size: 25px;
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
+.sele:focus{
+  outline: none;
+}
 .fill {
   width: 90vw;
   height: 900px;
@@ -285,20 +321,25 @@ export default {
     line-height: 40px;
     background-color: white;
     font-size: 20px;
+
+    i {
+      font-size: 20px;
+      color: black;
+    }
   }
 
   input {
     // visibility: hidden;
     visibility: visible;
-      margin: 0 auto;
-      width: 50%;
-      display: block;
-      height: 40px;
-      color: black;
-      margin-bottom: 30px;
-      line-height: 40px;
-      background-color: white;
-      font-size: 20px;
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+    height: 40px;
+    color: black;
+    margin-bottom: 30px;
+    line-height: 40px;
+    background-color: white;
+    font-size: 20px;
 
     &:last-of-type {
       visibility: visible;
@@ -550,4 +591,5 @@ export default {
     color: @fontcolor;
     font-size: 30px;
   }
-}</style>
+}
+</style>

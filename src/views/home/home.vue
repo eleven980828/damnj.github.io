@@ -40,11 +40,11 @@
       <p><i></i>制作方式</p>
       <p>文身均为现场设计(根据承载者的身体结构进行手绘)<br />除极少见题材，一般不会提前绘制画稿。<br />进行文身前，会提供预约所需的设计思路,感谢信任。</p>
       <p><i></i>预订时间</p>
-      <p>国内的预订，请提前9-12个月预约。<br />其他国家的预订，请结合差旅信息预订名额。<a @click="$goto('tripPlane')">「点击查看差旅信息」</a></p>
+      <p>请点击<a @click="$goto('tripPlane')">「差旅信息」</a>查看可预订时间和地点</p>
       <p>预约越提前越好，我的文身设计是需要双方沟通出来的，而我也需要更多的时间来消化您的想法。</p>
       <p><i></i>计费方式</p>
       <p>2000元/小时，定金2000元。</p>
-      <p>预订以定金为准，请支付定金后，发送微信填写文身所需资料。</p>
+      <!-- <p>预订以定金为准，请支付定金后，发送微信填写文身所需资料。</p> -->
       <span @click="$goto('booking')">进行预订</span>
     </div>
 
@@ -65,19 +65,27 @@
         very few subjects, drawings are not usually drawn in advance.<br />Before the tattoo, we will provide the design
         ideas required for the appointment, thank you for your trust.</p>
       <p><i></i>Booking Time</p>
-      <p>For domestic bookings, please book 9-12 months in advance.<br />For bookings from other countries, please combine
-        my travel information.<br/><a @click="$goto('tripPlane')">「Click to view travel information」</a></p>
+      <p>please click<a @click="$goto('tripPlane')">「Travel Information」</a>to see when and where you can book</p>
       <p>The sooner the appointment is made, the better. My tattoo design needs to be communicated by both parties, and I
         also need more time to digest your ideas.</p>
       <p><i></i>Billing Method</p>
       <p>2000 yuan/hour, deposit 2000 yuan.</p>
-      <p>Reservation is subject to deposit, please pay the deposit and send Instagram to fill in the information required
-        for tattoo.</p>
+      <!-- <p>Reservation is subject to deposit, please pay the deposit and send Instagram to fill in the information required
+        for tattoo.</p> -->
       <span @click="engpush()">BOOKING</span>
-      <div class="footIcon" @click="() => toTop()"></div>
+      <div class="footIcon" ref="reference" @click="() => toTop()"></div>
     </div>
-    <van-popup v-model="show"><a href="weixin://" target="_blank"><img src="~@/assets/qr.jpg"
-          style="width:300px;height:auto" alt="" /></a></van-popup>
+    <van-popup v-model="show">
+      <!-- <a href="weixin://" target="_blank"><img src="~@/assets/qr.jpg" style="width:300px;height:auto" alt="" /></a> -->
+      <div class="wechat">
+        <i class="el-icon-close" @click="show=false"></i>
+        <p>微信号(WeChat ID): <i @click="copy()">anttoxaxa</i></p>
+        <p>点击微信号，即可复制。</p>
+        <p>请至微信添加我为好友。</p>
+        <p>Click WeChat ID,can copy number.</p>
+        <p>Plegse to WeChat to add me.</p>
+      </div>
+    </van-popup>
 
   </div>
 </template>
@@ -106,6 +114,24 @@ export default {
     }
   },
   methods: {
+    copy(){
+      const storage = document.createElement('textarea');
+      storage.value = 'anttoxaxa';
+      this.$refs.reference.appendChild(storage);
+      storage.select();
+      storage.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      this.$refs.reference.removeChild(storage);
+      // this.show=false;
+        this.$message({
+        message:'复制成功！ Copy successfully!',
+        duration:1500,
+        type:'success'
+      });
+      // setTimeout(() => {
+      //   window.open('weixin://','_blank')
+      // }, 1500);
+    },
     scrolltop(){
       const appDom = document.getElementById('app');
       console.log(appDom.scrollTop)
@@ -142,9 +168,48 @@ export default {
 @basecolor: #cfcfcf;
 @fontcolor: #aaaaaa;
 
+/deep/.el-message{
+  z-index: 2022 !important;
+}
+/deep/.van-overlay{
+  z-index: 1999 !important;
+}
 .main {
   width: 750px;
+  .wechat{
+    width: 500px;
+    height: 500px;
+    color: black;
+    padding-top: 130px;
+    background-color: white;
+    text-align: start;
+    padding-left: 90px;
+    position: relative;
+    >i{
+      position: absolute;
+      font-size: 32px;
+      right: 10px;
+      top: 10px;
+    }
+    p{
+      font-size: 23px;
+      display: inline-block;
+    text-align: start;
+    &:first-of-type{
+      margin-bottom: 50px;
+    }
+    &:nth-of-type(3){
+      margin-bottom: 20px;
+    }
 
+      i{
+        text-decoration: underline;
+        font-weight: 600;
+        font-size: 25px;
+        margin-left: 20px;
+      }
+    }
+  }
   .link {
     float: right;
     display: flex;
