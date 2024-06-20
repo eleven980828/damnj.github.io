@@ -52,6 +52,7 @@
         <select name="area" v-model="area" id="" class="sele">
           <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.zh }}</option>
           <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.zh }}</option>
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[2].details" v-if="item.isOpen">{{'2026'+' '+ item.zh }}</option>
         </select>
         <p>其他要求(选填):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
@@ -105,6 +106,7 @@
         <select name="area" v-model="area" id="" class="sele">
           <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.area }}</option>
           <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.area }}</option>
+          <option :value="item.zh" v-for="(item,index) in $store.state.trip[2].details" v-if="item.isOpen">{{'2026'+' '+ item.area }}</option>
         </select>
         <p>Other requirements (optional):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
@@ -170,6 +172,12 @@ export default {
     }
   },
   mounted() {
+    console.log('this.$store.state.tripsSec')
+    const appDom = document.getElementById('app');
+    appDom.scrollTo({
+        top: 0,
+        behavior: 'auto'
+      });
     const checktime = localStorage.getItem('time')
     if (checktime) {
       const nowtime = new Date().getTime()

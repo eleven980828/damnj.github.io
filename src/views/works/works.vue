@@ -23,10 +23,11 @@
             </span>
           </div>
         </div>
-        <div class="video">
+        <!-- <div class="video">
           <video src="~@/assets/introduce.mp4" controls webkit-playsinline playsinline poster="~@/assets/videoBg.png"></video>
-        </div>
+        </div> -->
         <div class="lazy">
+          <el-image style="width: 100%;" :src="imgurl[81]" :preview-src-list="imgurl" lazy></el-image>
           <el-image style="width: 100%;" :src="imgurl[0]" :preview-src-list="imgurl" lazy></el-image>
           <div class="speimg1">
             <el-image style="width: 30%; margin-right: 10%;" :src="imgurl[1]" :preview-src-list="imgurl" lazy></el-image>
@@ -123,7 +124,7 @@
           <el-image style="width: 50%;"  :src="imgurl[46]" :preview-src-list="imgurl" lazy></el-image>
           <el-image style="width: 50%;"  :src="imgurl[47]" :preview-src-list="imgurl" lazy></el-image>
         </div>
-        <div class="threeimg">
+        <!-- <div class="threeimg">
           <div class="threeimgleft">
             <el-image style="width: 50%;" fit="fill"  :src="imgurl[48]" :preview-src-list="imgurl" lazy></el-image>
             <div>
@@ -191,7 +192,7 @@
         <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[79]" :preview-src-list="imgurl" lazy></el-image>
         <div class="right">
             <el-image style="width: 50%;" :src="imgurl[80]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
+        </div> -->
       </div>
         
       </div>
@@ -202,9 +203,11 @@
         
       </div>
       <div class="homebg">
-        <p>所有作品为2020-2023年阶段创作，均已出售，仅作展示。</p>
-        <p>禁止任何抄袭及盗用，违者必究。</p>
-        <p>商业合作请联系: 86-17610888007 陈先生</p>
+        <p>The works on this page were created in 2022-2023 </br>Thank you for browsing</p>
+        <p>For more information, please contact Instagram: anttoxaxa</p>
+
+        <p>本页作品创作时间为2022-2023年</br>感谢您的浏览</p>
+        <p>相关事宜请联系微信：anttoxaxa</p>
       </div>
     </div>
   </div>
@@ -296,7 +299,7 @@ export default {
       require('@/assets/works/w78.jpg'),
       require('@/assets/works/w79.jpg'),
       require('@/assets/works/w80.jpg'),
-
+      require('@/assets/works/new2024-3-30.jpg'),
       ]
     };
   },
