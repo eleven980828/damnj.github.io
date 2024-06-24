@@ -9,205 +9,25 @@
 
       <div class="midbut">
         <div class="works">
-          <span>作品集</span>
-          <span>works</span>
+          <span>插画作品</span>
+          <!-- <span>works</span> -->
         </div>
         <p>更多作品更新，请跳转至 <a href="https://instagram.com/anttoxaxa?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">Instagram </a> 或 <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1696686102">小红书</a> 进行浏览</p>
         <p>For more works,please jump to <a href="https://instagram.com/anttoxaxa?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">lnstagram</a>.</p>
         <div class="antoo">
-          <img src="~@/assets/works/first.jpg" alt="">
-          <div class="tipsfont">
+          <img src="~@/assets/per/planting.jpg" alt="">
+          <!-- <div class="tipsfont">
             <span>
               <p>安童</p>
               <p>ANTTO</p>
             </span>
-          </div>
+          </div> -->
         </div>
         <!-- <div class="video">
           <video src="~@/assets/introduce.mp4" controls webkit-playsinline playsinline poster="~@/assets/videoBg.png"></video>
         </div> -->
-        <div class="lazy">
-          <el-image style="width: 100%;" :src="imgurl[81]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 100%;" :src="imgurl[0]" :preview-src-list="imgurl" lazy></el-image>
-          <div class="speimg1">
-            <el-image style="width: 30%; margin-right: 10%;" :src="imgurl[1]" :preview-src-list="imgurl" lazy></el-image>
-            <el-image style="width: 30%;" :src="imgurl[2]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 43%; margin-left: auto;"  :src="imgurl[3]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 43%; margin-left: auto;"  :src="imgurl[4]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 43%; margin-left: auto;"  :src="imgurl[5]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <el-image style="width: 100%; margin-left: auto;"  :src="imgurl[6]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 100%; margin-left: auto;"  :src="imgurl[7]" :preview-src-list="imgurl" lazy></el-image>
-          <div class="speimg2">
-            <el-image style="width: 30%; margin-right: 10%;;"  :src="imgurl[8]" :preview-src-list="imgurl" lazy></el-image>
-            <el-image style="width: 30%;;"  :src="imgurl[9]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 43%; margin-left: auto;"  :src="imgurl[10]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 46%; margin-left: auto;"  :src="imgurl[11]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <div class="right">
-            <el-image style="width: 46%; margin-left: auto;"  :src="imgurl[12]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-          <el-image style="width: 100%; margin-left: auto;"  :src="imgurl[13]" :preview-src-list="imgurl" lazy></el-image>
-          <div style="display: flex;">
-          <el-image style="width: 30%; margin-right: 10%;"  :src="imgurl[14]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 30%; "  :src="imgurl[15]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="speimg3">
-          <el-image style="width: 32%;"  :src="imgurl[16]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[17]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%; "  :src="imgurl[18]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 46%;margin-top: 80px;"  :src="imgurl[19]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="left">
-          <el-image style="width: 46%;"  :src="imgurl[20]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 46%;"  :src="imgurl[21]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 46%;"  :src="imgurl[22]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width: 100%; margin-top: 80px; "  :src="imgurl[23]" :preview-src-list="imgurl" lazy></el-image>
-        <div style="display: flex;">
-          <el-image style="width: 30%; margin-right: 10%;"  :src="imgurl[24]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 30%;"  :src="imgurl[25]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 46%;"  :src="imgurl[26]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div style="display: flex;">
-          <el-image style="width: 27%; margin-right: 10%;"  :src="imgurl[27]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 27%;"  :src="imgurl[28]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width: 100%;" :src="imgurl[29]" :preview-src-list="imgurl" lazy></el-image>
-        <div>
-          <el-image style="width: 27%; margin-right: 5%;"  :src="imgurl[30]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 27%;"  :src="imgurl[31]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 46%;"  :src="imgurl[32]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="speimg3" style="margin-top: 80px;">
-          <el-image style="width: 32%;"  :src="imgurl[33]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[34]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[35]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right" style="margin-top: 80px;">
-            <el-image style="width: 46%;"  :src="imgurl[36]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 46%;"  :src="imgurl[37]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width: 100%; margin-top: 80px;" :src="imgurl[38]" :preview-src-list="imgurl" lazy></el-image>
-        <div style="margin-top: 80px;">
-          <el-image style="width: 27%; margin-right: 5%;"  :src="imgurl[39]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 27%;"  :src="imgurl[40]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="speimg3" style="margin-top: 80px;">
-          <el-image style="width: 32%;"  :src="imgurl[41]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[42]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[43]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right" style="margin-top: 80px;">
-            <el-image style="width: 50%;"  :src="imgurl[44]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="left">
-          <el-image style="width: 50%;"  :src="imgurl[45]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 50%;"  :src="imgurl[46]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 50%;"  :src="imgurl[47]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <!-- <div class="threeimg">
-          <div class="threeimgleft">
-            <el-image style="width: 50%;" fit="fill"  :src="imgurl[48]" :preview-src-list="imgurl" lazy></el-image>
-            <div>
-              <el-image style="width: 100%;"  :src="imgurl[49]" :preview-src-list="imgurl" lazy></el-image>
-              <el-image style="width: 100%;"  :src="imgurl[50]" :preview-src-list="imgurl" lazy></el-image>
-            </div>
-          </div>
-          <div class="threeimgright">
-            <el-image style="width: 100%;"  :src="imgurl[51]" :preview-src-list="imgurl" lazy></el-image>
-          </div>
-        </div>
-        <div class="right" style="margin-top: 30px;">
-            <el-image style="width: 50%;"  :src="imgurl[52]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[53]" :preview-src-list="imgurl" lazy></el-image>
-        <el-image style="width: 100%;" :style="{marginTop:'80px'}"  :src="imgurl[54]" :preview-src-list="imgurl" lazy></el-image>
-        <div>
-          <el-image style="width: 35%; margin-right: 5%;"  :src="imgurl[55]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 35%;"  :src="imgurl[56]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 50%;"  :src="imgurl[57]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="left" style="margin-top: 60px;">
-          <el-image style="width: 46%;"  :src="imgurl[58]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 46%;"  :src="imgurl[59]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[60]" :preview-src-list="imgurl" lazy></el-image>
-        <div style="margin-top: 30px;">
-          <el-image style="width: 30%; margin-right: 5%;"  :src="imgurl[61]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 30%;"  :src="imgurl[62]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="speimg3" style="margin-top: 80px;">
-          <el-image style="width: 32%;"  :src="imgurl[63]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[64]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[65]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 50%;" :style="{marginTop:'80px'}"  :src="imgurl[66]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[67]" :preview-src-list="imgurl" lazy></el-image>
-        <div class="right">
-            <el-image style="width: 50%;" :style="{marginTop:'80px'}"  :src="imgurl[68]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 50%;" :src="imgurl[69]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[70]" :preview-src-list="imgurl" lazy></el-image>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[71]" :preview-src-list="imgurl" lazy></el-image>
-        <div class="right">
-            <el-image style="width: 50%;" :src="imgurl[73]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="speimg3">
-          <el-image style="width: 32%;"  :src="imgurl[72]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[74]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 32%;"  :src="imgurl[75]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="left" style="margin-top: 60px;">
-          <el-image style="width: 46%;"  :src="imgurl[76]" :preview-src-list="imgurl" lazy></el-image>
-          <el-image style="width: 46%;"  :src="imgurl[77]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <div class="right">
-            <el-image style="width: 50%;" :src="imgurl[78]" :preview-src-list="imgurl" lazy></el-image>
-        </div>
-        <el-image style="width:100%;" :style="{marginTop:'80px'}"  :src="imgurl[79]" :preview-src-list="imgurl" lazy></el-image>
-        <div class="right">
-            <el-image style="width: 50%;" :src="imgurl[80]" :preview-src-list="imgurl" lazy></el-image>
-        </div> -->
-      </div>
+    
         
-      </div>
-      <div class="backtop" @click="toTop()">
-        <img src="~@/assets/gotop.png" alt="">
-      </div>
-      <div class="lazyimg">
-        
-      </div>
-      <div class="homebg">
-        <p>The works on this page were created in 2022-2023 </br>Thank you for browsing</p>
-        <p>For more information, please contact Instagram: anttoxaxa</p>
-
-        <p>本页作品创作时间为2022-2023年</br>感谢您的浏览</p>
-        <p>相关事宜请联系微信：anttoxaxa</p>
       </div>
     </div>
   </div>
@@ -550,29 +370,30 @@ export default {
   .midbut {
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 70px;
     text-align: center;
 
-    .works{
-      display: flex;
-      width: 150px;
-      height: 80px;
-      margin: 0 auto;
-        margin-bottom: 60px;
-      flex-direction: column;
-      >span {
-      font-size: 32px;
-      font-weight: 500;
-      color: @fontcolor;
-      text-align: center;
+    .works {
+            width: 175px;
+            font-size: 35px;
+            height: 80px;
+            box-sizing: border-box;
+            color: white;
+            margin: 0 auto;
+            border: 5px solid @fontcolor;
+            line-height: 75px;
+            box-sizing: border-box;
+            margin-bottom: 110px;
+            span{
+              color: @fontcolor;  
+              font-size: 25px;
+              margin-left: 10px;
+              display: block;
+              letter-spacing: 10px;
+            }
+            
 
-      &:last-of-type {
-        font-size: 22px;
-        text-indent: 10px;
-        letter-spacing: 10px;
-      }
-    }
-    }
+        }
 
     p {
       font-size: 18px;
@@ -592,22 +413,25 @@ export default {
   }
 
   .title {
-    background-color: #282924;
-    padding: 5px 0 5px 0;
-    position: relative;
+        background-color: #282924;
+        padding: 10px 0 10px 0;
+        position: relative;
 
-    p {
-      font-size: 12px;
-      color: @basecolor;
-    }
+        p {
+            font-size: 16px;
+            color: @basecolor;
+            &:nth-of-type(1){
+        margin-bottom: 4px;
+      }
+        }
 
-    i {
-      position: absolute;
-      top: 50%;
-      margin-top: -15px;
-      left: 20px;
-      color: @fontcolor;
-      font-size: 30px;
+        i {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: 20px;
+            color: @fontcolor;
+            font-size: 30px;
+        }
     }
-  }
 }</style>

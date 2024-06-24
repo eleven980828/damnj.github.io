@@ -14,8 +14,8 @@ export default {
   ,
   async mounted() {
     try {
-      const response = await axios.get('http://111.229.234.243:3000/api/proxy')
-      const handleMes = Papa.parse(response.data, { header: true, dynamicTyping: true }).data;
+      // const response = await axios.get('http://111.229.234.243:3000/api/proxy')
+      // const handleMes = Papa.parse(response.data, { header: true, dynamicTyping: true }).data;
       this.$store.state.tripsSec = handleMes
       let formattedData = handleMes.reduce((acc, current) => {
         // 判断当前的年份是否在已格式化的数据里已经存在

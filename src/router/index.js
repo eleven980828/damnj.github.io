@@ -19,11 +19,11 @@ const routes=[
         name: 'tripPlane',
         component: () => import(/* webpackChunkName: "about" */ '../views/tripPlane/tripPlane.vue')
       },
-      // {
-      //   path: '/tattoo',
-      //   name: 'tattoo',
-      //   component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
-      // },
+      {
+        path: '/tattoo',
+        name: 'tattoo',
+        component: () => import(/* webpackChunkName: "about" */ '../views/tattoo/tattoo.vue')
+      },
       {
         path: '/booking',
         name: 'booking',
@@ -33,6 +33,31 @@ const routes=[
         path: '/works',
         name: 'works',
         component: () => import(/* webpackChunkName: "about" */ '../views/works/works.vue')
+      },
+      {
+        path: '/peripheral',
+        name: 'peripheral',
+        component: () => import(/* webpackChunkName: "about" */ '../views/peripheral/peripheral.vue')
+      },
+      {
+        path: '/order',
+        name: 'order',
+        component: () => import(/* webpackChunkName: "about" */ '../views/order/order.vue')
+      },
+      {
+        path: '/choseBook',
+        name: 'choseBook',
+        component: () => import(/* webpackChunkName: "about" */ '../views/choseBook/choseBook.vue')
+      },
+      {
+        path: '/plantingBook',
+        name: 'plantingBook',
+        component: () => import(/* webpackChunkName: "about" */ '../views/plantingBook/plantingBook.vue')
+      },
+      {
+        path: '/Link',
+        name: 'Link',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Link/Link.vue')
       },
     //   {
     //     path: '/special',

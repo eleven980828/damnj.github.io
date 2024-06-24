@@ -1,0 +1,432 @@
+{
+    "code": "0",
+    "zh": [
+        {
+            "key": "AE",
+            "value": "阿拉伯联合酋长国"
+        },
+        {
+            "key": "ET",
+            "value": "埃塞俄比亚"
+        },
+        {
+            "key": "AO",
+            "value": "安哥拉"
+        },
+        {
+            "key": "AU",
+            "value": "澳大利亚"
+        },
+        {
+            "key": "PK",
+            "value": "巴基斯坦"
+        },
+        {
+            "key": "BR",
+            "value": "巴西"
+        },
+        {
+            "key": "BE",
+            "value": "比利时"
+        },
+        {
+            "key": "DK",
+            "value": "丹麦"
+        },
+        {
+            "key": "DE",
+            "value": "德国"
+        },
+        {
+            "key": "RU",
+            "value": "俄罗斯"
+        },
+        {
+            "key": "FR",
+            "value": "法国"
+        },
+        {
+            "key": "PH",
+            "value": "菲律宾"
+        },
+        {
+            "key": "FI",
+            "value": "芬兰"
+        },
+        {
+            "key": "CG",
+            "value": "刚果"
+        },
+        {
+            "key": "CD",
+            "value": "刚果民主共和国"
+        },
+        {
+            "key": "KR",
+            "value": "韩国"
+        },
+        {
+            "key": "GH",
+            "value": "加纳"
+        },
+        {
+            "key": "KH",
+            "value": "柬埔寨"
+        },
+        {
+            "key": "CM",
+            "value": "喀麦隆"
+        },
+        {
+            "key": "KE",
+            "value": "肯尼亚"
+        },
+        {
+            "key": "LA",
+            "value": "老挝"
+        },
+        {
+            "key": "LU",
+            "value": "卢森堡"
+        },
+        {
+            "key": "RW",
+            "value": "卢旺达"
+        },
+        {
+            "key": "RO",
+            "value": "罗马尼亚"
+        },
+        {
+            "key": "MY",
+            "value": "马来西亚"
+        },
+        {
+            "key": "ML",
+            "value": "马里"
+        },
+        {
+            "key": "MN",
+            "value": "蒙古"
+        },
+        {
+            "key": "BD",
+            "value": "孟加拉国"
+        },
+        {
+            "key": "MM",
+            "value": "缅甸"
+        },
+        {
+            "key": "MA",
+            "value": "摩洛哥"
+        },
+        {
+            "key": "ZA",
+            "value": "南非"
+        },
+        {
+            "key": "NP",
+            "value": "尼泊尔"
+        },
+        {
+            "key": "NG",
+            "value": "尼日利亚"
+        },
+        {
+            "key": "PT",
+            "value": "葡萄牙"
+        },
+        {
+            "key": "JP",
+            "value": "日本"
+        },
+        {
+            "key": "LK",
+            "value": "斯里兰卡"
+        },
+        {
+            "key": "TH",
+            "value": "泰国"
+        },
+        {
+            "key": "TZ",
+            "value": "坦桑尼亚"
+        },
+        {
+            "key": "BN",
+            "value": "文莱"
+        },
+        {
+            "key": "ES",
+            "value": "西班牙"
+        },
+        {
+            "key": "SG",
+            "value": "新加坡"
+        },
+        {
+            "key": "NZ",
+            "value": "新西兰"
+        },
+        {
+            "key": "HU",
+            "value": "匈牙利"
+        },
+        {
+            "key": "IT",
+            "value": "意大利"
+        },
+        {
+            "key": "IN",
+            "value": "印度"
+        },
+        {
+            "key": "ID",
+            "value": "印度尼西亚"
+        },
+        {
+            "key": "GB",
+            "value": "英国"
+        },
+        {
+            "key": "VN",
+            "value": "越南"
+        },
+        {
+            "key": "ZM",
+            "value": "赞比亚"
+        },
+        {
+            "key": "MO",
+            "value": "中国澳门"
+        },
+        {
+            "key": "CN",
+            "value": "中国内地"
+        },
+        {
+            "key": "TW",
+            "value": "中国台湾"
+        },
+        {
+            "key": "HK",
+            "value": "中国香港"
+        }
+    ],
+    "message": "执行成功",
+    "en": [
+        {
+          "key": "AO",
+          "value": "Angola"
+        },
+        {
+          "key": "AU",
+          "value": "Australia"
+        },
+        {
+          "key": "BD",
+          "value": "Bangladesh"
+        },
+        {
+          "key": "BE",
+          "value": "Belgium"
+        },
+        {
+          "key": "BR",
+          "value": "Brazil"
+        },
+        {
+          "key": "BN",
+          "value": "Brunei"
+        },
+        {
+          "key": "KH",
+          "value": "Cambodia"
+        },
+        {
+          "key": "CM",
+          "value": "Cameroon"
+        },
+        {
+          "key": "CN",
+          "value": "China"
+        },
+        {
+          "key": "CG",
+          "value": "Congo"
+        },
+        {
+          "key": "CD",
+          "value": "Dem. Rep. of Congo"
+        },
+        {
+          "key": "DK",
+          "value": "Denmark"
+        },
+        {
+          "key": "ET",
+          "value": "Ethiopia"
+        },
+        {
+          "key": "FI",
+          "value": "Finland"
+        },
+        {
+          "key": "FR",
+          "value": "France"
+        },
+        {
+          "key": "DE",
+          "value": "Germany"
+        },
+        {
+          "key": "GH",
+          "value": "Ghana"
+        },
+        {
+          "key": "GB",
+          "value": "Great Britain"
+        },
+        {
+          "key": "HK",
+          "value": "Hong Kong China"
+        },
+        {
+          "key": "HU",
+          "value": "Hungary"
+        },
+        {
+          "key": "IN",
+          "value": "India"
+        },
+        {
+          "key": "ID",
+          "value": "Indonesia"
+        },
+        {
+          "key": "IT",
+          "value": "Italy"
+        },
+        {
+          "key": "JP",
+          "value": "Japan"
+        },
+        {
+          "key": "KE",
+          "value": "Kenya"
+        },
+        {
+          "key": "KR",
+          "value": "Korea"
+        },
+        {
+          "key": "LA",
+          "value": "Lao People's Dem. Rep."
+        },
+        {
+          "key": "LU",
+          "value": "Luxembourg"
+        },
+        {
+          "key": "MO",
+          "value": "Macao China"
+        },
+        {
+          "key": "MY",
+          "value": "Malaysia"
+        },
+        {
+          "key": "ML",
+          "value": "Mali"
+        },
+        {
+          "key": "MN",
+          "value": "Mongolia"
+        },
+        {
+          "key": "MA",
+          "value": "Morocco"
+        },
+        {
+          "key": "MM",
+          "value": "Myanmar"
+        },
+        {
+          "key": "NP",
+          "value": "Nepal"
+        },
+        {
+          "key": "NZ",
+          "value": "New Zealand"
+        },
+        {
+          "key": "NG",
+          "value": "Nigeria"
+        },
+        {
+          "key": "PK",
+          "value": "Pakistan"
+        },
+        {
+          "key": "PH",
+          "value": "Philippines"
+        },
+        {
+          "key": "PT",
+          "value": "Portugal"
+        },
+        {
+          "key": "RO",
+          "value": "Romania"
+        },
+        {
+          "key": "RU",
+          "value": "Russia"
+        },
+        {
+          "key": "RW",
+          "value": "Rwanda"
+        },
+        {
+          "key": "SG",
+          "value": "Singapore"
+        },
+        {
+          "key": "ZA",
+          "value": "South Africa"
+        },
+        {
+          "key": "ES",
+          "value": "Spain"
+        },
+        {
+          "key": "LK",
+          "value": "Sri Lanka"
+        },
+        {
+          "key": "TW",
+          "value": "Taiwan China"
+        },
+        {
+          "key": "TZ",
+          "value": "Tanzania (United Rep.)"
+        },
+        {
+          "key": "TH",
+          "value": "Thailand"
+        },
+        {
+          "key": "AE",
+          "value": "United Arab Emirates"
+        },
+        {
+          "key": "VN",
+          "value": "Vietnam"
+        },
+        {
+          "key": "ZM",
+          "value": "Zambia"
+        }
+      ]
+}

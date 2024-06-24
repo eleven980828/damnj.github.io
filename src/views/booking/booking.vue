@@ -6,11 +6,21 @@
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
-      <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div>
+      <!-- <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div> -->
 
+      <div class="midbut">
+                <div class="works">
+                    <span>文身预定</span>
+                    <!-- <span>works</span> -->
+                </div>
+            </div>
 
       <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>
+        <span>文身均为现场设计（根据承载者的身体结构进行手绘）除极少见题材，一般不会提前绘制画稿，感谢信任。</span>
+        <span>收费标准为2000人民币/小时,<br/>预订需要支付定金5000元。</span>
+        <span>注*<br/>定金用作预订时间和名额，支付后不予退回。<br/>因不可抗力因素，造成预约时间需要调整，定金不会作废。<br/>请即时沟通，延后至完成作品。</span>
+
         <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
         <p>题材：</p>
         <input type="text" v-model="mode">
@@ -58,12 +68,18 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
         <input type="text" v-model="social">
+        <p>邮箱：</p>
+        <input type="text" v-model="mail">
         <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}
         </div>
+        <div class="switch" @click="switchLau()">ENGLISH</div>
       </div>
 
       <div class="whitebg" v-if="ty === 'en'">
         <span>Hello, thank you for your reservation.</span>
+        <span>Tattoos are designed on the spot (hand-painted according to the body structure of the bearer) Except for very few subjects, generally do not draw drawings in advance, thank you for your trust.</span>
+        <span>2000 RMB/hour.<br/>A deposit of 5000 RMB is required for booking.</span>
+        <span>*<br/>The deposit is used for booking time and space and is non-refundable after payment.<br/>Due to force majeure, the reservation time needs to be adjusted, and the deposit will not be void.<br/>Please communicate immediately and postpone until the completion of the work.</span>
         <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following
           information:</span>
         <p>Subject Matter:</p>
@@ -112,7 +128,10 @@
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
         <input type="text" v-model="social">
+        <p>Email:</p>
+        <input type="text" v-model="mail">
         <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
+        <div class="switch" @click="switchLau()">中文</div>
       </div>
 
       <van-popup v-model="show" v-if="ty === 'zh'">
@@ -167,7 +186,8 @@ export default {
       ty: 'zh',
       issend: false,
       sending: false,
-      area:''
+      area:'',
+      mail:''
     
     }
   },
@@ -188,6 +208,13 @@ export default {
     }
   },
   methods: {
+    switchLau(){
+      if(this.ty=='zh'){
+        this.ty='en'
+      }else{
+        this.ty='zh'
+      }
+    },
     sent() {
       this.$message.error(this.ty === 'zh' ? '已经发送，请耐心等待' : 'It has been sent. Please be patient')
     },
@@ -408,7 +435,17 @@ export default {
     margin-top: 60px;
     margin-bottom: 60px;
     font-size: 23px;
-
+    position: relative;
+    .switch{
+            position: absolute;
+            display: inline;
+            right: 30px;
+            top: 30px;
+            border: 1px solid black;
+            font-size: 18px;
+            padding: 4px;
+            letter-spacing: normal;
+        }
     textarea {
       width: 100%;
       border-radius: 0;
@@ -436,7 +473,7 @@ export default {
       display: block;
       width: 100%;
       text-align: start;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
 
     >p {
@@ -579,25 +616,69 @@ export default {
   }
 }
 
+.midbut {
+        padding-top: 70px;
+        text-align: center;
+        .works {
+            width: 175px;
+            font-size: 35px;
+            height: 80px;
+            box-sizing: border-box;
+            color: white;
+            margin: 0 auto;
+            border: 5px solid @fontcolor;
+            line-height: 75px;
+            box-sizing: border-box;
+            margin-bottom: 110px;
+            span{
+              color: @fontcolor;  
+              font-size: 25px;
+              margin-left: 10px;
+              display: block;
+              letter-spacing: 10px;
+            }
+            
+
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: @fontcolor;
+
+            &:last-of-type {
+                text-indent: 2px;
+                letter-spacing: 2px;
+            }
+
+            a {
+                text-decoration: underline;
+                color: @fontcolor;
+            }
+        }
+    }
 
 
 .title {
-  background-color: #282924;
-  padding: 5px 0 5px 0;
-  position: relative;
+        background-color: #282924;
+        padding: 10px 0 10px 0;
+        position: relative;
 
-  p {
-    font-size: 12px;
-    color: @basecolor;
-  }
+        p {
+            font-size: 16px;
+            color: @basecolor;
+            &:nth-of-type(1){
+        margin-bottom: 4px;
+      }
+        }
 
-  i {
-    position: absolute;
-    top: 50%;
-    margin-top: -15px;
-    left: 20px;
-    color: @fontcolor;
-    font-size: 30px;
-  }
-}
+        i {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: 20px;
+            color: @fontcolor;
+            font-size: 30px;
+        }
+    }
 </style>
