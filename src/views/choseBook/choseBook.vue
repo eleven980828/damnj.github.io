@@ -14,7 +14,7 @@
               <p>插</p>
               <p>画</p>
               <p>预</p>
-              <p>定</p>
+              <p>订</p>
             </div>
             <span>PAINTING</span>
             <span>BOOKING</span>
@@ -28,7 +28,7 @@
               <p>文</p>
               <p>身</p>
               <p>预</p>
-              <p>定</p>
+              <p>订</p>
             </div>
             <span>TATTOO</span>
             <span>BOOKING</span>

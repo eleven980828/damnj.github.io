@@ -10,7 +10,7 @@
 
       <div class="midbut">
                 <div class="works">
-                    <span>文身预定</span>
+                    <span>文身预订</span>
                     <!-- <span>works</span> -->
                 </div>
             </div>
@@ -60,9 +60,9 @@
         </div>
         <p>选择预约地点 </p>
         <select name="area" v-model="area" id="" class="sele">
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.zh }}</option>
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.zh }}</option>
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[2].details" v-if="item.isOpen">{{'2026'+' '+ item.zh }}</option>
+
+          <option  v-for="(item,index) in $store.state.tripsSec" :value="item.YEARS+item.ZNPlace"  :key="index" :disabled="!item.ISOPEN"> {{item.YEARS+' '+ item.ZNPlace }} {{  item.ISOPEN ? '' : '(已满)' }}</option>
+
         </select>
         <p>其他要求(选填):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
@@ -120,9 +120,7 @@
         </div>
         <p>Select an appointment location </p>
         <select name="area" v-model="area" id="" class="sele">
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[0].details" v-if="item.isOpen">{{'2024'+' '+ item.area }}</option>
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[1].details" v-if="item.isOpen">{{'2025'+' '+ item.area }}</option>
-          <option :value="item.zh" v-for="(item,index) in $store.state.trip[2].details" v-if="item.isOpen">{{'2026'+' '+ item.area }}</option>
+          <option  v-for="(item,index) in $store.state.tripsSec" :value="item.YEARS+item.EN"  :key="index" :disabled="!item.ISOPEN"> {{item.YEARS+' '+ item.EN +' ' }} {{  item.ISOPEN ? '' : '(closed)' }}</option>
         </select>
         <p>Other requirements (optional):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
@@ -276,6 +274,10 @@ export default {
         this.$message(this.ty === 'zh' ? '请填写微信' : 'Please fill in your Instagram account')
         return
       }
+      if (!this.mail) {
+        this.$message(this.ty === 'zh' ? '请填写邮箱' : 'Please fill in your email')
+        return
+      }
       
       this.show = true
     },
@@ -289,7 +291,7 @@ export default {
           return
         }
       }
-      emailjs.send('service_tzq4tgc', 'template_z163sbe', { name: this.name, mode: this.mode, location: this.location, high: this.high, weight: this.weight, age: this.age, isCardiopathy: this.isCardiopathy ? '是' : '否', week: this.week ? '是' : '否',area:this.area, tips: this.tips, social: this.ty === 'zh' ? '微信:' + this.social : 'Instagram:' + this.social }, 'efGrq8haGJ6-tGyBS').then((res) => {
+      emailjs.send('service_tzq4tgc', 'template_z163sbe', { name: this.name, mode: this.mode, location: this.location, high: this.high, weight: this.weight, age: this.age, isCardiopathy: this.isCardiopathy ? '是' : '否', week: this.week ? '是' : '否',area:this.area, tips: this.tips, social: this.ty === 'zh' ? '微信:' + this.social : 'Instagram:' + this.social,email:this.mail }, 'efGrq8haGJ6-tGyBS').then((res) => {
         this.show = false
         this.$message.success(this.ty === 'zh' ? '发送成功！' : 'Successfully sent!')
         const time = new Date().getTime() + 86400000

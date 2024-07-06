@@ -161,7 +161,7 @@ export default {
         },
         sendemil() {
             this.sending = true
-            emailjs.send('service_tzq4tgc', 'template_y81n5pj', { artwork: this.artwork, country: this.selectZH, name: this.name, sex: this.sex, address: this.address, code: this.code, phoneNumber: this.phoneNumber, email: this.email }, 'efGrq8haGJ6-tGyBS').then((res) => {
+            emailjs.send('service_tzq4tgc', 'template_y81n5pj', { subject:'周边预定',artwork: this.artwork, country: this.selectZH, name: this.name, sex: this.sex, address: this.address, code: this.code, phoneNumber: this.phoneNumber, email: this.email }, 'efGrq8haGJ6-tGyBS').then((res) => {
                 this.show = false
                 this.$message.success(this.ty === 'zh' ? '发送成功！' : 'Successfully sent!')
                 this.issend = true
