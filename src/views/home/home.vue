@@ -1,20 +1,9 @@
 <template>
   <div class="main">
-    <div class="titleLine"></div>
     <div class="NavBox">
-      <div class="NavLeft">
-        <h1>作品</h1>
-        <h1>TATTOO</h1>
-        <P>Liquid Lettering /</br> Natural Power /</br> Dark Work</P>
-      </div>
-      <div class="NavRight">
-        <ul>
-          <li>Instagram</li>
-          <li>Red</li>
-          <li>Wechat</li>
-          <li>Shop</li>
-        </ul>
-      </div>
+      <img src="@/assets/home/navbut.png" alt="" @click="show=true">
+      <img src="@/assets/home/LOGO.png" alt="">
+      <img src="@/assets/home/China.png" alt="">
     </div>
 
     <div class="NavMid">
@@ -22,49 +11,28 @@
       </div>
     </div>
 
+    <div class="sideimg">
+      <img src="@/assets/home/foot2.jpg" alt="">
+      <img src="@/assets/home/foot3.jpg" alt="">
+      <img src="@/assets/home/foot1.jpg" alt="">
+      <img src="@/assets/home/foot4.jpg" alt="">
+    </div>
+
     <div class="booking">
-      <!-- <div>
-        <h1>BOOKING</h1>
-        <p>1.Explain your idea</p>
-        <p>2. Picture of the body part you're getting a tattoo </br>(lt helps me design the tattoo)</p>
-        <p>3.Any special request in detail</p>
-        <p>4.Confirm a date after the deposit is paid (1500rmb/hour)</p>
-      </div> -->
+      <div class="lbg animate__animated animate__fadeInLeft"></div>
+      <div class="rbg animate__animated animate__fadeInRight"></div>
     </div>
-    <!-- <div class="foot">
-      <div>
-        <h1>预约</h1>
-        <p>1.向我展示您需要纹身/遮盖的位置和大小</p>
-        <p>2.没有稿子提供，您所见全都是freehand完成,</br>您只需选一个我的作品，方便我明白您想要的</br> ins / 小红书 / 微博:daaamnj</p>
-        <p>3.支付一小时定金</br> (收费标准：1500rmb/h)</br> 定金不退</p>
-        <p>4.确定时间,有事不能来可提前沟通更改时间</p>
-        <div>
-          <img src="~@/assets/home/foot1.jpg" alt="">
-          <img src="~@/assets/home/foot2.jpg" alt="">
-          <img src="~@/assets/home/foot3.jpg" alt="">
-        </div>
+    <van-popup v-model="show" position="left" :style="{ height: '100%' , width: '40%'}" >
+      <div class="sideNav">
+        <img src="@/assets/home/sideNavImg.png" alt="">
+        <ul>
+          <li>作品</li>
+          <li>预约</li>
+          <li>周边</li>
+          <li>联系</li>
+        </ul>
       </div>
-    </div> -->
-    <div class="secondSc">
-      <div class="bookimg">
-        <h1>BOOKING</h1>
-        <h1>预约</h1>
-        <p>1.Explain your idea</p>
-        <p>2. Picture of the body part you're getting a tattoo </br>(lt helps me design the tattoo)</p>
-        <p>3.Any special request in detail</p>
-        <p>4.Confirm a date after the deposit is paid (1500rmb/hour)</p>
-        <p>1.向我展示您需要纹身/遮盖的位置和大小</p>
-        <p>2.没有稿子提供，您所见全都是freehand完成,</br>您只需选一个我的作品，方便我明白您想要的</br> ins / 小红书 / 微博:daaamnj</p>
-        <p>3.支付一小时定金</br> (收费标准：1500rmb/h)</br> 定金不退</p>
-        <p>4.确定时间,有事不能来可提前沟通更改时间</p>
-        
-      </div>
-      <div class="footimg">
-        <img src="~@/assets/home/foot1.jpg" alt="">
-        <img src="~@/assets/home/foot2.jpg" alt="">
-        <img src="~@/assets/home/foot3.jpg" alt="">
-      </div>
-    </div>
+    </van-popup>
   </div>
 </template>
 <script>
@@ -78,15 +46,18 @@ export default {
   name: 'APP',
   data() {
     return {
-      show: false,
+      show: true,
       isactive: false
     };
   },
   mounted() {
-    this.isactive = true
+    
+    this.$nextTick(function () {
+      this.isactive = true
+    })
   },
   methods: {
-
+    
   },
   components: { RouterLink }
 }
@@ -115,132 +86,125 @@ export default {
 :root {
   --animate-duration: 2s;
 }
-
+.van-popup{
+  overflow: hidden;
+  max-width: 40%;
+}
+@font-face {
+  font-family: 'xianyun';
+  src: url('~@/assets/font/337.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.sideNav{
+  width: 100%;
+  img{
+    width: 100%;
+  }
+  ul{
+      font-family: "xianyun" , sans-serif;
+    font-size: 30px;
+    li{
+      line-height: 80px;
+      text-indent: 40px;
+      // font-weight: bold;
+    }
+  }
+}
 .main {
   min-height: 100vh;
   overflow: hidden;
-  display: flex;
-  padding-top: 20px;
-  flex-direction: column;
+  position: relative;
 
   .secondSc {
     height: 100vh;
     background: url('~@/assets/home/footBg1.jpg') -230px 20px no-repeat, url('~@/assets/home/footBg2.jpg') 400px top no-repeat;
     background-size: 600px 800px, 600px 800px;
     padding-top: 500px;
-    .footimg {
-        display: flex;
-        justify-content: space-between;
-        width: 500px;
-        margin: 0 auto;
-
-        img {
-          width: 150px;
-        }
-      }
-    .bookimg {
-      width: 500px;
-      margin: 0 auto;
-      h1 {
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 30px;
-        text-decoration: underline;
-      }
-
-      p {
-        font-size: 18px;
-        margin-left: 80px;
-        text-align: start;
-        font-weight: 600;
-        margin-bottom: 30px;
-
-        &:nth-of-type(4) {
-          margin-bottom: 100px;
-        }
-      }
-    }
+ 
+  
   }
-
-  .titleLine {
-    background-color: black;
-    height: 20px;
-  }
-
-  .NavBox {
-    width: 90vw;
-    margin: 0 auto;
+  .sideimg{
+    position: absolute;
+    right: 0;
     display: flex;
-    justify-content: space-between;
-    margin-top: 70px;
-
-    .NavRight {
-      font-size: 20px;
-      font-weight: 600;
-
-      ul {
-        display: flex;
-        flex-direction: column;
-
-        li {
-          margin-bottom: 10px;
-        }
-      }
-    }
-
-    .NavLeft {
-      h1 {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      p {
-        margin-top: 20px;
-        font-size: 16px;
-        text-align: start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 8vh;
+    img{
+      width: 130px;
+      height: 100px;
+      margin-bottom: 23px;
+      &:nth-of-type(2){
+        width: 100px;
       }
     }
   }
-
   .NavMid {
     margin: 0 auto;
-    width: 250px;
-    height: 350px;
-    position: relative;
+    width: 330px;
+    height: 400px;
+    position: absolute;
+    top: 20%;
+    right: calc(50% - 165px);
+
+  }
+  .NavBox{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    img{
+      width: 50px;
+      height: 40px;
+      &:nth-of-type(2){
+        width: 190px;
+        height: 25px;
+      }
+      &:nth-of-type(3){
+        width: 45px;
+        height: 30px;
+      }
+    }
   }
 
   .NavMiddleBg {
     background: url('~@/assets/home/NAV.png') no-repeat center center;
     background-size: cover;
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 100px;
+    width: 330px;
+    height: 400px;
   }
 
   .booking {
+    position: absolute;
     width: 100%;
+    overflow: hidden;
+    top: 30%;
     height: 1050px;
-    margin-top: -4px;
-    background: url('~@/assets/home/midbg1.png') -170px -140px no-repeat, url('~@/assets/home/midbg2.png') 545px -140px no-repeat, url('~@/assets/home/midbg4.png') right 1200px no-repeat, url('~@/assets/home/midbg3.png') right 1200px no-repeat;
-    background-size: 50vw 1000px, 50vw 1000px;
-
-    >div {
-      width: 13vh;
-      margin: 0 auto;
-
-      h1 {
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 30px;
-      }
-
-      p {
-        font-size: 18px;
-        text-align: start;
-        margin-bottom: 30px;
-      }
+    div{
+      position: absolute;
     }
+   .rbg{
+    width: 510px;
+    height: 1095px;
+    background-image: url('~@/assets/home/midbg2.png');
+    background-size: cover;
+    right: -200px;
+   }
+   .lbg{
+    width: 510px;
+    height: 1095px;
+    background-image: url('~@/assets/home/midbg1.png');
+    background-size: cover;
+    left: -200px;
+   }
+    
   }
 }
 </style>
