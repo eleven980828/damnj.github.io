@@ -1,7 +1,8 @@
 <template>
   <div class="main">
     <div class="NavBox">
-      <img src="@/assets/home/navbut.png" alt="" @click="show=true">
+      <!-- <img src="@/assets/home/navbut.png" alt="" @click="show=true"> -->
+      <van-icon name="wap-nav" size="20"  @click="show=true"/>
       <img src="@/assets/home/LOGO.png" alt="">
       <img src="@/assets/home/China.png" alt="">
     </div>
@@ -22,15 +23,26 @@
       <div class="lbg animate__animated animate__fadeInLeft"></div>
       <div class="rbg animate__animated animate__fadeInRight"></div>
     </div>
-    <van-popup v-model="show" position="left" :style="{ height: '100%' , width: '40%'}" >
+    <van-popup v-model="show" position="left" :style="{ height: '100%' , width: '30%'}" >
       <div class="sideNav">
         <img src="@/assets/home/sideNavImg.png" alt="">
-        <ul>
-          <li>作品</li>
-          <li>预约</li>
-          <li>周边</li>
-          <li>联系</li>
+        <ul class="en" v-show="!$lang()">
+          <li>WORKS</li>
+          <li @click="$goto('booking')">BOOKING</li>
+          <li>SHOP</li>
+          <li @click="$goto('contact')">CONTECT</li>
         </ul>
+        <ul class="zh" v-show="$lang()">
+          <li>作品</li>
+          <li @click="$goto('booking')">预约</li>
+          <li>周边</li>
+          <li @click="$goto('contact')">联系</li>
+        </ul>
+        <div class="lau">
+          <span :class="$lang() ? 'under' : '' " @click="$store.state.lang=true">简体中文</span> 
+          / 
+          <span :class="!$lang() ? 'under' : '' " @click="$store.state.lang=false">ENGLISH</span>
+        </div>
       </div>
     </van-popup>
   </div>
@@ -40,13 +52,15 @@ import 'animate.css'
 import { RouterLink } from 'vue-router';
 import Vue from 'vue'
 import { Popup } from 'vant';
+import { Icon } from 'vant';
 import 'vant/lib/popup/style';
+Vue.use(Icon);
 Vue.use(Popup)
 export default {
   name: 'APP',
   data() {
     return {
-      show: true,
+      show: false,
       isactive: false
     };
   },
@@ -98,18 +112,48 @@ export default {
 }
 .sideNav{
   width: 100%;
+  height: 100%;
+  position: relative;
   img{
     width: 100%;
   }
-  ul{
-      font-family: "xianyun" , sans-serif;
-    font-size: 30px;
-    li{
-      line-height: 80px;
-      text-indent: 40px;
-      // font-weight: bold;
+  .lau{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 16px;
+    img{
+      width: 20px;
+      height: 20px;
     }
   }
+  .under{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  ul{
+      // font-family: "xianyun" , sans-serif;
+      // font-weight: bold;
+    // font-size: 23px;
+    li{
+      text-indent: 40px;
+    }
+    
+  }
+  .zh{
+      font-weight: bold;
+      font-size: 23px;
+      li{
+        line-height: 80px;
+      }
+    }
+    .en{
+      font-size: 20px;
+      font-weight: normal;
+       li{
+        line-height: 70px;
+      }
+    }
 }
 .main {
   min-height: 100vh;
@@ -161,13 +205,13 @@ export default {
     padding-left: 20px;
     padding-right: 20px;
     img{
-      width: 50px;
-      height: 40px;
-      &:nth-of-type(2){
-        width: 190px;
-        height: 25px;
+      width: 40px;
+      height: 30px;
+      &:nth-of-type(1){
+        width: 150px;
+        height: 20px;
       }
-      &:nth-of-type(3){
+      &:nth-of-type(2){
         width: 45px;
         height: 30px;
       }

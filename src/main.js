@@ -21,6 +21,10 @@ Vue.prototype.$goback=function(){
 }
 Vue.config.productionTip = false
 
+Vue.prototype.$lang=function(){
+  return this.$store.state.lang
+}
+
 new Vue({
   store,
   router,

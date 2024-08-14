@@ -35,7 +35,9 @@ export default new vuex.Store({
         {zh:'中国 北京 8月',en:'Beijing Aug.2026',area:'Beijing, China, August',isOpen:true},
       ]}
   ],
-  tripsSec:[]
+  tripsSec:[],
+  lang:true,
+  sideshow:false
   },
   // 获取state数据
   getters: {
