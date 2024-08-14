@@ -2,7 +2,7 @@
   <div class="main">
     <div class="NavBox">
       <!-- <img src="@/assets/home/navbut.png" alt="" @click="show=true"> -->
-      <van-icon name="wap-nav" size="20"  @click="show=true"/>
+      <van-icon name="wap-nav" size="20"  @click="$store.state.sideshow=true"/>
       <img src="@/assets/home/LOGO.png" alt="">
       <img src="@/assets/home/China.png" alt="">
     </div>
@@ -23,17 +23,17 @@
       <div class="lbg animate__animated animate__fadeInLeft"></div>
       <div class="rbg animate__animated animate__fadeInRight"></div>
     </div>
-    <van-popup v-model="show" position="left" :style="{ height: '100%' , width: '30%'}" >
+    <van-popup v-model="$store.state.sideshow" position="left" :style="{ height: '100%' , width: '30%'}" >
       <div class="sideNav">
         <img src="@/assets/home/sideNavImg.png" alt="">
         <ul class="en" v-show="!$lang()">
-          <li>WORKS</li>
+          <li  @click="$goto('tattoo')">WORKS</li>
           <li @click="$goto('booking')">BOOKING</li>
           <li>SHOP</li>
           <li @click="$goto('contact')">CONTECT</li>
         </ul>
         <ul class="zh" v-show="$lang()">
-          <li>作品</li>
+          <li  @click="$goto('tattoo')">作品</li>
           <li @click="$goto('booking')">预约</li>
           <li>周边</li>
           <li @click="$goto('contact')">联系</li>

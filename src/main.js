@@ -12,9 +12,15 @@ Vue.use(ElementUI)
 Vue.use(Vant)
 Vue.use(VueClipboard)
 Vue.prototype.$goto=function(routerPath){
-  const appDom = document.getElementById('app');
-  this.$store.state.scrollVal=appDom.scrollTop
-  this.$router.push({name:routerPath})
+  let pa=(this.$route.path).slice(1)
+  if(pa==routerPath){
+
+  }else{
+    const appDom = document.getElementById('app');
+    this.$store.state.scrollVal=appDom.scrollTop
+    this.$router.push({name:routerPath})
+    this.$store.state.sideshow=false
+  }
 }
 Vue.prototype.$goback=function(){
   this.$router.back()

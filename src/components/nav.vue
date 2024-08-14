@@ -11,13 +11,13 @@
         <div class="sideNav">
           <img src="@/assets/home/sideNavImg.png" alt="">
           <ul class="en" v-show="!$lang()">
-            <li>WORKS</li>
+            <li @click="$goto('tattoo')">WORKS</li>
             <li @click="$goto('booking')">BOOKING</li>
             <li>SHOP</li>
             <li @click="$goto('contact')">CONTECT</li>
           </ul>
           <ul class="zh" v-show="$lang()">
-            <li>作品</li>
+            <li  @click="$goto('tattoo')">作品</li>
             <li @click="$goto('booking')">预约</li>
             <li>周边</li>
             <li @click="$goto('contact')">联系</li>

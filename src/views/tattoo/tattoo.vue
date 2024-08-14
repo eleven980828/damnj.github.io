@@ -4,7 +4,7 @@
             <NAV></NAV>
             <div class="midbut">
                 <div class="works">
-                    <span>TATTOO</span>
+                    <span>WORKS</span>
                     <!-- <span>works</span> -->
                 </div>
         
