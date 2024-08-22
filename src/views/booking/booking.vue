@@ -6,13 +6,13 @@
     <div class="title">纹身预订</div>
     <p class="tips">*您好，感谢您的预订。</p>
     <p class="tips">
-      您所见的所有纹身均为现场设计(根据承载者的身体结构进行手绘)感谢信任收费标准为1500人民币/小时，预订需要支付定金3000元。<br />(外出驻店工作增加20%费用)
+      您所见的所有纹身均为现场设计没有手稿提供(根据承载者的身体结构进行手绘)感谢信任收费标准为1500人民币/小时，预订需要支付定金3000元。<br />(外出驻店工作增加20%费用)
     </p>
     <select name="area" id="" class="sele">
       <option value="none" selected disabled hidden>选择预约地点</option>
     </select>
     <div class="inp">
-      <p>题材:</p>
+      <p>解释您的想法:</p>
       <input type="text" v-model="mode">
       <p>部位:</p>
       <input type="text"  v-model="location">
@@ -71,14 +71,14 @@
     <div class="title">TATTOO BOOKING</div>
     <p class="tips">·Hello, thank you for your reservation·</p>
     <p class="tips">
-      All tattoos you see are designed by freehand (design basedon human body structure )Thanks for your trust ! The price is RMB 1,500/hour,and a deposit of RMB 3,000 is required for booking.
+      All tattoos you see are designed by freehand and no manuscript is provided (design basedon human body structure )Thanks for your trust ! The price is RMB 1,500/hour,and a deposit of RMB 3,000 is required for booking.
     </p>
     <span>(BASED IN GUANGZHOU CITY,CHINA Working in another cities adds 20% to the cost)</span>
     <select name="area" id="" class="sele">
       <option value="none" selected disabled hidden>Select appointment location</option>
     </select>
     <div class="inp">
-      <p>Subject Matter:</p>
+      <p>explain your idea:</p>
       <input type="text" v-model="mode">
       <p>Body part:</p>
       <input type="text" v-model="location">

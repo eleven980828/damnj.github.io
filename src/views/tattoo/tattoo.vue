@@ -81,7 +81,7 @@
                         <el-image style="width: 46%;" :src="imgurl[21]" :preview-src-list="imgurl" lazy></el-image>
                         <el-image style="width: 46%;" :src="imgurl[22]" :preview-src-list="imgurl" lazy></el-image>
                     </div>
-                    <!-- <el-image style="width: 100%; margin-top: 80px; " :src="imgurl[23]" :preview-src-list="imgurl"
+                    <el-image style="width: 100%; margin-top: 80px; " :src="imgurl[23]" :preview-src-list="imgurl"
                         lazy></el-image>
                     <div style="display: flex;">
                         <el-image style="width: 30%; margin-right: 10%;" :src="imgurl[24]" :preview-src-list="imgurl"
@@ -123,7 +123,7 @@
                             lazy></el-image>
                         <el-image style="width: 27%;" :src="imgurl[40]" :preview-src-list="imgurl" lazy></el-image>
                     </div>
-                    <div class="speimg3" style="margin-top: 80px;">
+                    <!-- <div class="speimg3" style="margin-top: 80px;">
                         <el-image style="width: 32%;" :src="imgurl[41]" :preview-src-list="imgurl" lazy></el-image>
                         <el-image style="width: 32%;" :src="imgurl[42]" :preview-src-list="imgurl" lazy></el-image>
                         <el-image style="width: 32%;" :src="imgurl[43]" :preview-src-list="imgurl" lazy></el-image>
@@ -140,9 +140,9 @@
                 </div>
 
             </div>
-            <!-- <div class="backtop" @click="toTop()">
-                <img src="~@/assets/gotop.png" alt="">
-            </div> -->
+            <div class="backtop" @click="toTop()">
+                <i class="el-icon-top"></i>
+            </div>
             <div class="lazyimg">
 
             </div>
@@ -183,24 +183,24 @@ export default {
                 require('@/assets/works/w21.jpg'),
                 require('@/assets/works/w22.jpg'),
                 require('@/assets/works/w23.jpg'),
-                // require('@/assets/works/w24.jpg'),
-                // require('@/assets/works/w25.jpg'),
-                // require('@/assets/works/w26.jpg'),
-                // require('@/assets/works/w27.jpg'),
-                // require('@/assets/works/w28.jpg'),
-                // require('@/assets/works/w29.jpg'),
-                // require('@/assets/works/w30.jpg'),
-                // require('@/assets/works/w31.jpg'),
-                // require('@/assets/works/w32.jpg'),
-                // require('@/assets/works/w33.jpg'),
-                // require('@/assets/works/w34.jpg'),
-                // require('@/assets/works/w35.jpg'),
-                // require('@/assets/works/w36.jpg'),
-                // require('@/assets/works/w37.jpg'),
-                // require('@/assets/works/w38.jpg'),
-                // require('@/assets/works/w39.jpg'),
-                // require('@/assets/works/w40.jpg'),
-                // require('@/assets/works/w41.jpg'),
+                require('@/assets/works/w24.jpg'),
+                require('@/assets/works/w25.jpg'),
+                require('@/assets/works/w26.jpg'),
+                require('@/assets/works/w27.jpg'),
+                require('@/assets/works/w28.jpg'),
+                require('@/assets/works/w29.jpg'),
+                require('@/assets/works/w30.jpg'),
+                require('@/assets/works/w31.jpg'),
+                require('@/assets/works/w32.jpg'),
+                require('@/assets/works/w33.jpg'),
+                require('@/assets/works/w34.jpg'),
+                require('@/assets/works/w35.jpg'),
+                require('@/assets/works/w36.jpg'),
+                require('@/assets/works/w37.jpg'),
+                require('@/assets/works/w38.jpg'),
+                require('@/assets/works/w39.jpg'),
+                require('@/assets/works/w40.jpg'),
+                require('@/assets/works/w41.jpg'),
                 // require('@/assets/works/w42.jpg'),
                 // require('@/assets/works/w43.jpg'),
                 // require('@/assets/works/w44.png'),
