@@ -219,7 +219,7 @@ export default {
   }
 
   .NavMiddleBg {
-    background: url('~@/assets/home/NAV.png') no-repeat center center;
+    background: url('~@/assets/home/NAV_compressed.png') no-repeat center center;
     background-size: cover;
     width: 330px;
     height: 400px;
@@ -237,14 +237,14 @@ export default {
    .rbg{
     width: 510px;
     height: 1095px;
-    background-image: url('~@/assets/home/midbg2.png');
+    background-image: url('~@/assets/home/midbg2_compressed.png');
     background-size: cover;
     right: -200px;
    }
    .lbg{
     width: 510px;
     height: 1095px;
-    background-image: url('~@/assets/home/midbg1.png');
+    background-image: url('~@/assets/home/midbg1_compressed.png');
     background-size: cover;
     left: -200px;
    }
