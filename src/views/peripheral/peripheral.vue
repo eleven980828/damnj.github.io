@@ -17,21 +17,59 @@
             <div class="ordermain">
                 <div class="order">
                     <van-swipe class="my-swipe" indicator-color="white" :autoplay="2000">
+                        <van-swipe-item v-for="(item, index) in imglist.list5" :key="index">
+                            <img :src="item" alt="">
+                        </van-swipe-item>
+
+                    </van-swipe>
+                    <div class="msg">
+                        <p>吊坠《爪》</p>
+                        <p>安童·杉山孝弘联名</p>
+                        <p>材质：银</p>
+                        <p>售价：1090元</p>
+                        <p>Claw pendant</p>
+                        <p>Antto · Dualflow Joint works</p>
+                        <p>Material: silver</p>
+                        <p>Price：150 U.S.dollar </p>
+                    </div>
+                    <!-- <span @click="$goto('order')">订购<b></b>ORDER</span> -->
+                     <span class="soldout">售罄<b></b>Sold out</span>
+                </div>
+                <div class="order">
+                    <van-swipe class="my-swipe" indicator-color="white" :autoplay="2000">
+                        <van-swipe-item v-for="(item, index) in imglist.list4" :key="index">
+                            <img :src="item" alt="">
+                        </van-swipe-item>
+
+                    </van-swipe>
+                    <div class="msg">
+                        <p>戒指《瞳》</p>
+                        <p>安童·杉山孝弘联名</p>
+                        <p>材质：银</p>
+                        <p>售价:730元</p>
+                        <p>Eye ring</p>
+                        <p>Antto · Dualflow Joint works</p>
+                        <p>Material: silver</p>
+                        <p>Price：100 U.S.dollar </p>
+                    </div>
+                    <!-- <span @click="$goto('order')">订购<b></b>ORDER</span> -->
+                     <span class="soldout">售罄<b></b>Sold out</span>
+                </div>
+                <div class="order">
+                    <van-swipe class="my-swipe" indicator-color="white" :autoplay="2500">
                         <van-swipe-item v-for="(item, index) in imglist.list1" :key="index">
                             <img :src="item" alt="">
                         </van-swipe-item>
 
                     </van-swipe>
                     <div class="msg">
-                        <p>银镯子《云游》</p>
+                        <p>手镯《云游》</p>
                         <p>安童·主师联名</p>
-                        <p>材质:银色</p>
-                        <p>克重:大约50克</p>
+                        <p>材质:乌色(做旧)</p>
                         <p>售价:3600元</p>
                         <p>Cloud bracelet</p>
                         <p>Antto · Zhushi Joint works</p>
-                        <p>Material: silver</p>
-                        <p>G weight about 50g</p>
+                        <p>Material: Silver(Make old)</p>
                         <p>Price: 500 U.S.dollar</p>
                     </div>
                     <span @click="$goto('order')">订购<b></b>ORDER</span>
@@ -44,19 +82,18 @@
 
                     </van-swipe>
                     <div class="msg">
-                        <p>银镯子《云游》</p>
+                        <p>手镯《云游》</p>
                         <p>安童·主师联名</p>
-                        <p>材质:乌色(做旧)</p>
-                        <p>克重:大约50克</p>
+                        <p>材质:银色</p>
                         <p>售价:3600元</p>
                         <p>Cloud bracelet</p>
                         <p>Antto · Zhushi Joint works</p>
                         <p>Material: Silver(Make old)</p>
-                        <p>G weight about 50g</p>
                         <p>Price: 500 U.S.dollar</p>
                     </div>
                     <span @click="$goto('order')">订购<b></b>ORDER</span>
                 </div>
+                
                 <div class="order">
                     <van-swipe class="my-swipe" indicator-color="white" :autoplay="3000">
                         <van-swipe-item v-for="(item, index) in imglist.list3" :key="index">
@@ -70,12 +107,10 @@
                         <p>T恤《蝉》</p>
                         <p>安童·山涧水2024夏季</p>
                         <p>材质:棉</p>
-                        <p>克重:大约240克</p>
                         <p>售价:700元(包邮)</p>
                         <p>Cicada T-shirt</p>
                         <p>Antto · Intoriver of 2024</p>
                         <p>Material: Cotton</p>
-                        <p>G weight: 20g</p>
                         <p>Price: 96 U.S.dollar</p>
                     </div>
                     <span class="soldout">售罄<b></b>Sold out</span>
@@ -139,6 +174,20 @@ export default {
                         require('@/assets/orderList/zi/6-1.jpg'),
                         require('@/assets/orderList/zi/6-2.jpg'),
                         require('@/assets/orderList/zi/6-3.jpg'),
+                    ],
+                    list4:[
+                    require('@/assets/orderList/zi/7-1.jpg'),
+                    require('@/assets/orderList/zi/7-2.jpg'),
+                    require('@/assets/orderList/zi/7-3.jpg'),
+                    require('@/assets/orderList/zi/7-4.jpg'),
+                    require('@/assets/orderList/zi/7-5.jpg'),
+                    ],
+                    list5:[
+                    require('@/assets/orderList/zi/8-1.jpg'),
+                    require('@/assets/orderList/zi/8-2.jpg'),
+                    require('@/assets/orderList/zi/8-3.jpg'),
+                    require('@/assets/orderList/zi/8-4.jpg'),
+                    require('@/assets/orderList/zi/8-5.jpg'),
                     ]
                 },
         };
@@ -235,11 +284,11 @@ export default {
                         margin-bottom: 25px;
                     }
 
-                    &:nth-of-type(5) {
+                    &:nth-of-type(6) {
                         margin-bottom: 25px;
                     }
 
-                    &:nth-of-type(7) {
+                    &:nth-of-type(4) {
                         margin-bottom: 25px;
                     }
                 }

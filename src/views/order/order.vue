@@ -21,6 +21,8 @@
                 <select name="" id="" class="sele" v-model="artwork">
                     <option value="银镯子《云游》 银色 售价:3600元">银镯子《云游》 银色 售价:3600元</option>
                     <option value="银镯子《云游》 乌色(做旧) 售价:3600元">银镯子《云游》 乌色(做旧) 售价:3600元</option>
+                    <!-- <option value="戒指《瞳》 售价:730元">戒指《瞳》 安童·杉山孝弘联名 售价：730元</option> -->
+                    <!-- <option value="吊坠《爪》 售价：1090元">吊坠《爪》 安童·杉山孝弘联名 售价：1090元</option> -->
                 </select>
                 <p>请支付相应的金额至PayPal: <b @click="copy()">anttop@qq.com</b>(点击复制)</p>
                 <p>我们会在收到货款后发货。</p>
@@ -54,6 +56,8 @@
                 <select name="" id="" class="sele" v-model="artwork">
                     <option value="银镯子《云游》 银色 售价:3600元">Cloud bracelet silver Value:3600RMB</option>
                     <option value="银镯子《云游》 乌色(做旧) 售价:3600元">Cloud bracelet Silver(Make old) Value:3600RMB</option>
+                    <!-- <option value="戒指《瞳》 售价:730元">Eye ring, Antto · Dualflow Joint works, Price：100 U.S.dollar </option> -->
+                    <!-- <option value="吊坠《爪》 售价：1090元">Claw pendant, Antto · Dualflow Joint works, Price：150 U.S.dollar </option> -->
                 </select>
                 <p>Please pay the corresponding amount to PayPal: <b @click="copy()">anttop@qq.com</b> (Click to copy)
                 </p>

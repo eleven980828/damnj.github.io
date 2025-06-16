@@ -39,7 +39,7 @@
       <div class="homebg">
         <div>
           <span></span>
-          <img src="~@/assets/homeBg.jpg" alt="">
+          <img src="~@/assets/midhomebg.jpg" alt="">
         </div>
       </div>
 
@@ -177,20 +177,11 @@ export default {
       height: 100%;
       position: relative;
 
-      span {
-        width: 100%;
-        height: 100%;
-        display: block;
-        background-color: black;
-        opacity: 0.5;
-        position: absolute;
-      }
-
       img {
-        width: 100%;
+        width: 80%;
+        display: block;
+        margin-left: 10%;
         height: auto;
-        animation: homeBgOp linear 2.5s;
-        animation-iteration-count: infinite;
       }
     }
 
@@ -221,6 +212,7 @@ export default {
     transform: translate(-50%);
     left: 50%;
     width: 80%;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
 

@@ -13,7 +13,7 @@
                     <h3>Instagram :</h3>
                     <a href="https://www.instagram.com/anttoxaxa?igsh=MThnY2ZjeXJrcWZhaA%3D%3D&utm_source=qr">anttoxaxa</a>
                     <h3>小红书: </h3>
-                    <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1719197151">安童</a>
+                    <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1719197151">XAXA 安童</a>
                     <h3>WeChat微信:</h3>
                     <a @click="copy()" ref="reference">anttoxaxa</a>
 

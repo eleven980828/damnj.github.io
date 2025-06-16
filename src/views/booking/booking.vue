@@ -18,7 +18,7 @@
       <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>
         <span>文身均为现场设计（根据承载者的身体结构进行手绘）除极少见题材，一般不会提前绘制画稿，感谢信任。</span>
-        <span>收费标准为2000人民币/小时,<br/>预订需要支付定金5000元。</span>
+        <span>收费标准为2000元/小时,<br/>预订需要支付定金5000元。</span>
         <span>注*<br/>定金用作预订时间和名额，支付后不予退回。<br/>因不可抗力因素，造成预约时间需要调整，定金不会作废。<br/>请即时沟通，延后至完成作品。</span>
 
         <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
@@ -82,7 +82,7 @@
         <span>*<br/>The deposit is used for booking time and space and is non-refundable after payment.<br/>Due to force majeure, the reservation time needs to be adjusted, and the deposit will not be void.<br/>Please communicate immediately and postpone until the completion of the work.</span>
         <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following
           information:</span>
-        <p>Subject Matter:</p>
+        <p>Motif:</p>
         <input type="text" v-model="mode">
         <p>Body part:</p>
         <input type="text" v-model="location">

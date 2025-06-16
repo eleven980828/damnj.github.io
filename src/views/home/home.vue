@@ -6,20 +6,26 @@
         <p>· Antto 安童 ·</p>
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
       </div>
+      <div class="midbg">
+        <img src="~@/assets/midhomebg.jpg" alt="">
+      </div>
       <div class="midbut">
-        <span @click="$goto('tattoo')"><p>·</p><b>TATTOO 文身</b><p>·</p></span>
-        <span @click="$goto('works')"><p>·</p><b>PAINTING 插画</b><p>·</p></span>
-        <span @click="$goto('peripheral')"><p>·</p><b>WORKSHOP周边</b><p>·</p></span>
+        <span @click="$goto('tattoo')"><p>·</p><b>TATTOO 作品</b><p>·</p></span>
+        <!-- <span @click="$goto('works')"><p>·</p><b>PAINTING 插画</b><p>·</p></span> -->
         <span @click="$goto('choseBook')"><p>·</p><b>BOOKING 预订</b><p>·</p></span>
         <span @click="$goto('Link')"><p>·</p><b>ACCOUNT 联系</b><p>·</p></span>
+        <span @click="$goto('peripheral')"><p>·</p><b>WORKSHOP周边</b><p>·</p></span>
+
       </div>
-      <div class="homebg">
+      <!-- <div class="homebg">
         <div>
           <span></span>
           <img src="~@/assets/homeBg.jpg" alt="">
         </div>
+      </div> -->
+      <div class="record">
+        <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2023030174号-1</a>
       </div>
-
     </div>
 
     
@@ -108,13 +114,28 @@ export default {
 
 .main {
   width: 750px;
- 
-
- 
-
   .ENG {
     p {
       font-size: 21px !important;
+    }
+  }
+  .midbg{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    img{
+      width: 80%;
+      margin-left: 10%;
+    }
+  }
+  .record{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    a{
+      color: @fontcolor;
+      font-size: 18px;
     }
   }
 
@@ -137,7 +158,7 @@ export default {
     position: absolute;
     width: 100%;
     height: auto;
-    bottom: 0;
+    bottom: 30px;
 
     div {
       width: 100%;
@@ -184,7 +205,7 @@ export default {
 
   .midbut {
     position: absolute;
-    top: 20%;
+    top: 55%;
     transform: translate(-50%);
     left: 50%;
 
@@ -198,7 +219,7 @@ export default {
       margin-bottom: 30px;
       text-align: center;
       line-height: 50px;
-      border: 1px solid #aaaaaa;
+      // border: 1px solid #aaaaaa;
       display: flex;
       justify-content: space-between;
       padding: 0 20px 0 20px;

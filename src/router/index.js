@@ -29,11 +29,11 @@ const routes=[
         name: 'booking',
         component: () => import(/* webpackChunkName: "about" */ '../views/booking/booking.vue')
       },
-      {
-        path: '/works',
-        name: 'works',
-        component: () => import(/* webpackChunkName: "about" */ '../views/works/works.vue')
-      },
+      // {
+      //   path: '/works',
+      //   name: 'works',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/works/works.vue')
+      // },
       {
         path: '/peripheral',
         name: 'peripheral',
