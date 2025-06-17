@@ -6,16 +6,17 @@
         <p>· Antto 安童 ·</p>
         <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
       </div>
+     
       <div class="midbg">
         <img src="~@/assets/midhomebg.jpg" alt="">
       </div>
-      <div class="midbut">
-        <span @click="$goto('tattoo')"><p>·</p><b>TATTOO 作品</b><p>·</p></span>
+       <div class="midbut">
+        <span @click="$goto('choseBook')">BOOKING <br/>委托预订</span>
+        <span @click="$goto('peripheral')"><b>Online Shop <br/>线上商城</b></span>
+        <span @click="$goto('tattoo')"><b>Tattoo Portfolio <br/>文身作品集</b></span>
+        <span @click="$goto('board')"><b>Bulletin Board <br/>告示栏</b></span>
         <!-- <span @click="$goto('works')"><p>·</p><b>PAINTING 插画</b><p>·</p></span> -->
-        <span @click="$goto('choseBook')"><p>·</p><b>BOOKING 预订</b><p>·</p></span>
-        <span @click="$goto('Link')"><p>·</p><b>ACCOUNT 联系</b><p>·</p></span>
-        <span @click="$goto('peripheral')"><p>·</p><b>WORKSHOP周边</b><p>·</p></span>
-
+        <span @click="$goto('Link')"><b>Contact Info <br/>联系方式</b></span>
       </div>
       <!-- <div class="homebg">
         <div>
@@ -121,7 +122,7 @@ export default {
   }
   .midbg{
     position: absolute;
-    top: 10%;
+    top: 55%;
     width: 100%;
     img{
       width: 80%;
@@ -205,23 +206,21 @@ export default {
 
   .midbut {
     position: absolute;
-    top: 55%;
+    top: 15%;
     transform: translate(-50%);
     left: 50%;
 
     span {
       display: block;
-      margin: 0 auto;
-      width: 250px;
-      height: 50px;
+      width: 100%;
       font-size: 18px;
       color: #aaaaaa;
-      margin-bottom: 30px;
+      margin-bottom: 80px;
       text-align: center;
-      line-height: 50px;
+      line-height: 30px;
       // border: 1px solid #aaaaaa;
-      display: flex;
-      justify-content: space-between;
+      // display: flex;
+      // justify-content: space-between;
       padding: 0 20px 0 20px;
       p{
         font-size: 50px;

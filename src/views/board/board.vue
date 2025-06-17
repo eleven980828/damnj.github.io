@@ -1,47 +1,47 @@
 <template>
-  <div class="main" :style="{ height: pageheight + 'px' }">
-    <div class="outLine">
-      <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
-        <i @click="$goback()" class="el-icon-arrow-left"></i>
-      </div>
+    <div class="main" :style="{ height: pageheight + 'px' }">
 
-      <div class="newblack">
-        <a href="https://www.instagram.com/anttoxaxa?igsh=MThnY2ZjeXJrcWZhaA%3D%3D&utm_source=qr">
-          <img src="~@/assets/ins.png" alt="" />
-        </a>
-        <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1719197151">
-          <img src="~@/assets/xiaohonghsu.png" alt="" />
-        </a>
-        <img src="~@/assets/wechat.png" alt="" @click="wechat = true" />
-      </div>
-    </div>
+        <div class="outLine">
+            <div class="title">
+                <p>· Antto 安童 ·</p>
+                <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+                <i @click="$goback()" class="el-icon-arrow-left"></i>
+            </div>
 
-    <van-popup v-model="wechat">
-      <div class="midbox">
-        <div class="blackline">
-          <a @click="copy()" ref="reference">anttoxaxa</a>
-          <h3>点击微信号，即可复制。</h3>
-          <h3>请自行跳转至微信添加好友。</h3>
+            <div class="midbox">
+                <div class="blackline">
+                    <h2>公告栏</h2>
+                    <h3>Bulletin Board</h3>
+                    <p>截止至2027年7月，文身委托名额已满;<br/>目前可在「文身预订」页面的"选择预约地点"申请等候名单。</p>
+                    <p>As of July 2027, the tattoo appointment slots are fully booked. You may currently apply for the waiting list under "Select Appointment Location" on the "Tattoo Booking" page.</p>
+                    <p>*提示Tips:</p>
+                    <p>请填写确定的题材、部位和面积;<br/>并请您确保邮箱地址正确，我将会整理后主动发送「回执信息」至您预留的邮箱。<br/>请您注意本人唯一邮箱，谨防虚假账号。</p>
+                    <p>Please fill in the confirmed design, location, and size of the tattoo. Also, ensure that your email address is correct, as l will organize and proactively send the "Booking Information Reply" to the email address you provided.<br/>Please be aware that my only official email address is [your email address]. Be cautious of any fake accounts.</p>
+                    <p>E-mail: anttop@gq.com<br/>ID: Antto安童</p>
+                    <div class="circle"></div>
+                </div>
+            </div>
+
+
+
+
         </div>
-        <van-notify v-model="show1" type="success">
-          <span class="succcopy">复制成功！ Copy successfully!</span>
-        </van-notify>
-      </div>
-    </van-popup>
-  </div>
+
+
+
+    </div>
 </template>
 <script>
 import { RouterLink } from "vue-router";
 import Vue from "vue";
+import { Popup } from "vant";
+import "vant/lib/popup/style";
+Vue.use(Popup);
 export default {
   name: "APP",
   data() {
     return {
-        show1:false,
       show: false,
-      wechat: false,
       pageheight: 0,
     };
   },
@@ -66,12 +66,11 @@ export default {
       document.execCommand("copy");
       this.$refs.reference.removeChild(storage);
       // this.show=false;
-    //   this.$message({
-    //     message: "复制成功！ Copy successfully!",
-    //     duration: 11500,
-    //     type: "success",
-    //   });
-      this.showsucc()
+      this.$message({
+        message: "复制成功！ Copy successfully!",
+        duration: 1500,
+        type: "success",
+      });
       // setTimeout(() => {
       //   window.open('weixin://','_blank')
       // }, 1500);
@@ -80,12 +79,6 @@ export default {
       const appDom = document.getElementById("app");
       console.log(appDom.scrollTop);
       return appDom.scrollTop;
-    },
-    showsucc(){
-        this.show1=true;
-        setTimeout(() => {
-            this.show1=false
-        }, 2000);
     },
     scrollBooking() {
       const appDom = document.getElementById("app");
@@ -115,67 +108,55 @@ export default {
 <style lang="less" scoped>
 @basecolor: #cfcfcf;
 @fontcolor: #aaaaaa;
-/deep/ .el-message {
-  z-index: 3000 !important; /* 确保高于 Popup 的 z-index */
-}
 
-/deep/ .van-popup--center {
-  top: 44% !important;
-}
-/deep/ .van-notify--success{
-     background-color: #282924;
-}
-.succcopy{
-     background-color: #282924;
-     display: block;
-     width: 100%;
-     font-size: 18px;
-     height: 100%;
-}
 .main {
   width: 750px;
 
-  .newblack {
-    height: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 200px;
-    justify-content: space-between;
-    a {
-      width: 100px;
-      height: 100px;
-    }
-    img {
-      width: 100px;
-      height: 100px;
-    }
-  }
   .midbox {
-    width: 500px;
+    width: 55%;
     background-color: #282924;
-    height: 1000px;
+    height: 1050px;
+    margin: 0 auto;
+    margin-top: 150px;
     text-align: center;
     color: #d6d6d4 !important;
     padding: 6px;
+    .circle{
+        border-radius: 50%;
+        background-color: black;
+        width: 120px;
+        height: 120px;
+        margin: 50px auto;
+    }
 
     .blackline {
       border: 4px solid black;
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      padding-top: 300px;
-      a {
-        display: inline-block;
-        margin-bottom: 300px;
+      padding: 30px;
+      p {
+        text-align: start !important;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      p:nth-of-type(3) {
+        margin-top: 60px;
+      }
+      p:nth-of-type(6) {
+        text-align: center !important;
       }
     }
-
+    h2 {
+      font-size: 30px;
+      font-weight: normal;
+    }
     h3 {
       font-weight: normal;
-      font-size: 18px;
+      font-size: 20px;
       color: #d6d6d4 !important;
-      margin-top: 20px;
+      margin-top: 5px;
+      margin-bottom: 30px;
     }
 
     a {

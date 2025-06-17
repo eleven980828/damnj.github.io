@@ -228,11 +228,10 @@
 
             </div>
             <div class="homebg">
-                <p>The works on this page were created in 2022-2023 </br>Thank you for browsing</p>
+                <p>The works on this page were created in 2022-2023 <br/>Thank you for browsing</p>
                 <p>For more information, please contact Instagram: anttoxaxa</p>
 
-                <p>本页作品创作时间为2022-2023年</br>感谢您的浏览</p>
-                <p>相关事宜请联系微信：anttoxaxa</p>
+                <p>本页作品创作时间为2022-2023年<br/>感谢您的浏览</p>
             </div>
         </div>
     </div>

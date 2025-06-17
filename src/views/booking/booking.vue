@@ -18,7 +18,7 @@
       <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>
         <span>文身均为现场设计（根据承载者的身体结构进行手绘）除极少见题材，一般不会提前绘制画稿，感谢信任。</span>
-        <span>收费标准为2000元/小时,<br/>预订需要支付定金5000元。</span>
+        <span>收费标准为2000元/小时,<br/>预订需要支付定金5000元。<br/>外出费用加收20%(即 北京XAXA Office工作室 以外地区)</span>
         <span>注*<br/>定金用作预订时间和名额，支付后不予退回。<br/>因不可抗力因素，造成预约时间需要调整，定金不会作废。<br/>请即时沟通，延后至完成作品。</span>
 
         <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
@@ -78,7 +78,7 @@
       <div class="whitebg" v-if="ty === 'en'">
         <span>Hello, thank you for your reservation.</span>
         <span>Tattoos are designed on the spot (hand-painted according to the body structure of the bearer) Except for very few subjects, generally do not draw drawings in advance, thank you for your trust.</span>
-        <span>2000 RMB/hour.<br/>A deposit of 5000 RMB is required for booking.</span>
+        <span>2000 RMB/hour.<br/>A deposit of 5000 RMB is required for booking.<br/>Working in other regions will incur an additional 20% surcharge.(i.e.,for areas outside the Beijing).</span>
         <span>*<br/>The deposit is used for booking time and space and is non-refundable after payment.<br/>Due to force majeure, the reservation time needs to be adjusted, and the deposit will not be void.<br/>Please communicate immediately and postpone until the completion of the work.</span>
         <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following
           information:</span>

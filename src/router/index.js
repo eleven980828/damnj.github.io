@@ -59,6 +59,11 @@ const routes=[
         name: 'Link',
         component: () => import(/* webpackChunkName: "about" */ '../views/Link/Link.vue')
       },
+      {
+        path: '/board',
+        name: 'board',
+        component: () => import(/* webpackChunkName: "about" */ '../views/board/board.vue')
+      },
     //   {
     //     path: '/special',
     //     name: 'special',
