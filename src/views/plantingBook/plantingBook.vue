@@ -8,12 +8,11 @@
       </div>
       <!-- <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div> -->
 
-      <div class="midbut">
+      <!-- <div class="midbut">
         <div class="works">
           <span>插画预订</span>
-          <!-- <span>works</span> -->
         </div>
-      </div>
+      </div> -->
 
       <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>

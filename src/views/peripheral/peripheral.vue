@@ -7,12 +7,11 @@
                 <i @click="$goback()" class="el-icon-arrow-left"></i>
             </div>
 
-            <div class="midbut">
+            <!-- <div class="midbut">
                 <div class="works">
                     <span>周边作品</span>
-                    <!-- <span>works</span> -->
                 </div>
-            </div>
+            </div> -->
 
             <div class="ordermain">
                 <div class="order">
@@ -231,6 +230,7 @@ export default {
     .ordermain {
         width: 650px;
         margin: 0 auto;
+        margin-top: 50px;
 
         // background-color: #282924;
         .order {

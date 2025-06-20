@@ -8,127 +8,210 @@
       </div>
       <!-- <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div> -->
 
-      <div class="midbut">
-                <div class="works">
-                    <span>文身预订</span>
-                    <!-- <span>works</span> -->
-                </div>
-            </div>
+      <!-- <div class="midbut">
+        <div class="works">
+          <span>文身预订</span>
+        </div>
+      </div> -->
 
       <div class="whitebg" v-if="ty === 'zh'">
         <span>您好，感谢您的预订。</span>
-        <span>文身均为现场设计（根据承载者的身体结构进行手绘）除极少见题材，一般不会提前绘制画稿，感谢信任。</span>
-        <span>收费标准为2000元/小时,<br/>预订需要支付定金5000元。<br/>外出费用加收20%(即 北京XAXA Office工作室 以外地区)</span>
-        <span>注*<br/>定金用作预订时间和名额，支付后不予退回。<br/>因不可抗力因素，造成预约时间需要调整，定金不会作废。<br/>请即时沟通，延后至完成作品。</span>
+        <span
+          >文身均为现场设计（根据承载者的身体结构进行手绘）除极少见题材，一般不会提前绘制画稿，感谢信任。</span
+        >
+        <span
+          >收费标准为2000元/小时,<br />预订需要支付定金5000元。<br />外出费用加收20%(即
+          北京XAXA Office工作室 以外地区)</span
+        >
+        <span
+          >注*<br />定金用作预订时间和名额，支付后不予退回。<br />因不可抗力因素，造成预约时间需要调整，定金不会作废。<br />请即时沟通，延后至完成作品。</span
+        >
 
         <span>为保障文身设计的基础条件,<br />请填写以下信息:</span>
         <p>题材：</p>
-        <input type="text" v-model="mode">
+        <input type="text" v-model="mode" />
         <p>部位：</p>
-        <input type="text" v-model="location">
+        <input type="text" v-model="location" />
         <div class="fourdiv">
           <div>
-            <p>身高(cm):</p><input type="number" v-model="high">
+            <p>身高(cm):</p>
+            <input type="number" v-model="high" />
           </div>
           <div>
-            <p>体重(kg):</p><input type="number" v-model="weight">
+            <p>体重(kg):</p>
+            <input type="number" v-model="weight" />
           </div>
           <div>
-            <p>称呼:</p><input type="text" v-model="name">
+            <p>称呼:</p>
+            <input type="text" v-model="name" />
           </div>
           <div>
-            <p>年龄:</p><input type="number" v-model="age">
+            <p>年龄:</p>
+            <input type="number" v-model="age" />
           </div>
         </div>
         <p>有无心脏病:</p>
         <div class="radio">
-          <i :style="{ backgroundColor: isCardiopathy ? 'black' : 'transparent' }" @click="isCardiopathy = true"></i>
+          <i
+            :style="{
+              backgroundColor: isCardiopathy ? 'black' : 'transparent',
+            }"
+            @click="isCardiopathy = true"
+          ></i>
           <p>是</p>
         </div>
         <div class="radio mb">
-          <i :style="{ backgroundColor: isCardiopathy ? 'transparent' : 'black' }" @click="isCardiopathy = false"></i>
+          <i
+            :style="{
+              backgroundColor: isCardiopathy ? 'transparent' : 'black',
+            }"
+            @click="isCardiopathy = false"
+          ></i>
           <p>否</p>
         </div>
         <p>需要预订周末时间:</p>
         <div class="radio">
-          <i :style="{ backgroundColor: week ? 'black' : 'transparent' }" @click="week = true"></i>
+          <i
+            :style="{ backgroundColor: week ? 'black' : 'transparent' }"
+            @click="week = true"
+          ></i>
           <p>是</p>
         </div>
         <div class="radio mb">
-          <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
+          <i
+            :style="{ backgroundColor: week ? 'transparent' : 'black' }"
+            @click="week = false"
+          ></i>
           <p>否</p>
         </div>
-        <p>选择预约地点 </p>
+        <p>选择预约地点</p>
         <select name="area" v-model="area" id="" class="sele">
-
-          <option  v-for="(item,index) in $store.state.tripsSec" :value="item.YEARS+item.ZNPlace"  :key="index" :disabled="!item.ISOPEN"> {{item.YEARS+' '+ item.ZNPlace }} {{  item.ISOPEN ? '' : '(已满)' }}</option>
-
+          <option
+            v-for="(item, index) in $store.state.tripsSec"
+            :value="item.YEARS + item.ZNPlace"
+            :key="index"
+            :disabled="!item.ISOPEN"
+          >
+            {{ item.YEARS + " " + item.ZNPlace }}
+            {{ item.ISOPEN ? "" : "(已满)" }}
+          </option>
         </select>
         <p>其他要求(选填):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
-        <input type="text" v-model="social">
+        <input type="text" v-model="social" />
         <p>邮箱：</p>
-        <input type="text" v-model="mail">
-        <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? '已发送，请您耐心等待。' : '确认无误，发送至邮件预订。' }}
+        <input type="text" v-model="mail" />
+        <div class="copybut needsclick" @click="issend ? sent() : ensure()">
+          {{ issend ? "已发送，请您耐心等待。" : "确认无误，发送至邮件预订。" }}
         </div>
         <div class="switch" @click="switchLau()">ENGLISH</div>
       </div>
 
       <div class="whitebg" v-if="ty === 'en'">
         <span>Hello, thank you for your reservation.</span>
-        <span>Tattoos are designed on the spot (hand-painted according to the body structure of the bearer) Except for very few subjects, generally do not draw drawings in advance, thank you for your trust.</span>
-        <span>2000 RMB/hour.<br/>A deposit of 5000 RMB is required for booking.<br/>Working in other regions will incur an additional 20% surcharge.(i.e.,for areas outside the Beijing).</span>
-        <span>*<br/>The deposit is used for booking time and space and is non-refundable after payment.<br/>Due to force majeure, the reservation time needs to be adjusted, and the deposit will not be void.<br/>Please communicate immediately and postpone until the completion of the work.</span>
-        <span>In order to ensure the basic conditions of tattoo design,<br />Please fill in the following
-          information:</span>
+        <span
+          >Tattoos are designed on the spot (hand-painted according to the body
+          structure of the bearer) Except for very few subjects, generally do
+          not draw drawings in advance, thank you for your trust.</span
+        >
+        <span
+          >2000 RMB/hour.<br />A deposit of 5000 RMB is required for booking.<br />Working
+          in other regions will incur an additional 20% surcharge.(i.e.,for
+          areas outside the Beijing).</span
+        >
+        <span
+          >*<br />The deposit is used for booking time and space and is
+          non-refundable after payment.<br />Due to force majeure, the
+          reservation time needs to be adjusted, and the deposit will not be
+          void.<br />Please communicate immediately and postpone until the
+          completion of the work.</span
+        >
+        <span
+          >In order to ensure the basic conditions of tattoo design,<br />Please
+          fill in the following information:</span
+        >
         <p>Motif:</p>
-        <input type="text" v-model="mode">
+        <input type="text" v-model="mode" />
         <p>Body part:</p>
-        <input type="text" v-model="location">
+        <input type="text" v-model="location" />
         <div class="fourdiv">
           <div>
-            <p>Height (cm):</p><input type="number" v-model="high">
+            <p>Height (cm):</p>
+            <input type="number" v-model="high" />
           </div>
           <div>
-            <p>Weight (kg):</p><input type="number" v-model="weight">
+            <p>Weight (kg):</p>
+            <input type="number" v-model="weight" />
           </div>
           <div>
-            <p>Name:</p><input type="text" v-model="name">
+            <p>Name:</p>
+            <input type="text" v-model="name" />
           </div>
           <div>
-            <p>Age:</p><input type="number" v-model="age">
+            <p>Age:</p>
+            <input type="number" v-model="age" />
           </div>
         </div>
         <p>Have heart disease:</p>
         <div class="radio">
-          <i :style="{ backgroundColor: isCardiopathy ? 'black' : 'transparent' }" @click="isCardiopathy = true"></i>
+          <i
+            :style="{
+              backgroundColor: isCardiopathy ? 'black' : 'transparent',
+            }"
+            @click="isCardiopathy = true"
+          ></i>
           <p>Yes</p>
         </div>
         <div class="radio mb">
-          <i :style="{ backgroundColor: isCardiopathy ? 'transparent' : 'black' }" @click="isCardiopathy = false"></i>
+          <i
+            :style="{
+              backgroundColor: isCardiopathy ? 'transparent' : 'black',
+            }"
+            @click="isCardiopathy = false"
+          ></i>
           <p>No</p>
         </div>
         <p>Need to book weekend time:</p>
         <div class="radio">
-          <i :style="{ backgroundColor: week ? 'black' : 'transparent' }" @click="week = true"></i>
+          <i
+            :style="{ backgroundColor: week ? 'black' : 'transparent' }"
+            @click="week = true"
+          ></i>
           <p>Yes</p>
         </div>
         <div class="radio mb">
-          <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
+          <i
+            :style="{ backgroundColor: week ? 'transparent' : 'black' }"
+            @click="week = false"
+          ></i>
           <p>No</p>
         </div>
-        <p>Select an appointment location </p>
+        <p>Select an appointment location</p>
         <select name="area" v-model="area" id="" class="sele">
-          <option  v-for="(item,index) in $store.state.tripsSec" :value="item.YEARS+item.EN"  :key="index" :disabled="!item.ISOPEN"> {{item.YEARS+' '+ item.EN +' ' }} {{  item.ISOPEN ? '' : '(closed)' }}</option>
+          <option
+            v-for="(item, index) in $store.state.tripsSec"
+            :value="item.YEARS + item.EN"
+            :key="index"
+            :disabled="!item.ISOPEN"
+          >
+            {{ item.YEARS + " " + item.EN + " " }}
+            {{ item.ISOPEN ? "" : "(closed)" }}
+          </option>
         </select>
         <p>Other requirements (optional):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
-        <input type="text" v-model="social">
+        <input type="text" v-model="social" />
         <p>Email:</p>
-        <input type="text" v-model="mail">
-        <div class="copybut needsclick" @click="issend ? sent() : ensure()">{{ issend ? 'It has been sent. Please wait patiently.' : 'Confirm and send to email booking.' }}</div>
+        <input type="text" v-model="mail" />
+        <div class="copybut needsclick" @click="issend ? sent() : ensure()">
+          {{
+            issend
+              ? "It has been sent. Please wait patiently."
+              : "Confirm and send to email booking."
+          }}
+        </div>
         <div class="switch" @click="switchLau()">中文</div>
       </div>
 
@@ -137,34 +220,44 @@
           <h3>填写成功</h3>
           <p>请确保您预留的社交账号可以联系到您<br />我会在24小时内回复</p>
           <span @click="show = false">填写有误，返回修改。</span>
-          <span v-show="!sending" @click="issend ? '' : sendemil()">{{ issend ? '已发送' : '确认发送' }}</span>
-          <span v-show="sending"><i class="el-icon-loading"></i>正在发送中... </span>
+          <span v-show="!sending" @click="issend ? '' : sendemil()">{{
+            issend ? "已发送" : "确认发送"
+          }}</span>
+          <span v-show="sending"
+            ><i class="el-icon-loading"></i>正在发送中...
+          </span>
         </div>
       </van-popup>
 
       <van-popup v-model="show" v-if="ty === 'en'">
         <div class="fill en">
           <h3>Fill in successfully</h3>
-          <p>Make sure you can be reached by the social<br />media account you have set up<br />'ll respond within 24
-            hours</p>
-          <span @click="show = false">This parameter is incorrect. Return to modify it.</span>
-          <span v-show="!sending" @click="issend ? '' : sendemil()">{{ issend ? 'has been sent ' : 'Confirm sending'
+          <p>
+            Make sure you can be reached by the social<br />media account you
+            have set up<br />'ll respond within 24 hours
+          </p>
+          <span @click="show = false"
+            >This parameter is incorrect. Return to modify it.</span
+          >
+          <span v-show="!sending" @click="issend ? '' : sendemil()">{{
+            issend ? "has been sent " : "Confirm sending"
           }}</span>
-          <span v-show="sending"><i class="el-icon-loading"></i>Being sent... </span>
+          <span v-show="sending"
+            ><i class="el-icon-loading"></i>Being sent...
+          </span>
         </div>
       </van-popup>
-
     </div>
   </div>
 </template>
 
 <script>
-import html2canvas from 'html2canvas'
-import emailjs from 'emailjs-com'
-import '../../utils/smtp.js'
+import html2canvas from "html2canvas";
+import emailjs from "emailjs-com";
+import "../../utils/smtp.js";
 export default {
   created() {
-    this.ty = this.$route.params.ty ? this.$route.params.ty : 'zh'
+    this.ty = this.$route.params.ty ? this.$route.params.ty : "zh";
   },
   data() {
     return {
@@ -177,135 +270,193 @@ export default {
       isCardiopathy: false,
       week: false,
       tips: "",
-      social: '',
+      social: "",
       imGurl: "",
       show: false,
       radio: 1,
-      ty: 'zh',
+      ty: "zh",
       issend: false,
       sending: false,
-      area:'',
-      mail:''
-    
-    }
+      area: "",
+      mail: "",
+    };
   },
   mounted() {
-    console.log('this.$store.state.tripsSec')
-    const appDom = document.getElementById('app');
+    console.log("this.$store.state.tripsSec");
+    const appDom = document.getElementById("app");
     appDom.scrollTo({
-        top: 0,
-        behavior: 'auto'
-      });
-    const checktime = localStorage.getItem('time')
+      top: 0,
+      behavior: "auto",
+    });
+    const checktime = localStorage.getItem("time");
     if (checktime) {
-      const nowtime = new Date().getTime()
+      const nowtime = new Date().getTime();
       if (checktime > nowtime) {
-        this.issend = true
-        return
+        this.issend = true;
+        return;
       }
     }
   },
   methods: {
-    switchLau(){
-      if(this.ty=='zh'){
-        this.ty='en'
-      }else{
-        this.ty='zh'
+    switchLau() {
+      if (this.ty == "zh") {
+        this.ty = "en";
+      } else {
+        this.ty = "zh";
       }
     },
     sent() {
-      this.$message.error(this.ty === 'zh' ? '已经发送，请耐心等待' : 'It has been sent. Please be patient')
+      this.$message.error(
+        this.ty === "zh"
+          ? "已经发送，请耐心等待"
+          : "It has been sent. Please be patient"
+      );
     },
     copy() {
-
-      const el = document.getElementById('testhidd')
-      console.log(el.getBoundingClientRect())
+      const el = document.getElementById("testhidd");
+      console.log(el.getBoundingClientRect());
 
       html2canvas(el, {
         allowTaint: true,
         width: el.offsetWidth - 18,
         height: el.offsetHeight,
         // x:el.getBoundingClientRect().left-14
-      }).then(canvas => {
-        this.imGurl = canvas.toDataURL('image/png')
-      })
-      this.show = true
+      }).then((canvas) => {
+        this.imGurl = canvas.toDataURL("image/png");
+      });
+      this.show = true;
 
       // const node='题材：'+this.mode+'\n'+'部位：'+this.location+'\n'+'年龄：'+this.age+'\n'+'身高：'+this.high+'\n'+'体重：'+this.weight+'\n'+'称呼：'+this.name+'\n'+'有无心脏病：'+(this.isCardiopathy ? '是' : '否')+'\n'
       // const that=this
     },
     toTop() {
-      const appDom = document.getElementById('app');
+      const appDom = document.getElementById("app");
       appDom.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     },
     ensure() {
       if (!this.mode) {
-        this.$message(this.ty === 'zh' ? '请填写题材' : 'Please fill in the subject matter')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写题材" : "Please fill in the subject matter"
+        );
+        return;
       }
       if (!this.location) {
-        this.$message(this.ty === 'zh' ? '请填写部位' : 'Please fill in the location')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写部位" : "Please fill in the location"
+        );
+        return;
       }
       if (!this.high) {
-        this.$message(this.ty === 'zh' ? '请填写身高' : 'Please fill in the height')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写身高" : "Please fill in the height"
+        );
+        return;
       }
       if (!this.weight) {
-        this.$message(this.ty === 'zh' ? '请填写体重' : 'Please fill in the weight')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写体重" : "Please fill in the weight"
+        );
+        return;
       }
       if (!this.name) {
-        this.$message(this.ty === 'zh' ? '请填写称呼' : 'Please fill in your name')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写称呼" : "Please fill in your name"
+        );
+        return;
       }
       if (!this.age) {
-        this.$message(this.ty === 'zh' ? '请填写年龄' : 'Please fill in the age')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写年龄" : "Please fill in the age"
+        );
+        return;
       }
       if (!this.area) {
-        this.$message(this.ty === 'zh' ? '请选择地区' : 'Please select a region')
-        return
+        this.$message(
+          this.ty === "zh" ? "请选择地区" : "Please select a region"
+        );
+        return;
       }
       if (!this.social) {
-        this.$message(this.ty === 'zh' ? '请填写微信' : 'Please fill in your Instagram account')
-        return
+        this.$message(
+          this.ty === "zh"
+            ? "请填写微信"
+            : "Please fill in your Instagram account"
+        );
+        return;
       }
       if (!this.mail) {
-        this.$message(this.ty === 'zh' ? '请填写邮箱' : 'Please fill in your email')
-        return
+        this.$message(
+          this.ty === "zh" ? "请填写邮箱" : "Please fill in your email"
+        );
+        return;
       }
-      
-      this.show = true
+
+      this.show = true;
     },
     sendemil() {
-      this.sending = true
-      const checktime = localStorage.getItem('time')
+      this.sending = true;
+      const checktime = localStorage.getItem("time");
       if (checktime) {
-        const nowtime = new Date().getTime()
+        const nowtime = new Date().getTime();
         if (checktime > nowtime) {
-          this.$message(this.ty === 'zh' ? '您已提交过，请稍后再试' : 'You have already submitted it. Please try again later')
-          return
+          this.$message(
+            this.ty === "zh"
+              ? "您已提交过，请稍后再试"
+              : "You have already submitted it. Please try again later"
+          );
+          return;
         }
       }
-      emailjs.send('service_tzq4tgc', 'template_z163sbe', { name: this.name, mode: this.mode, location: this.location, high: this.high, weight: this.weight, age: this.age, isCardiopathy: this.isCardiopathy ? '是' : '否', week: this.week ? '是' : '否',area:this.area, tips: this.tips, social: this.ty === 'zh' ? '微信:' + this.social : 'Instagram:' + this.social,email:this.mail }, 'efGrq8haGJ6-tGyBS').then((res) => {
-        this.show = false
-        this.$message.success(this.ty === 'zh' ? '发送成功！' : 'Successfully sent!')
-        const time = new Date().getTime() + 86400000
-        localStorage.setItem('time', time)
-        this.issend = true
-        this.sending = false
-      }, (errpr) => {
-        this.sending = false
-        console.log(errpr)
-        this.$message.error(this.ty === 'zh' ? '发送失败,请稍后再试' : 'Failed to send, please try again later')
-      })
-    }
-  }
-}
+      emailjs
+        .send(
+          "service_tzq4tgc",
+          "template_z163sbe",
+          {
+            name: this.name,
+            mode: this.mode,
+            location: this.location,
+            high: this.high,
+            weight: this.weight,
+            age: this.age,
+            isCardiopathy: this.isCardiopathy ? "是" : "否",
+            week: this.week ? "是" : "否",
+            area: this.area,
+            tips: this.tips,
+            social:
+              this.ty === "zh"
+                ? "微信:" + this.social
+                : "Instagram:" + this.social,
+            email: this.mail,
+          },
+          "efGrq8haGJ6-tGyBS"
+        )
+        .then(
+          (res) => {
+            this.show = false;
+            this.$message.success(
+              this.ty === "zh" ? "发送成功！" : "Successfully sent!"
+            );
+            const time = new Date().getTime() + 86400000;
+            localStorage.setItem("time", time);
+            this.issend = true;
+            this.sending = false;
+          },
+          (errpr) => {
+            this.sending = false;
+            console.log(errpr);
+            this.$message.error(
+              this.ty === "zh"
+                ? "发送失败,请稍后再试"
+                : "Failed to send, please try again later"
+            );
+          }
+        );
+    },
+  },
+};
 </script>
 
 <style lang='less' scoped>
@@ -316,7 +467,7 @@ export default {
   background-color: black;
 }
 
-.sele{
+.sele {
   width: 100%;
   color: black;
   border-radius: 0px;
@@ -326,7 +477,7 @@ export default {
   border: 1px solid black;
   margin-bottom: 50px;
 }
-.sele:focus{
+.sele:focus {
   outline: none;
 }
 .fill {
@@ -438,16 +589,16 @@ export default {
     margin-bottom: 60px;
     font-size: 23px;
     position: relative;
-    .switch{
-            position: absolute;
-            display: inline;
-            right: 30px;
-            top: 30px;
-            border: 1px solid black;
-            font-size: 18px;
-            padding: 4px;
-            letter-spacing: normal;
-        }
+    .switch {
+      position: absolute;
+      display: inline;
+      right: 30px;
+      top: 30px;
+      border: 1px solid black;
+      font-size: 18px;
+      padding: 4px;
+      letter-spacing: normal;
+    }
     textarea {
       width: 100%;
       border-radius: 0;
@@ -468,7 +619,6 @@ export default {
           white-space: nowrap;
         }
       }
-
     }
 
     span {
@@ -478,7 +628,7 @@ export default {
       margin-bottom: 50px;
     }
 
-    >p {
+    > p {
       text-align: start;
       margin-bottom: 5px;
     }
@@ -520,7 +670,6 @@ export default {
     line-height: 50px;
     width: auto;
     margin-top: 80px;
-
   }
 
   .inpmain {
@@ -614,73 +763,69 @@ export default {
     border: 5px solid @basecolor;
     line-height: 95px;
     margin-top: 80px;
-
   }
 }
 
 .midbut {
-        padding-top: 70px;
-        text-align: center;
-        .works {
-            width: 175px;
-            font-size: 35px;
-            height: 80px;
-            box-sizing: border-box;
-            color: white;
-            margin: 0 auto;
-            border: 5px solid @fontcolor;
-            line-height: 75px;
-            box-sizing: border-box;
-            margin-bottom: 110px;
-            span{
-              color: @fontcolor;  
-              font-size: 25px;
-              margin-left: 10px;
-              display: block;
-              letter-spacing: 10px;
-            }
-            
+  padding-top: 70px;
+  text-align: center;
+  .works {
+    width: 175px;
+    font-size: 35px;
+    height: 80px;
+    box-sizing: border-box;
+    color: white;
+    margin: 0 auto;
+    border: 5px solid @fontcolor;
+    line-height: 75px;
+    box-sizing: border-box;
+    margin-bottom: 110px;
+    span {
+      color: @fontcolor;
+      font-size: 25px;
+      margin-left: 10px;
+      display: block;
+      letter-spacing: 10px;
+    }
+  }
 
-        }
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: @fontcolor;
 
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: @fontcolor;
-
-            &:last-of-type {
-                text-indent: 2px;
-                letter-spacing: 2px;
-            }
-
-            a {
-                text-decoration: underline;
-                color: @fontcolor;
-            }
-        }
+    &:last-of-type {
+      text-indent: 2px;
+      letter-spacing: 2px;
     }
 
+    a {
+      text-decoration: underline;
+      color: @fontcolor;
+    }
+  }
+}
 
 .title {
-        background-color: #282924;
-        padding: 10px 0 10px 0;
-        position: relative;
+  background-color: #282924;
+  padding: 10px 0 10px 0;
+  position: relative;
 
-        p {
-            font-size: 16px;
-            color: @basecolor;
-            &:nth-of-type(1){
-        margin-bottom: 4px;
-      }
-        }
-
-        i {
-            position: absolute;
-            top: 50%;
-            margin-top: -10px;
-            left: 20px;
-            color: @fontcolor;
-            font-size: 30px;
-        }
+  p {
+    font-size: 16px;
+    color: @basecolor;
+    &:nth-of-type(1) {
+      margin-bottom: 4px;
     }
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 20px;
+    color: @fontcolor;
+    font-size: 30px;
+  }
+}
 </style>
