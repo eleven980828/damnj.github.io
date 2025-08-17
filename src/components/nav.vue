@@ -4,7 +4,11 @@
         <!-- <img src="@/assets/home/navbut.png" alt="" @click="show=true"> -->
         <van-icon name="wap-nav" size="20"  @click="$store.state.sideshow=true"/>
         <img src="@/assets/home/LOGO.png" alt="" @click="$goto('home')">
-        <img src="@/assets/home/China.png" alt="">
+        <div class="lang-switch">
+          <span :class="$lang() ? 'under' : ''" @click="$store.state.lang=true">简体中文</span> 
+          / 
+          <span :class="!$lang() ? 'under' : ''" @click="$store.state.lang=false">ENGLISH</span>
+        </div>
       </div>
   
       <van-popup v-model="$store.state.sideshow" position="left" :style="{ height: '100%' , width: '30%'}" >
@@ -142,9 +146,21 @@
           width: 150px;
           height: 20px;
         }
-        &:nth-of-type(2){
-          width: 45px;
-          height: 30px;
+      }
+      .lang-switch{
+        font-size: 16px;
+        font-weight: bold;
+        color: @fontcolor;
+        cursor: pointer;
+        span{
+          transition: all 0.3s ease;
+          &:hover{
+            opacity: 0.7;
+          }
+        }
+        .under{
+          text-decoration: underline;
+          font-weight: bold;
         }
       }
     }

@@ -4,37 +4,47 @@
   <div class="main" v-show="$lang()">
     <img src="@/assets/home/foot4.jpg" alt="" class="topimg" />
     <div class="title">纹身预订</div>
-    <p class="tips">*您好，感谢您的预订。</p>
+    <p class="tips">·您好，感谢您的预约·</p>
     <p class="tips">
-      您所见的所有纹身均为现场设计没有手稿提供(根据承载者的身体结构进行手绘)感谢信任收费标准为1500人民币/小时，预订需要支付定金3000元。<br />(外出驻店工作增加20%费用)
+      您看到的所有纹身均为手绘设计(依据人体结构进行设计)，感谢您的信任!
     </p>
-    <select name="area" id="" class="sele">
-      <option value="none" selected disabled hidden>选择预约地点</option>
+    <p class="tips">
+      价格</br>
+      每小时1500元人民币</br>
+      预约需缴纳3000元人民币定金。
+    </p>
+    <span class="downline">(工作室位于中国广州市，若在国外工作，需额外收取20%的费用)</span>
+    <p class="tips nomr">为了了解您的需求，请填写以下信息(这有助于我设计纹身):</p>
+    <select name="area" id="" class="sele" v-model="area">
+      <option value="" selected disabled hidden>选择预约地点</option>
+      <option v-for="(item, index) in $store.state.trip" :key="index" :value="item.years + ' ' + item.area">
+        {{ $lang() ? item.zh : item.en }}
+      </option>
     </select>
     <div class="inp">
-      <p>解释您的想法:</p>
+      <p>1. 详细说明您的想法和特殊要求</p>
       <input type="text" v-model="mode">
-      <p>部位:</p>
-      <input type="text"  v-model="location">
+      <p>2. 部位</p>
+      <input type="text" v-model="location">
       <div class="four">
         <div>
-          <p>身高(cm):</p>
-          <input type="text"  v-model="high">
+          <p>身高(厘米):</p>
+          <input type="text" v-model="high">
         </div>
         <div>
-          <p>体重(kg):</p>
-          <input type="number"  v-model="weight">
+          <p>体重(千克):</p>
+          <input type="number" v-model="weight">
         </div>
         <div>
-          <p>称呼:</p>
-          <input type="text"  v-model="name">
+          <p>姓名:</p>
+          <input type="text" v-model="name">
         </div>
         <div>
           <p>年龄:</p>
-          <input type="text"  v-model="age">
+          <input type="text" v-model="age">
         </div>
       </div>
-      <p>有无心脏病？</p>
+      <p>是否有心脏病?</p>
       <div class="radio">
         <i :style="{ backgroundColor: isCardiopathy ? 'black' : 'transparent' }" @click="isCardiopathy = true"></i>
         <p>是</p>
@@ -52,15 +62,20 @@
         <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
         <p>否</p>
       </div>
-      <p>其他要求(选填)</p>
-      <textarea name="" id=""  v-model="tips"></textarea>
       <p>微信:</p>
-      <input type="text"  v-model="social">
+      <div class="socailacss">
+        <input type="text" v-model="social" class="socailacss">
+      </div>
       <p>邮箱:</p>
-      <input type="text" v-model="mail">
-      <p>注*</p>
-      <p>定金用作预订时间和名额，支付后不予退回。<br>因不可抗力因素，造成预约时间需要调整，定金不会作废。<br>请即时沟通，延后至完成作品。</p>
-      <div class="sub">确认无误,发送至邮件订阅</div>
+      <div class="socailacss">
+        <input type="text" v-model="mail" class="socailacss">
+      </div>
+      <p>* 收到邮件后，我会联系您支付押金并确认日期。</p>
+      <p>请注意*</p>
+      <div class="outline">
+        <p>定金用于预留时间和场地，支付后不予退还。<br><br>若因不可抗力需要调整预约时间，定金不会作废。<br><br>如果您需要更改日期，请及时沟通并选择新日期。</p>
+      </div>
+      <div class="sub"  @click="sendemil">确认无误，发送邮件预约</div>
     </div>
     
   </div>
@@ -71,14 +86,23 @@
     <div class="title">TATTOO BOOKING</div>
     <p class="tips">·Hello, thank you for your reservation·</p>
     <p class="tips">
-      All tattoos you see are designed by freehand and no manuscript is provided (design basedon human body structure )Thanks for your trust ! The price is RMB 1,500/hour,and a deposit of RMB 3,000 is required for booking.
+      All tattoos you see are designed by freehand (design basedon human body structure )Thanks for your trust !
     </p>
-    <span>(BASED IN GUANGZHOU CITY,CHINA Working in another cities adds 20% to the cost)</span>
-    <select name="area" id="" class="sele">
-      <option value="none" selected disabled hidden>Select appointment location</option>
+    <p class="tips">
+      Price</br>
+      RMB 1,500/hour</br>
+      deposit RMB 3,000 for booking.
+    </p>
+    <span class="downline">(BASED IN GUANGZHOU CITY,CHINA </br>Working abroad need 20% extra fee)</span>
+    <p class="tips nomr">In order to understand your needs,please fill in the followinginformations: (it helps me design the tattoo)</p>
+    <select name="area" id="" class="sele" v-model="area">
+      <option value="" selected disabled hidden>Select appointment location</option>
+      <option v-for="(item, index) in $store.state.trip" :key="index" :value="item.years + ' ' + item.zh">
+        {{ item.en }}
+      </option>
     </select>
     <div class="inp">
-      <p>explain your idea:</p>
+      <p>1. Explain your idea and special requests in detail</p>
       <input type="text" v-model="mode">
       <p>Body part:</p>
       <input type="text" v-model="location">
@@ -118,15 +142,22 @@
         <i :style="{ backgroundColor: week ? 'transparent' : 'black' }" @click="week = false"></i>
         <p>No</p>
       </div>
-      <p>Other requirements (optional):</p>
-      <textarea name="" id="" v-model="tips"></textarea>
-      <p>Instagram:</p>
-      <input type="text" v-model="social">
+      <!-- <p>Other requirements (optional):</p>
+      <textarea name="" id="" v-model="tips"></textarea> -->
+      <p>Instagram</p>
+      <div class="socailacss">
+        <input type="text" v-model="social" class="socailacss"></input>
+      </div>
       <p>Email:</p>
-      <input type="text" v-model="mail">
+      <div class="socailacss">
+        <input type="text" v-model="mail" class="socailacss">
+      </div>
+      <p>* I will contact you after receiving the email to pay the deposit and confirm the date.</p>
       <p>ATTENTION PLEASE*</p>
-      <p><br><br>The deposit is used to reserve time and places, and is non-refundable after payment.<br><br>The deposit is used to reserve time and places, and is non-refundable after payment.<br><br>Please communicateimmediately and postpone it until thework is completed.</p>
-      <div class="sub">Confirmed, send to emai to subscribe</div>
+      <div class="outline">
+        <p>The deposit is used to reserve time and places, and is non-refundable after payment.<br><br>The deposit is used to reserve time and places, and is non-refundable after payment.<br><br>Please communicateimmediately and postpone it until thework is completed.</p>
+      </div>
+      <div class="sub" @click="sendemil">Confirmed, send to emai to subscribe</div>
     </div>
     
   </div>
@@ -134,6 +165,8 @@
 
 </template>
     <script>
+    import emailjs from "emailjs-com";
+    import "../../utils/smtp.js";
     import NAV from "../../components/nav.vue"
 export default {
   name: 'APP',
@@ -182,7 +215,126 @@ export default {
       },
       beforeRemove(file, fileList) {
         return this.$confirm(`确定移除 ${ file.name }？`);
-      }
+      },
+             ensure() {
+         if (!this.mode) {
+           this.$message(
+             this.$store.state.lang ? "请填写题材" : "Please fill in the subject matter"
+           );
+           return false;
+         }
+         if (!this.location) {
+           this.$message(
+             this.$store.state.lang ? "请填写部位" : "Please fill in the Body part"
+           );
+           return false;
+         }
+         if (!this.high) {
+           this.$message(
+             this.$store.state.lang ? "请填写身高" : "Please fill in the height"
+           );
+           return false;
+         }
+         if (!this.weight) {
+           this.$message(
+             this.$store.state.lang ? "请填写体重" : "Please fill in the weight"
+           );
+           return false;
+         }
+         if (!this.name) {
+           this.$message(
+             this.$store.state.lang ? "请填写称呼" : "Please fill in your name"
+           );
+           return false;
+         }
+         if (!this.age) {
+           this.$message(
+             this.$store.state.lang ? "请填写年龄" : "Please fill in the age"
+           );
+           return false;
+         }
+         if (!this.area) {
+           this.$message(
+             this.$store.state.lang ? "请选择地区" : "Please select a region"
+           );
+           return false;
+         }
+         if (!this.social) {
+           this.$message(
+             this.$store.state.lang
+               ? "请填写微信"
+               : "Please fill in your Instagram account"
+           );
+           return false;
+         }
+         if (!this.mail) {
+           this.$message(
+             this.$store.state.lang ? "请填写邮箱" : "Please fill in your email"
+           );
+           return false;
+         }
+         return true;
+       },
+      sendemil() {
+        // 先进行表单验证
+        if (!this.ensure()) {
+          return;
+        }
+        
+        this.sending = true;
+        const checktime = localStorage.getItem("time");
+        if (checktime) {
+          const nowtime = new Date().getTime();
+                   if (checktime > nowtime) {
+           this.$message(
+             this.$store.state.lang
+               ? "您已提交过，请稍后再试"
+               : "You have already submitted it. Please try again later"
+           );
+           return;
+         }
+        }
+      emailjs
+        .send(
+          "service_f667nva",
+          "template_aojz0rh",
+          {
+            name: this.name,
+            mode: this.mode,
+            location: this.location,
+            high: this.high,
+            weight: this.weight,
+            age: this.age,
+            isCardiopathy: this.isCardiopathy ? "是" : "否",
+            week: this.week ? "是" : "否",
+            area: this.area,
+                         social:
+               this.$store.state.lang
+                 ? "微信:" + this.social
+                 : "Instagram:" + this.social,
+            email: this.mail,
+          },
+          "DMHndlNOnPDZEAlc2"
+        )
+                 .then(
+           (res) => {
+             this.$message.success(
+               this.$store.state.lang ? "发送成功！" : "Successfully sent!"
+             );
+             const time = new Date().getTime() + 86400000;
+             localStorage.setItem("time", time);
+           },
+           (errpr) => {
+
+             console.log(errpr);
+             this.$message.error(
+               this.$store.state.lang
+                 ? "发送失败,请稍后再试"
+                 : "Failed to send, please try again later"
+             );
+           }
+         );
+    },
   },
   
 }
@@ -209,7 +361,6 @@ select::-ms-expand {
   }
   input{
     width: 90% !important;
-    
   }
   .inp>.four{
     width: 90% !important;
@@ -225,22 +376,30 @@ select::-ms-expand {
   font-weight: bold;
   padding-left: 50px;
   padding-right: 50px;
+  .nomr{
+    margin-top: 0px !important;
+  }
+  .downline{
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+  }
   .topimg {
-    width: 300px;
-    height: 210px;
+    width: 270px;
+    height: 170px;
     margin: 0 auto;
     display: block;
     margin-top: 50px;
   }
   span{
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
       font-size: 23px;
       display: block;
     }
   .title {
     text-align: center;
-    font-size: 36px;
+    font-size: 33px;
+    margin-top: -20px;
   }
   .inp{
     .sub{
@@ -251,12 +410,12 @@ select::-ms-expand {
       margin-left: 50%;
       transform: translate(-50%);
       text-align: center;
-      margin-top: 150px;
+      margin-top: 100px;
       font-size: 28px;
-      border: 8px solid black;
+      border: 2px solid black;
       border-radius: 0%;
-      border-right:8px solid black ;
-      border-left:8px solid black ;
+      border-right:2px solid black ;
+      border-left:2px solid black ;
       margin-bottom: 100px;
     }
     input{
@@ -270,8 +429,8 @@ select::-ms-expand {
       font-size: 22px;
       border: 5px solid black;
       border-radius: 0%;
-      border-right:8px solid black ;
-      border-left:8px solid black ;
+      border-right:2px solid black ;
+      border-left:2px solid black ;
       outline: none;
     }
     
@@ -297,7 +456,7 @@ select::-ms-expand {
     }
     &:nth-of-type(6){
       margin-bottom: 10px;
-      margin-top: 100px;
+      margin-top: 5px;
       font-size: 25px;
     }
     &:nth-of-type(7){
@@ -306,7 +465,7 @@ select::-ms-expand {
       font-size: 25px;
     }
     &:nth-of-type(8){
-      margin-top: 120px;
+      margin-top: 50px;
     }
     }
     .radio{
@@ -326,13 +485,14 @@ select::-ms-expand {
       height: 50px;
       border: 5px solid black;
       border-radius: 0%;
-      border-right:8px solid black ;
-      border-left:8px solid black ;
+      border-right:5px solid black ;
+      border-left:5px solid black ;
       border-radius: 3px;
       :focus{
         outline: none;
         color: black;
       }
+      
     }
     .four{
       display: flex;
@@ -352,6 +512,7 @@ select::-ms-expand {
   .tips {
     text-align: start;
     font-size: 20px;
+    margin-top: 30px;
     &:nth-of-type(1) {
       margin-top: 30px;
     }
@@ -369,6 +530,17 @@ select::-ms-expand {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  
+}
+.socailacss{
+        width: 400px !important;
+      }
+.outline{
+  border: 5px solid black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>
     
