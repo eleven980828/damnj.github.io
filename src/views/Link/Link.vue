@@ -2,18 +2,18 @@
   <div class="main" :style="{ height: pageheight + 'px' }">
     <div class="outLine">
       <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+        <img src="~@/assets/logo.png" alt="" />
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
 
       <div class="newblack">
-        <a href="https://www.instagram.com/anttoxaxa?igsh=MThnY2ZjeXJrcWZhaA%3D%3D&utm_source=qr">
-          <img src="~@/assets/ins.png" alt="" />
-        </a>
         <a href="https://www.xiaohongshu.com/user/profile/5fc3b0680000000001000040?xhsshare=CopyLink&appuid=5fc3b0680000000001000040&apptime=1719197151">
           <img src="~@/assets/xiaohonghsu.png" alt="" />
         </a>
+        <a href="https://www.instagram.com/anttoxaxa?igsh=MThnY2ZjeXJrcWZhaA%3D%3D&utm_source=qr">
+          <img src="~@/assets/ins.png" alt="" />
+        </a>
+        
         <img src="~@/assets/wechat.png" alt="" @click="wechat = true" />
       </div>
     </div>
@@ -136,19 +136,23 @@ export default {
   width: 750px;
 
   .newblack {
-    height: 900px;
+    width: 280px;
+    height: 760px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 200px;
+    margin: 160px auto 0;
+    padding: 90px 0;
+    box-sizing: border-box;
     justify-content: space-between;
+    background-color: #282924;
     a {
-      width: 100px;
-      height: 100px;
+      width: 78px;
+      height: 78px;
     }
     img {
-      width: 100px;
-      height: 100px;
+      width: 78px;
+      height: 78px;
     }
   }
   .midbox {
@@ -232,6 +236,12 @@ export default {
     background-color: #282924;
     padding: 10px 0 10px 0;
     position: relative;
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+    }
 
     p {
       font-size: 16px;

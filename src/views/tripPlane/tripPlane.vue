@@ -2,8 +2,7 @@
   <div class="main">
     <div class="outLine">
       <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+        <img src="~@/assets/logo.png" alt="" />
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
       <h3>文身预订与行程安排<br />Tattoo booking and travel plan<br />(2024-2025)</h3>
@@ -94,6 +93,12 @@ export default {
     background-color: #282924;
     padding: 5px 0 5px 0;
     position: relative;
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+    }
 
     p {
       font-size: 12px;

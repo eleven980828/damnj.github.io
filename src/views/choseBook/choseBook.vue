@@ -3,8 +3,7 @@
 
     <div class="outLine">
       <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+        <img src="~@/assets/logo.png" alt="" />
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
       <div class="midbut">
@@ -39,7 +38,7 @@
       <div class="homebg">
         <div>
           <span></span>
-          <img src="~@/assets/midhomebg.jpg" alt="">
+          <img src="~@/assets/homemid.png" alt="">
         </div>
       </div>
 
@@ -170,7 +169,7 @@ export default {
     position: absolute;
     width: 100%;
     height: auto;
-    bottom: 0;
+    top: 55%;
 
     div {
       width: 100%;
@@ -267,6 +266,12 @@ export default {
           background-color: #282924;
           padding: 10px 0 10px 0;
           position: relative;
+          img {
+              display: block;
+              margin: 0 auto;
+              width: 50px;
+              height: 50px;
+          }
   
           p {
               font-size: 16px;

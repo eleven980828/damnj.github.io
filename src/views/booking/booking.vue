@@ -2,8 +2,7 @@
   <div class="main">
     <div class="outLine">
       <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+        <img src="~@/assets/logo.png" alt="" />
         <i @click="$goback()" class="el-icon-arrow-left"></i>
       </div>
       <!-- <div class="bookingbut">{{ ty === 'zh' ? '预订' : 'BOOKING' }}</div> -->
@@ -85,7 +84,7 @@
           <p>否</p>
         </div>
         <p>选择预约地点</p>
-        <select name="area" v-model="area" id="" class="sele">
+        <!-- <select name="area" v-model="area" id="" class="sele">
           <option
             v-for="(item, index) in $store.state.tripsSec"
             :value="item.YEARS + item.ZNPlace"
@@ -95,7 +94,32 @@
             {{ item.YEARS + " " + item.ZNPlace }}
             {{ item.ISOPEN ? "" : "(已满)" }}
           </option>
-        </select>
+        </select> -->
+
+        <!-- <select name="area" v-model="area" class="sele">
+        <option
+          v-for="(item, index) in tripsSec"
+          :key="index"
+          :value="item.date + item.znPlace"
+          :disabled="!item.isOpen"
+        >
+          {{ item.date + " " + item.znPlace }}
+          {{ item.isOpen ? "" : "(已满)" }}
+        </option>
+        </select> -->
+
+        <select name="area" v-model="area" class="sele">
+        <option
+          v-for="(item, index) in tripsSec"
+          :key="index"
+          :value="item.value"
+          :disabled="!item.isOpen"
+        >
+          {{ item.label }}
+        </option>
+      </select>
+
+
         <p>其他要求(选填):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>微信：</p>
@@ -188,7 +212,7 @@
           <p>No</p>
         </div>
         <p>Select an appointment location</p>
-        <select name="area" v-model="area" id="" class="sele">
+        <!-- <select name="area" v-model="area" id="" class="sele">
           <option
             v-for="(item, index) in $store.state.tripsSec"
             :value="item.YEARS + item.EN"
@@ -198,7 +222,18 @@
             {{ item.YEARS + " " + item.EN + " " }}
             {{ item.ISOPEN ? "" : "(closed)" }}
           </option>
-        </select>
+        </select> -->
+
+        <select name="area" v-model="area" class="sele">
+        <option
+          v-for="(item, index) in tripsSec"
+          :key="index"
+          :value="item.value"
+          :disabled="!item.isOpen"
+        >
+          {{ item.label }}
+        </option>
+      </select>
         <p>Other requirements (optional):</p>
         <textarea name="" id="" cols="30" rows="10" v-model="tips"></textarea>
         <p>Instagram:</p>
@@ -255,9 +290,13 @@
 import html2canvas from "html2canvas";
 import emailjs from "emailjs-com";
 import "../../utils/smtp.js";
+import axios from 'axios'
+
+
 export default {
   created() {
     this.ty = this.$route.params.ty ? this.$route.params.ty : "zh";
+   
   },
   data() {
     return {
@@ -279,8 +318,11 @@ export default {
       sending: false,
       area: "",
       mail: "",
+      //area: "",             // 当前选中的值
+       tripsSec: [],         // 下拉框的选项数据（从接口获取）
     };
   },
+
   mounted() {
     console.log("this.$store.state.tripsSec");
     const appDom = document.getElementById("app");
@@ -296,9 +338,35 @@ export default {
         return;
       }
     }
+
+    this.loadOptions();
   },
   methods: {
+    async loadOptions() {
+  const res = await axios.get("https://www.anttoxaxa.com/api/appointmentLocation/list", {
+    params: { page: 1, size: 1000 },
+  });
+
+  const rawList = res.data.records || [];
+
+  this.tripsSec = rawList.map(item => {
+    const label =
+      this.ty === "zh"
+        ? `${item.date} ${item.znPlace} ${item.isOpen ? "" : "(已满)"}`
+        : `${item.date} ${item.enPlace} ${item.isOpen ? "" : "(closed)"}`;
+
+    const value = item.date + (this.ty === "zh" ? item.znPlace : item.enPlace);
+
+    return {
+      ...item,
+      label,
+      value,
+    };
+  });
+},
+
     switchLau() {
+      this.loadOptions();
       if (this.ty == "zh") {
         this.ty = "en";
       } else {
@@ -810,6 +878,13 @@ export default {
   background-color: #282924;
   padding: 10px 0 10px 0;
   position: relative;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+  }
 
   p {
     font-size: 16px;

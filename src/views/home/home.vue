@@ -3,28 +3,72 @@
   <div class="main">
     <div class="outLine">
       <div class="title">
-        <p>· Antto 安童 ·</p>
-        <p>Oriental Tattooist/ IIIustrator/ XAXA Owner</p>
+       <img src="~@/assets/logo.png" alt="">
       </div>
 
-      <div class="midbg">
-        <img src="~@/assets/midhomebg.jpg" alt="" />
+      <div class="heroSection">
+        <div class="midbg">
+          <img src="~@/assets/homemid.png" alt="" />
+        </div>
+        <div class="midbut">
+          <!-- <span @click="board=true"
+            ><b>Bulletin Board <br />告示栏</b></span
+          > -->
+          <span @click="$goto('choseBook')">Booking <br />委托预订</span>
+          <span @click="$goto('peripheral')"
+            ><b>Online Shop <br />线上商城</b></span
+          >
+          <span @click="$goto('tattoo')"
+            ><b>Tattoo Portfolio <br />文身作品集</b></span
+          >
+          <!-- <span @click="$goto('works')"><p>·</p><b>PAINTING 插画</b><p>·</p></span> -->
+          <span @click="$goto('Link')"
+            ><b>Contact Info <br />联系方式</b></span
+          >
+        </div>
       </div>
-      <div class="midbut">
-        <span @click="board=true"
-          ><b>Bulletin Board <br />告示栏</b></span
-        >
-        <span @click="$goto('choseBook')">Booking <br />委托预订</span>
-        <span @click="$goto('peripheral')"
-          ><b>Online Shop <br />线上商城</b></span
-        >
-        <span @click="$goto('tattoo')"
-          ><b>Tattoo Portfolio <br />文身作品集</b></span
-        >
-        <!-- <span @click="$goto('works')"><p>·</p><b>PAINTING 插画</b><p>·</p></span> -->
-        <span @click="$goto('Link')"
-          ><b>Contact Info <br />联系方式</b></span
-        >
+      <div class="introWrap">
+        <div class="introHeader">
+          <img src="~@/assets/head.jpg" alt="" />
+          <div class="introMeta">
+            <h2>Antto<span class="cnName">（安童）</span></h2>
+            <p>Tattoo Artist / Image Maker</p>
+          </div>
+        </div>
+        <div class="introText">
+          <p>
+            Using the body as a medium, I embed images into time and individual
+            experience.
+          </p>
+          <p>
+            My work draws from ancient texts such as Shan Hai Jing, not to
+            retell mythology, but to reorganize its structures, symbols, and
+            systems of order.
+          </p>
+          <p>
+            I work between restraint and tension, focusing on the movement of
+            lines, relationships of form, and the space left unfilled.
+          </p>
+          <p>
+            Animals, plants, and other natural elements are not the image
+            itself, but metaphors for force, boundaries, and states of being.
+          </p>
+        </div>
+        <div class="introText cn">
+          <p>安童（Antto）</p>
+          <p>文身师 / 图像创作者</p>
+          <p>以身体作为媒介，将图像嵌入时间与个体经验之中。</p>
+          <p>
+            创作多源于 山海经 等古代文本，但不止于复述神话，而是对其结构、象征与秩序的再组织。
+          </p>
+          <p>在克制与张力之间寻找平衡。强调线的走向、形的关系，以及未被填满的空间。</p>
+          <p>
+            动物、植物等自然元素，并非图像本身，而是一种关于力量、边界与存在状态的隐喻
+          </p>
+        </div>
+      </div>
+      <div class="toTopWrap">
+        <button class="toTopBtn" @click="toTop">返回顶部 Return to top</button>
       </div>
       <!-- <div class="homebg">
         <div>
@@ -39,7 +83,7 @@
       </div>
     </div>
 
-    <van-popup v-model="board">
+    <!-- <van-popup v-model="board">
       <div class="midbox">
         <div class="blackline">
           <h2>公告栏</h2>
@@ -64,11 +108,11 @@
             official email address is [your email address]. Be cautious of any
             fake accounts.
           </p>
-          <p>E-mail: anttop@gq.com<br />ID: Antto安童</p>
+          <p>E-mail: anttop@qq.com<br />ID: Antto安童</p>
           <div class="circle"></div>
         </div>
       </div>
-    </van-popup>
+    </van-popup> -->
   </div>
 </template>
 <script>
@@ -98,7 +142,11 @@ export default {
     }
 
     setTimeout(() => {
-      this.board=true
+      if(this.$store.state.onceopen==0){
+        this.board=true
+        this.$store.state.onceopen=1
+      }
+
     }, 1500);
   },
   methods: {
@@ -217,6 +265,10 @@ export default {
 }
 .main {
   width: 750px;
+  .heroSection {
+    position: relative;
+    height: 100vh;
+  }
   .ENG {
     p {
       font-size: 21px !important;
@@ -232,10 +284,11 @@ export default {
     }
   }
   .record {
-    position: absolute;
+    position: relative;
     width: 100%;
-    bottom: 0;
     text-align: center;
+    margin-top: 80px;
+    padding-bottom: 40px;
     a {
       color: @fontcolor;
       font-size: 16px;
@@ -301,13 +354,14 @@ export default {
   }
 
   .outLine {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    padding-bottom: 40px;
   }
 
   .midbut {
     position: absolute;
-    top: 15%;
+    top: 12%;
     transform: translate(-50%);
     left: 50%;
 
@@ -335,6 +389,12 @@ export default {
   .title {
     background-color: #282924;
     padding: 10px 0 10px 0;
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+    }
 
     p {
       font-size: 16px;
@@ -342,6 +402,90 @@ export default {
       &:nth-of-type(1) {
         margin-bottom: 4px;
       }
+    }
+  }
+
+  .introWrap {
+    margin-top: 40px;
+    padding: 0 110px;
+    color: #cfcfcf;
+    text-align: left;
+    writing-mode: horizontal-tb;
+    line-height: 1.9;
+    .introHeader {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin-bottom: 80px;
+      img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        display: block;
+        opacity: 0.9;
+      }
+      .introMeta {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-width: 0;
+        height: 130px;
+        padding-bottom: 6px;
+      }
+      h2 {
+        font-size: 22px;
+        font-weight: normal;
+        margin: 6px 0 0 0;
+        text-align: left;
+        color: #bcbcbc;
+        .cnName {
+          font-size: 18px;
+        }
+      }
+      p {
+        font-size: 20px;
+        color: #afafaf;
+        text-align: left;
+        margin: 0;
+        line-height: 1.1;
+      }
+    }
+    .introText {
+      p {
+        font-size: 18px;
+        margin-bottom: 18px;
+        color: #bcbcbc;
+        text-align: left;
+      }
+      &.cn {
+        margin-top: 100px;
+        h3 {
+          font-size: 30px;
+          font-weight: normal;
+          color: #d7d7d7;
+          margin-bottom: 10px;
+          text-align: left;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+    .introHeader + .introText {
+      margin-top: 18px;
+    }
+  }
+  .toTopWrap {
+    text-align: center;
+    margin-top: 130px;
+    .toTopBtn {
+      border: 1px solid #6b6b6b;
+      background: #282924;
+      color: #c9c9c9;
+      font-size: 16px;
+      padding: 12px 32px;
+      cursor: pointer;
+      letter-spacing: 1px;
     }
   }
 }
